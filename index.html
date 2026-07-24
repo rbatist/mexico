@@ -129,6 +129,9 @@
   details.recs .hotel:last-of-type{margin-bottom:0.4rem;}
   details.recs .hotel .hname{color:var(--sascab);font-weight:600;}
   details.recs .hotel .fav{margin-left:0.35rem;font-size:0.95rem;}
+  details.recs .hotel .pick{margin-left:0.4rem;font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--henequen);border:1px solid var(--henequen);border-radius:999px;padding:0.1rem 0.4rem;white-space:nowrap;}
+  details.recs .hotel .con{display:block;font-size:0.82rem;color:var(--text-meta);margin-top:0.25rem;line-height:1.45;}
+  details.recs .hotel .why{display:block;font-size:0.82rem;color:var(--henequen);margin-top:0.25rem;line-height:1.45;}
   details.recs .hotel .score{font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--henequen);margin-left:0.4rem;}
   details.recs .hotel .desc{display:block;color:var(--sascab-dim);font-size:0.85rem;margin-top:0.1rem;}
   details.recs .hotel .meta{display:block;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text-meta);margin-top:0.2rem;}
@@ -418,105 +421,112 @@ const M = pid => "https://www.google.com/maps/place/?q=place_id:" + pid;
 
 const HOTELS = {
   "Puerto Morelos": [
-    {name:"Hostal Cuca Macuca", score:"4,4", count:188, desc:"Hostel met dakterras en dompelbad, 1 min van centrum en 2 min van het strand.",
+    {name:"Hostal Cuca Macuca", score:"4,4", count:188, desc:"Hostel met dakterras en dompelbad · 1 min van het centrum, 2 min van het strand.",
      breakfast:"Geen ontbijt", price:"<b>€70</b> · annuleren tot 15 dec",
+     con:"Hostelformule met gedeelde voorzieningen en de laagste score van de twee — prima voor één nacht, minder als je comfort zoekt.",
      booking:B("Cuca Macuca Puerto Morelos"), maps:M("ChIJB7AHSH-JTo8RiFxwOTQoHZo")},
-    {name:"Hotel Amar Inn", score:"4,7", count:391, desc:"Kleinschalige B&B pal aan het strand, veel geroemd ontbijt en gastvrij personeel.",
+    {name:"Hotel Amar Inn", score:"4,7", count:391, pick:"strand + ontbijt + annuleerbaar — alles goed voor €117", why:"Voor €47 boven de hostel krijg je strandligging, ontbijt én een annuleerbaar tarief — de grootste kwaliteitssprong van de twee.", desc:"Kleinschalige B&B pal aan het strand · veel geroemd ontbijt, hartelijke ontvangst.",
      breakfast:"Inclusief ontbijt", price:"<b>€117</b> · annuleren tot 21 dec",
-     booking:B("Hotel Amar Inn Puerto Morelos"), maps:M("ChIJi2Rma2iITo8R9Be4iMjdYCo")},
-    {name:"The Diving Lodge", score:"4,6", count:204, desc:"Aan het strand met eigen zwembad, levendige sfeer met muziek overdag.",
-     breakfast:"Geen ontbijt", price:"<b>€126</b> · niet-terugbetaalbaar",
-     booking:B("Diving Lodge Puerto Morelos"), maps:M("ChIJB8Q_qGiITo8RNUHfg1ufMqA")}
+     con:"Eenvoudige, wat gedateerde kamers — de charme zit in de ligging en de gastvrouw, niet in luxe.",
+     booking:B("Hotel Amar Inn Puerto Morelos"), maps:M("ChIJi2Rma2iITo8R9Be4iMjdYCo")}
   ],
   "Bacalar": [
-    {name:"Hotel Sur Bacalar", score:"4,2", count:178, desc:"Klein en sfeervol, eigen Italiaans restaurant · centraal, ±300 m tot het plein.",
+    {name:"Hotel Sur Bacalar", score:"4,2", count:178, desc:"Klein en sfeervol, eigen Italiaans restaurant · ±300 m tot het plein.",
      breakfast:"Geen ontbijt", price:"<b>€81</b> · annuleren tot 23 dec",
+     con:"Laagste score van de drie (★4,2) en geen ontbijt — het scheelt maar €20 met Azul 36, dat op beide punten beter zit.",
      booking:B("Hotel Sur Bacalar"), maps:M("ChIJh8hOLzWxW48Rth-pTIlpXx8")},
-    {name:"Hotel Azul 36", score:"4,5", count:450, desc:"Ruime kamers en goed zwembad · ±350 m tot het plein, niet aan de lagune.",
+    {name:"Hotel Azul 36", score:"4,5", count:450, pick:"ontbijt en het dorp op loopafstand, praktisch bij één nacht", why:"Bij één nacht, na drie uur rijden, weegt loopafstand naar de restaurants zwaarder dan uitzicht op de lagune.", desc:"Ruime kamers en goed zwembad · ±350 m tot het plein, loopafstand van de restaurants.",
      breakfast:"Inclusief ontbijt", price:"<b>€101</b> · annuleren tot 21 dec",
+     con:"Niet aan de lagune — je hebt er geen water voor de deur, wel het dorp.",
      booking:B("Hotel Azul 36 Bacalar"), maps:M("ChIJtQdnvzixW48ReF-UaLXGV0o")},
-    {name:"Villas Ecotucan", score:"4,5", count:462, fav:true, desc:"Jungle-ecolodge aan de lagune met gratis kajaks · ±8 km buiten het dorp, auto nodig.",
+    {name:"Villas Ecotucan", score:"4,5", count:462, fav:true, desc:"Jungle-ecolodge áán de lagune met gratis kajaks · rustig en groen.",
      breakfast:"Inclusief ontbijt", price:"<b>€108</b> · annuleren tot 20 dec",
+     con:"±8 km buiten het dorp: voor één nacht (aankomst na 3u rijden) betekent dat 's avonds nog de auto in voor eten, of ter plekke eten.",
      booking:B("Villas Ecotucan Bacalar"), maps:M("ChIJM95ZAkGzW48ROfAvIrYaxCY")}
   ],
   "Xpujil / Calakmul": [
-    {name:"Eco Aldea Kinich (Aldea Kinich Ahau)", score:"4,5", count:50, desc:"Cabañas verspreid in de jungle, veel privacy en goed vogelen · wifi/stroom soms grillig.",
+    {name:"Eco Aldea Kinich (Aldea Kinich Ahau)", score:"4,5", count:50, desc:"Cabañas verspreid in de jungle, veel privacy en goed vogelen.",
      breakfast:"Inclusief ontbijt", price:"<b>€227</b> · annuleren tot 23 dec",
+     con:"Slechts 50 reviews, en gasten melden grillige stroom en wifi — bij drie nachten in de jungle weegt betrouwbaarheid zwaarder.",
      booking:B("Aldea Kinich Ahau Xpujil"), maps:M("ChIJ43Xh9mgfWY8RFBLNB58OCSA")},
-    {name:"Casa Ka'an Calakmul", score:"4,7", count:380, fav:true, desc:"Ruime casita's aan het bos, sterrenhemel en goed restaurant · ontbijt vroeg geserveerd voor Calakmul.",
+    {name:"Casa Ka'an Calakmul", score:"4,7", count:380, fav:true, pick:"eigen restaurant en vroeg ontbijt, onmisbaar waar verder niets is", why:"Waar verder niets is, zijn een eigen restaurant en vroeg ontbijt vóór Calakmul meer waard dan de €106 die je bespaart.", desc:"Ruime casita's aan het bos, sterrenhemel en goed restaurant · ontbijt vroeg voor de start naar Calakmul.",
      breakfast:"Inclusief ontbijt", price:"<b>€333</b> · annuleren tot 24 nov",
+     con:"Ruim €100 duurder, en de annuleringsdatum verloopt al op 24 november — vroeg beslissen dus.",
      booking:B("Casa Kaan Calakmul"), maps:M("ChIJ7eeRHn3hWI8RYEWKMW-ODIM")}
   ],
   "Candelaria": [
-    {name:"Hotel Taxahá", score:"4,5", count:431, desc:"Nieuw en netjes met eigen parkeerterrein · enige serieuze optie in Candelaria; reviews melden wisselend warm water en straatgeluid.",
+    {name:"Hotel Taxahá", score:"4,5", count:431, pick:"de enige serieuze optie hier, en voor €49 prima", why:"Enige serieuze optie in Candelaria, en voor €49 en één nacht ruimschoots voldoende.", desc:"Nieuw en netjes met eigen parkeerterrein · de enige serieuze optie in Candelaria.",
      breakfast:"Geen ontbijt", price:"<b>€49</b> · niet-terugbetaalbaar",
+     con:"Niet-terugbetaalbaar, en reviews melden wisselend warm water en straatgeluid. Voor €49 en één nacht acceptabel.",
      booking:B("Hotel Taxaha Candelaria"), maps:M("ChIJe-ClAwil9oURRHREgRkwK3w")}
   ],
   "Palenque": [
-    {name:"Cabañas Kin Balam", score:"4,4", count:1334, fav:true, desc:"Jungle-cabañas pal naast de parkingang · basic maar geliefd, ±4,5 km tot de ruïnes.",
+    {name:"Cabañas Kin Balam", score:"4,4", count:1334, fav:true, pick:"naast de parkingang voor de vroege start, annuleerbaar, halve prijs", why:"Naast de parkingang, annuleerbaar, en minder dan de helft van Chanabnal — bij twee nachten waarvan je er één op pad bent telt ligging zwaarder dan luxe.", desc:"Jungle-cabañas pal naast de parkingang · ±4,5 km tot de ruïnes, ideaal voor een vroege start.",
      breakfast:"Geen ontbijt", price:"<b>€115–143</b> · annuleren tot 27 dec",
+     con:"Basic en met hostelvibe; buiten het stadje, dus 's avonds ben je aangewezen op El Panchán vlakbij.",
      booking:B("Cabanas Kin Balam Palenque"), maps:M("ChIJp-6gQSBF8oURbc1sFnaQ76U")},
     {name:"Hotel Boutique Quinta Chanabnal", score:"4,7", count:245, desc:"Mooiste van Palenque: natuurlijke jungle-zwembaden, uitstekend eten · ±2,2 km tot de ruïnes.",
      breakfast:"Inclusief ontbijt", price:"<b>€310</b> · niet-terugbetaalbaar",
+     con:"Ruim het dubbele van Kin Balam én niet-terugbetaalbaar, voor twee nachten waarvan je er één grotendeels op pad bent.",
      booking:B("Quinta Chanabnal Palenque"), maps:M("ChIJj4Kopn1F8oURMNzsdg7jrbY")}
   ],
   "Isla Aguada": [
-    {name:"Cabañas Laguna", score:"4,4", count:332, desc:"Schoon en vriendelijk met zwembad, in het dorp · geen eten/drinken ter plekke, auto nodig.",
+    {name:"Cabañas Laguna", score:"4,4", count:332, desc:"Schoon en vriendelijk met zwembad, in het dorp.",
      breakfast:"Geen ontbijt", price:"<b>€120</b> · annuleren tot 29 dec",
+     con:"Geen eten of drinken ter plekke — en in Isla Aguada sluiten de keukens vroeg (Don Guillo) of openen ze alleen in het weekend (Casa Grande).",
      booking:B("Cabanas Laguna Isla Aguada"), maps:M("ChIJ67YCOGkg8YURxmPK_AnNEGs")},
-    {name:"Cielo Bonito Hotel Boutique", score:"4,3", count:72, desc:"Direct aan het strand met zwembad en eigen restaurant · dolfijnen vanaf het strand, ±30 min lopen naar de malecón.",
+    {name:"Cielo Bonito Hotel Boutique", score:"4,3", count:72, pick:"eigen restaurant — cruciaal in een dorp waar keukens vroeg sluiten", why:"Het eigen restaurant geeft de doorslag: de dorpskeukens sluiten vroeg of openen alleen in het weekend.", desc:"Direct aan het strand met zwembad én eigen restaurant · dolfijnen soms vanaf het strand te zien.",
      breakfast:"Geen ontbijt", price:"<b>€172</b> · annuleren tot 23 dec",
+     con:"€52 duurder en de laagste score (★4,3 op 72 reviews) — maar het eigen restaurant weegt hier zwaar, want het dorp heeft nauwelijks avondopties.",
      booking:B("Cielo Bonito Isla Aguada"), maps:M("ChIJc824Eioh8YURS3WFgcRHk20")}
   ],
   "Campeche": [
-    {name:"MUR MURA Boutique Guesthouse", score:"4,5", count:62, desc:"Mooie binnenplaats in het centrum · parkeren aan de weg. Let op: meerdere recente reviews melden vocht/schimmel en problemen met terugbetaling.",
-     breakfast:"Geen ontbijt", price:"<b>€85–95</b> (gewone kamer) of <b>€155–172</b> (met eigen zwembad) · niet-terugbetaalbaar óf annuleren tot 26 dec",
-     booking:B("MUR MURA Campeche"), maps:M("ChIJjaiFVcgz-IURkIGxDzkJYuo")},
-    {name:"Hotel Boutique Casa Lanz XVII", score:"4,8", count:86, desc:"400 jaar oud pand met patio, een half blok van het hoofdplein · gratis fietsen; parkeren aan de weg.",
+    {name:"Hotel Boutique Casa Lanz XVII", score:"4,8", count:86, pick:"★4,8 op een half blok van het plein, annuleerbaar tot 31 dec", why:"Hoogste score, half blok van het hoofdplein, en annuleerbaar tot 31 dec — precies de dagen van oud & nieuw.", desc:"400 jaar oud pand met patio, een half blok van het hoofdplein · gratis fietsen.",
      breakfast:"Geen ontbijt", price:"<b>€144</b> · annuleren tot 31 dec",
+     con:"Parkeren aan de weg (geen eigen plek), en met 86 reviews is de mooie score wat dunner onderbouwd dan die van Plaza Colonial.",
      booking:B("Casa Lanz XVII Campeche"), maps:M("ChIJtas-iaoz-IURPzAgzQmZAlk")},
-    {name:"Hotel Plaza Colonial", score:"4,4", count:667, desc:"Groot hotel midden in het centrum, zicht op de kathedraal · reviews wisselend over kamerkwaliteit en service.",
+    {name:"Hotel Plaza Colonial", score:"4,4", count:667, desc:"Groot hotel midden in het centrum, zicht op de kathedraal · verreweg de meeste beoordelingen.",
      breakfast:"Geen ontbijt", price:"<b>€191</b> · annuleren tot 29 dec",
+     con:"Duurste van de drie terwijl de score lager ligt; reviews zijn wisselend over kamerkwaliteit en service. Voordeel: met 667 beoordelingen weet je het best wat je krijgt.",
      booking:B("Hotel Plaza Colonial Campeche"), maps:M("ChIJEbgpIvoz-IUR0l2C9Zg_ndU")}
   ],
   "Uxmal · Santa Elena": [
-    {name:"The Pickled Onion", score:"4,5", count:498, desc:"Gemoedelijke B&B met casitas en zwembad, eigen keuken · handigste basis voor Uxmal en de Puuc-route.",
+    {name:"The Pickled Onion", score:"4,5", count:498, pick:"goedkoopst, eigen keuken en de beste basis voor de Puuc-route", why:"Goedkoopst, eigen keuken, en de klassieke basis voor een vroege start op de Ruta Puuc.", desc:"Gemoedelijke B&B met casitas en zwembad, eigen keuken · handigste basis voor Uxmal en de Puuc-route.",
      breakfast:"Inclusief ontbijt", price:"<b>€81</b> · annuleren tot 28 dec",
+     con:"De keuken sluit rond 19:00 — kom je later aan, dan is er in Santa Elena weinig alternatief.",
      booking:B("The Pickled Onion Santa Elena"), maps:M("ChIJB9MO6re0V48RGaQk5b6D204")},
-    {name:"Eco-hotel Nueva Altia", score:"4,7", count:130, desc:"Rustige tuinen, plunge pool en eigen mini-ruïnes · duurzaam (zonne-energie); avondeten ter plekke aanraden, dorp heeft weinig opties.",
+    {name:"Eco-hotel Nueva Altia", score:"4,7", count:130, desc:"Rustige tuinen, plunge pool en eigen mini-ruïnes · duurzaam, op zonne-energie.",
      breakfast:"Inclusief ontbijt", price:"<b>€103</b> · annuleren tot 1 jan",
+     con:"€22 duurder en minder reviews; eten ter plekke vooraf regelen, want het dorp heeft nauwelijks opties.",
      booking:B("Nueva Altia Santa Elena"), maps:M("ChIJ6wIQXbu0V48RCLmmvWWPm9k")}
   ],
   "Mérida": [
-    {name:"Kuká y Naranjo / y Letras / y Milpa", score:"4,6–4,8", count:359, desc:"Drie kleine boutique-B&B's naast elkaar, kunstzinnig ingericht met patio's en plunge pools · 10–15 min lopen naar het centrum.",
+    {name:"Kuká y Naranjo / y Letras / y Milpa", score:"4,6–4,8", count:359, desc:"Drie kleine boutique-B&B's naast elkaar, kunstzinnig ingericht met patio's en plunge pools.",
      breakfast:"Inclusief ontbijt", price:"<b>€151–220</b> afhankelijk van kamer · annuleren tot 29 dec tegen extra kosten",
+     con:"Annuleren kost geld (geen gratis annulering), en met 10–15 min lopen zit je verder van het centrum dan Zamná.",
      booking:B("Kuka y Naranjo Merida"), maps:M("ChIJlwul5NdzVo8RVvxo48Ye3So")},
-    {name:"Hotel Zamná Boutique", score:"4,8", count:271, desc:"Rustige zijstraat in Santiago met verwarmd zwembad en jacuzzi · 8 min lopen naar de Plaza Grande, veel lof voor ontbijt.",
+    {name:"Hotel Zamná Boutique", score:"4,8", count:271, pick:"hoogste score, ontbijt en 8 min van de Plaza Grande", why:"Beste combinatie van score, ligging en ontbijt — 8 minuten lopen naar de Plaza Grande.", desc:"Rustige zijstraat in Santiago met verwarmd zwembad en jacuzzi · 8 min lopen naar de Plaza Grande.",
      breakfast:"Inclusief ontbijt", price:"<b>€158–206</b> · niet-terugbetaalbaar óf annuleren tot 29 dec",
-     booking:B("Hotel Zamna Boutique Merida"), maps:M("ChIJabWRFd5zVo8Roxdym_XNE5s")},
-    {name:"Casa del Maya B&B", score:"4,7", count:139, desc:"Groene oase met zwembad bij Parque Santa Ana, zeer gastvrij · alleen parkeren op straat.",
-     breakfast:"Inclusief ontbijt", price:"<b>€240–288</b> · niet-terugbetaalbaar óf annuleren tot 20 dec",
-     booking:B("Casa del Maya Merida"), maps:M("ChIJTfUcJuBzVo8R6PRjnjOzzuc")}
+     con:"Het voordeligste tarief is niet-terugbetaalbaar; wil je flexibel blijven, dan kost dat extra.",
+     booking:B("Hotel Zamna Boutique Merida"), maps:M("ChIJabWRFd5zVo8Roxdym_XNE5s")}
   ],
   "El Cuyo": [
-    {name:"T'uut Hotel", score:"4,7", count:12, desc:"Nieuw, stijlvol, met rooftop-zwembad en kitchenette · ±350 m van het strand. Weinig reviews (pas open).",
+    {name:"T'uut Hotel", score:"4,7", count:12, desc:"Nieuw en stijlvol, rooftop-zwembad en kitchenette · ±350 m van het strand.",
      breakfast:"Geen ontbijt", price:"<b>€145</b> · annuleren tot 29 dec",
+     con:"Pas 12 beoordelingen — de mooie score zegt nog weinig. Goedkoopste optie mét annuleermogelijkheid, dus het risico is beperkt.",
      booking:B("Tuut Hotel El Cuyo"), maps:M("ChIJW3pgA9xzUo8RgX1RZmUa7nA")},
-    {name:"Nomads Kite House", score:"5,0", count:1, desc:"Nauwelijks aanwezig op Google (één review) — jouw twijfel klopt: dit is de minst verifieerbare optie. ±100 m van het strand.",
-     breakfast:"Geen ontbijt", price:"<b>€157</b> · annuleren tot 29 dec",
-     booking:B("Nomads Kite House El Cuyo"), maps:M("ChIJw8plOJNzUo8RsanrPJrG2ls")},
-    {name:"Hostelito El Cuyo", score:"4,7", count:139, desc:"Klein pand met Italiaans restaurant (goede pasta) · ±500 m van het strand; reviews noemen harde bedden en geluid van het restaurant.",
+    {name:"Hotelito El Cuyo", score:"4,7", count:139, desc:"Klein pand met Italiaans restaurant (goede pasta) · ±500 m van het strand.",
      breakfast:"Inclusief ontbijt", price:"<b>€159–186</b> · niet-terugbetaalbaar óf annuleren tot 1 jan",
+     con:"Reviews noemen harde bedden en geluid van het eigen restaurant; ook het verst van het strand van de vijf.",
      booking:B("Hotelito El Cuyo"), maps:M("ChIJK7Tp7oNzUo8RaIC-EcxZMjw")},
-    {name:"Casa Mía El Cuyo Eco Beach", score:"4,8", count:226, desc:"Eco-boutique aan het rustige uiteinde van het dorp, mooie tuinen, kitesurfschool · ±40 m van het strand.",
+    {name:"Casa Mía El Cuyo Eco Beach", score:"4,8", count:226, pick:"★4,8 op 40 m van het strand, mét ontbijt en annuleerbaar", why:"Hoogste score op een stevige basis, 40 m van het strand, ontbijt inbegrepen én annuleerbaar: geen echt nadeel.", desc:"Eco-boutique aan het rustige uiteinde van het dorp, mooie tuinen · ±40 m van het strand.",
      breakfast:"Inclusief ontbijt", price:"<b>€166</b> · annuleren tot 22 dec",
+     con:"Aan de rand van het dorp, dus voor restaurants een klein stukje lopen — verder weinig op aan te merken.",
      booking:B("Casa Mia El Cuyo"), maps:M("ChIJG4j5AyARUo8RwUA9KtocVIg")},
-    {name:"Casa Cuyo Hotel & Kitesurf School", score:"4,8", count:326, desc:"Rustige ligging met zwembad, hangmatten en goed uitgeruste gemeenschappelijke keuken · korte loopafstand naar het strand, eigen parkeerplek.",
+    {name:"Casa Cuyo Hotel & Kitesurf School", score:"4,8", count:326, desc:"Rustige ligging met zwembad, hangmatten en goed uitgeruste gemeenschappelijke keuken · eigen parkeerplek.",
      breakfast:"Geen ontbijt", price:"<b>€254</b> · niet-terugbetaalbaar",
-     booking:B("Casa Cuyo Hotel El Cuyo"), maps:M("ChIJeadExRJzUo8R32sbvmzSvX8")},
-    {name:"Nikau Hotel — Adults Only", score:"4,5", count:102, desc:"Stijlvol adults-only aan het strand met zwembad en eigen restaurant · duurste van het dorp; reviews wisselen: veel lof voor kamers en ontbijt, maar ook klachten over onbemande receptie en betaald drinkwater.",
-     breakfast:"Inclusief ontbijt", price:"<b>€272</b> · niet-terugbetaalbaar",
-     booking:B("Nikau Hotel El Cuyo"), maps:M("ChIJM9z-Nz9zUo8RbS7RkadOhHA")}
+     con:"Duurste van de vijf, zonder ontbijt én niet-terugbetaalbaar; Casa Mía heeft dezelfde score voor €88 minder, mét ontbijt.",
+     booking:B("Casa Cuyo Hotel El Cuyo"), maps:M("ChIJeadExRJzUo8R32sbvmzSvX8")}
   ]
 };
 
@@ -738,11 +748,14 @@ function render(key){
           <div class="recs-body">
             ${HOTELS[s.place] ? `<p><strong>Slapen:</strong></p>` + HOTELS[s.place].map(h => `
               <div class="hotel">
-                <span class="hname">${h.name}</span>${h.fav ? `<span class="fav" title="voorkeur">🌯</span>` : ''}${h.score ? `<span class="score">★ ${h.score} (${h.count})</span>` : ''}
+                <span class="hname">${h.name}</span>${h.fav ? `<span class="fav" title="jullie voorkeur">🌯</span>` : ''}${h.pick ? `<span class="pick">mijn keuze</span>` : ''}${h.score ? `<span class="score">★ ${h.score} (${h.count})</span>` : ''}
                 ${h.desc ? `<span class="desc">${h.desc}</span>` : ''}
                 ${h.distance ? `<span class="meta"><b>Ligging:</b> ${h.distance}</span>` : ''}
                 ${h.breakfast ? `<span class="meta"><b>Ontbijt:</b> ${h.breakfast}</span>` : ''}
                 ${h.price ? `<span class="price">${h.price}</span>` : ''}
+                ${h.why ? `<span class="why">Waarom deze: ${h.why}</span>` : ''}
+                ${h.pick ? `<span class="con" style="color:var(--henequen)">Mijn keuze omdat: ${h.pick}.</span>` : ''}
+                ${h.con ? `<span class="con">Bedenking: ${h.con}</span>` : ''}
                 <span class="links">${h.booking ? `<a href="${h.booking}" target="_blank" rel="noopener">Booking.com</a>` : ''}${h.booking && h.maps ? `<span class="sep">·</span>` : ''}${h.maps ? `<a href="${h.maps}" target="_blank" rel="noopener">Google Maps</a>` : ''}</span>
               </div>`).join('') : ''}
             ${RESTOS[s.place] ? `<p><strong>Eten:</strong></p>` + RESTOS[s.place].map(r => `
