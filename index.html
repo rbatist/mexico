@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
-<title>Yucatán — 22 dec t/m 7 jan · twee varianten</title>
+<title>Yucatán — 22 dec t/m 7 jan · de expeditie · v2.0.1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -35,11 +35,6 @@
   h1 em{font-style:italic;font-weight:500;color:var(--maya);}
   .hero p.lede{font-size:1.05rem;max-width:56ch;color:var(--sascab-dim);margin:0 0 2rem;}
 
-  .toggle{display:inline-flex;flex-wrap:wrap;background:rgba(242,233,216,0.07);border:1px solid rgba(242,233,216,0.16);border-radius:22px;padding:4px;gap:2px;}
-  .toggle button{font-family:'JetBrains Mono',monospace;font-size:0.76rem;letter-spacing:0.02em;padding:0.55rem 0.9rem;border-radius:999px;border:none;background:transparent;color:var(--text-meta);cursor:pointer;transition:background 0.25s ease, color 0.25s ease;}
-  .toggle button:hover{color:var(--sascab);}
-  .toggle button.active{background:var(--maya);color:var(--cenote);font-weight:600;}
-  .toggle button:focus-visible{outline:2px solid var(--salt);outline-offset:2px;}
 
   .variant-intro{max-width:56ch;margin:1.4rem 0 0;color:var(--sascab-dim);font-size:0.98rem;}
   .variant-intro strong{color:var(--sascab);font-weight:600;}
@@ -49,15 +44,6 @@
   .stat .num{font-size:1.4rem;display:block;color:var(--sascab);}
   .stat .label{font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-meta);}
 
-  .diff-wrap{max-width:920px;margin:0 auto;padding:0 1.5rem 2rem;}
-  .diff-card{border:1px solid rgba(242,233,216,0.16);border-radius:16px;overflow:hidden;}
-  .diff-card h3{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:1.05rem;margin:0;padding:0.9rem 1.1rem 0.7rem;color:var(--sascab);}
-  .diff-scroll{overflow-x:auto;}
-  table.diff{width:100%;min-width:640px;border-collapse:collapse;font-size:0.82rem;}
-  table.diff th, table.diff td{padding:0.5rem 0.9rem;text-align:left;border-top:1px solid rgba(242,233,216,0.1);vertical-align:top;}
-  table.diff th{font-family:'JetBrains Mono',monospace;font-size:0.64rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-meta);font-weight:500;}
-  table.diff td:first-child{color:var(--text-meta);white-space:nowrap;}
-  table.diff td{color:var(--sascab-dim);}
 
   .legend{max-width:920px;margin:0 auto;padding:0 1.5rem 1.2rem;display:flex;gap:1.4rem;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text-meta);}
   .legend span{display:inline-flex;align-items:center;gap:0.45rem;}
@@ -66,7 +52,6 @@
   .dot.natuur{background:var(--henequen);}
   .dot.stad{background:var(--salt);}
   .dot.transit{background:rgba(242,233,216,0.35);}
-  .dash{width:18px;height:0;border-top:2px dashed rgba(242,233,216,0.35);display:inline-block;}
 
   .map-wrap{max-width:920px;margin:0 auto;padding:0 1.5rem 1rem;}
   .map-card{border-radius:20px;overflow:hidden;border:1px solid rgba(242,233,216,0.16);height:460px;}
@@ -100,8 +85,8 @@
   .plan{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text-meta);margin:0 0 0.9rem;max-width:58ch;line-height:1.6;}
   .plan strong{color:var(--sascab-dim);font-weight:600;}
   .stop h2 .wbadge{display:inline-flex;align-items:baseline;gap:0.5rem;margin-left:0.7rem;font-family:'JetBrains Mono',monospace;font-size:0.74rem;font-weight:400;letter-spacing:0.01em;vertical-align:middle;white-space:nowrap;}
-  .stop h2 .wbadge .temp{color:var(--text-meta);}
-  .stop h2 .wbadge .sea{color:var(--text-meta);}
+  .stop h2 .wbadge .temp{color:var(--henequen);}
+  .stop h2 .wbadge .sea{color:var(--maya-dim);}
   .drivebar{height:3px;background:rgba(242,233,216,0.14);border-radius:2px;width:90px;overflow:hidden;}
   .drivebar i{display:block;height:100%;background:var(--salt);border-radius:2px;}
 
@@ -128,7 +113,8 @@
   details.recs .hotel{margin:0 0 0.7rem;}
   details.recs .hotel:last-of-type{margin-bottom:0.4rem;}
   details.recs .hotel .hname{color:var(--sascab);font-weight:600;}
-  details.recs .hotel .fav{margin-left:0.35rem;font-size:0.95rem;}
+  details.recs .hotel .booked{margin-left:0.4rem;font-size:0.95rem;}
+  details.recs .hotel .room{display:block;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--sascab-dim);margin-top:0.2rem;}
   details.recs .hotel .pick{margin-left:0.4rem;font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--henequen);border:1px solid var(--henequen);border-radius:999px;padding:0.1rem 0.4rem;white-space:nowrap;}
   details.recs .hotel .con{display:block;font-size:0.82rem;color:var(--text-meta);margin-top:0.25rem;line-height:1.45;}
   details.recs .hotel .why{display:block;font-size:0.82rem;color:var(--henequen);margin-top:0.25rem;line-height:1.45;}
@@ -159,11 +145,61 @@
   details.costs .costs-body .ci .lbl{color:var(--sascab-dim);}
   details.costs .costs-body .ci .amt{font-family:'JetBrains Mono',monospace;color:var(--salt);white-space:nowrap;}
   details.costs .costs-note{margin-top:0.5rem;font-size:0.78rem;color:var(--text-meta);line-height:1.5;}
+  details.doing{margin-top:0.9rem;max-width:58ch;border:1px solid rgba(141,160,106,0.3);border-radius:12px;overflow:hidden;}
+  details.doing summary{cursor:pointer;list-style:none;padding:0.6rem 0.9rem;font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--henequen);display:flex;align-items:center;gap:0.5rem;}
+  details.doing summary::-webkit-details-marker{display:none;}
+  details.doing summary::before{content:"+";font-size:0.9rem;line-height:1;}
+  details.doing[open] summary::before{content:"−";}
+  details.doing .doing-body{padding:0.2rem 0.9rem 0.9rem;font-size:0.88rem;color:var(--sascab-dim);}
+  details.doing .di{padding:0.45rem 0;border-top:1px solid rgba(242,233,216,0.08);}
+  details.doing .di:first-child{border-top:none;}
+  details.doing .di .dt{color:var(--sascab);font-weight:600;}
+  details.doing .di .dtime{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--henequen);margin-left:0.4rem;}
+  details.doing .di .dd{display:block;margin-top:0.15rem;line-height:1.5;}
+  details.doing .doing-note{margin-top:0.6rem;font-size:0.78rem;color:var(--text-meta);line-height:1.5;}
+  details.lunch{margin-top:0.9rem;max-width:58ch;border:1px solid rgba(232,146,126,0.3);border-radius:12px;overflow:hidden;}
+  details.lunch summary{cursor:pointer;list-style:none;padding:0.6rem 0.9rem;font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--salt);display:flex;align-items:center;gap:0.5rem;}
+  details.lunch summary::-webkit-details-marker{display:none;}
+  details.lunch summary::before{content:"+";font-size:0.9rem;line-height:1;}
+  details.lunch[open] summary::before{content:"−";}
+  details.lunch .lunch-body{padding:0.4rem 0.9rem 0.9rem;font-size:0.87rem;color:var(--sascab-dim);}
+  details.lunch table.legs{width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:0.74rem;margin-bottom:0.6rem;}
+  details.lunch table.legs td{padding:0.22rem 0;border-top:1px solid rgba(242,233,216,0.08);color:var(--text-meta);vertical-align:top;}
+  details.lunch table.legs tr:first-child td{border-top:none;}
+  details.lunch table.legs td.rt{text-align:right;white-space:nowrap;color:var(--sascab-dim);padding-left:0.6rem;}
+  details.lunch table.legs tr.tot td{border-top:1px solid rgba(242,233,216,0.22);color:var(--sascab);font-weight:600;padding-top:0.35rem;}
+  details.lunch .klok{font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--henequen);margin:0 0 0.6rem;line-height:1.5;}
+  details.lunch .keuze{margin:0 0 0.7rem;line-height:1.55;}
+  details.lunch .keuze b{color:var(--sascab);}
+  details.lunch .stopkop{font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--salt);margin:0.7rem 0 0.2rem;}
+  details.lunch .lr{padding:0.35rem 0;border-top:1px solid rgba(242,233,216,0.08);}
+  details.lunch .lr .ln{color:var(--sascab);font-weight:600;}
+  details.lunch .lr .ls{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--henequen);margin-left:0.35rem;}
+  details.lunch .lr a{color:var(--maya);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:0.7rem;border-bottom:1px solid rgba(59,159,180,0.4);margin-left:0.35rem;}
+  details.lunch .lr .ld{display:block;margin-top:0.1rem;}
+  .altbox{margin-top:0.9rem;max-width:58ch;border:1px dashed rgba(59,159,180,0.45);border-radius:12px;padding:0.7rem 0.9rem;}
+  .altbox .alt-t{font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--maya);display:block;margin-bottom:0.35rem;}
+  .altbox p{margin:0;font-size:0.86rem;color:var(--sascab-dim);line-height:1.55;max-width:none;}
 
   footer{max-width:920px;margin:0 auto;padding:2.5rem 1.5rem 4.5rem;border-top:1px solid rgba(242,233,216,0.14);}
   footer h3{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.3rem;margin:0 0 1rem;color:var(--sascab);}
   footer ul{margin:0;padding:0 0 0 1.1rem;color:var(--sascab-dim);font-size:0.94rem;}
   footer li{margin-bottom:0.5rem;}
+  .summary{max-width:920px;margin:0 auto;padding:2.5rem 1.5rem 0;}
+  .summary h3{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.3rem;margin:0 0 1rem;color:var(--sascab);}
+  .sum-scroll{overflow-x:auto;border:1px solid rgba(242,233,216,0.16);border-radius:16px;}
+  table.sum{width:100%;min-width:900px;border-collapse:collapse;font-size:0.85rem;}
+  table.sum th,table.sum td{padding:0.55rem 0.9rem;text-align:left;border-top:1px solid rgba(242,233,216,0.1);vertical-align:top;}
+  table.sum th{font-family:'JetBrains Mono',monospace;font-size:0.64rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-meta);font-weight:500;border-top:none;}
+  table.sum td{color:var(--sascab-dim);}
+  table.sum td.pl{color:var(--sascab);font-weight:600;white-space:nowrap;}
+  table.sum td.dt,table.sum td.nt,table.sum td.rt{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--text-meta);white-space:nowrap;}
+  table.sum td.now{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--henequen);white-space:nowrap;}
+  table.sum td.km{color:var(--sascab-dim);}
+  table.sum td.ht{color:var(--sascab-dim);font-size:0.82rem;}
+  table.sum td.ht .tag{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text-meta);display:block;}
+  table.sum td.ht .tag.res{color:var(--henequen);}
+  .sum-note{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-meta);padding:0.7rem 0.2rem 0;line-height:1.6;}
   .credit{margin-top:2.5rem;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-meta);letter-spacing:0.04em;}
 
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
@@ -230,79 +266,63 @@
 </svg>
 
 <section class="hero">
-  <p class="eyebrow">Roadtrip · huurauto · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:00 · 16 nachten</p>
-  <h1>Yucatán — <em>twee varianten</em></h1>
-  <p class="lede">Zelfde vluchten, twee manieren om het schiereiland te rijden — allebei met de klok mee, kerst in de jungle bij Calakmul. Variant 1 neemt de rust (vier nachten Mérida); variant 2 stoot door naar Palenque. Beide houden zich aan de regels: max ±3 uur rijden per dag (incidenteel 3,5–4), minimaal 2 nachten per plek tenzij één nacht logisch is.</p>
-  <div class="toggle" role="tablist" aria-label="Kies variant">
-    <button data-v="V1" class="active" role="tab" aria-selected="true">1 · Klassiek</button>
-    <button data-v="V2" role="tab" aria-selected="false">2 · Expeditie</button>
-  </div>
+  <p class="eyebrow">Roadtrip · huurauto · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:00 · 16 nachten · v2.0.1</p>
+  <h1>Yucatán — <em>de expeditie</em></h1>
+  <p class="lede">Zestien nachten met een huurauto, Cancún uit en weer in. Opgezet rond twee regels: minimaal twee nachten per plek tenzij één logisch is, en zoveel mogelijk plekken die jullie nog niet kennen. Zes van de tien ritten blijven onder de ±2u30; vier dagen zijn langer, waarvan één van ±5u.</p>
   <p class="variant-intro" id="variantIntro"></p>
   <div class="stat-strip" id="statStrip"></div>
 </section>
 
-<div class="diff-wrap">
-  <div class="diff-card">
-    <h3>De twee varianten naast elkaar</h3>
-    <div class="diff-scroll">
-    <table class="diff">
-      <tr><th></th><th>1 · Klassiek</th><th>2 · Expeditie</th></tr>
-      <tr><td>Richting</td><td>met de klok mee</td><td>met de klok mee</td></tr>
-      <tr><td>Kerst</td><td>jungle (Calakmul)</td><td>jungle (Calakmul)</td></tr>
-      <tr><td>Oud &amp; nieuw</td><td>Mérida, Plaza Grande</td><td>Campeche, malecón</td></tr>
-      <tr><td>Calakmul</td><td>3 nachten</td><td>3 nachten</td></tr>
-      <tr><td>Palenque</td><td>—</td><td>2 nachten + watervallen</td></tr>
-      <tr><td>Bijzonder</td><td>4 nachten Mérida</td><td>El Tigre &amp; dolfijnen</td></tr>
-      <tr><td>Totaal rijden</td><td>±19u30</td><td>±26u</td></tr>
-      <tr><td>Eennachtsstops</td><td>4</td><td>7</td></tr>
-    </table>
-    </div>
-  </div>
-</div>
 
 <div class="legend">
   <span><i class="dot erfgoed"></i>erfgoed / ruïnes</span>
   <span><i class="dot natuur"></i>natuur / water</span>
   <span><i class="dot stad"></i>stad / dorp</span>
   <span><i class="dot transit"></i>aankomst / vertrek</span>
-  <span><i class="dash"></i>andere varianten</span>
 </div>
 
 <div class="map-wrap">
   <div class="map-card"><div id="map"></div></div>
-  <p class="map-caption">Kaartdata © OpenStreetMap-bijdragers, tegels © CARTO · gestippeld = de niet-gekozen varianten</p>
+  <p class="map-caption">Kaartdata © OpenStreetMap-bijdragers, tegels © CARTO</p>
 </div>
 
 <main>
   <ol class="timeline" id="timeline"></ol>
 </main>
 
+<section class="summary">
+  <h3>De reis in één oogopslag</h3>
+  <div class="sum-scroll">
+    <table class="sum">
+      <thead><tr><th>Plaats</th><th>Kenmerk</th><th>Datums</th><th>Nachten</th><th>Rijtijd erheen</th><th>Hotel</th><th>Nu ter plekke</th></tr></thead>
+      <tbody id="sumBody"></tbody>
+    </table>
+  </div>
+  <p class="sum-note" id="sumNote">Weer wordt opgehaald…</p>
+</section>
+
 <footer>
   <h3>Praktisch onderweg</h3>
   <ul>
-    <li>Rijtijden zijn kaal — reken bij ruïnes en natuurstops altijd een paar uur bezoektijd erbovenop.</li>
-    <li>Weer: de getoonde temperaturen zijn <em>klimaatgemiddelden</em> voor eind december / begin januari, geen voorspelling — die bestaat pas een paar dagen van tevoren. Het is dan droog seizoen, met de aangenaamste temperaturen van het jaar.</li>
-    <li>Houd rekening met een <em>norte</em>: een koufront dat tussen november en februari kan binnenvallen, met een paar dagen wind, bewolking en soms regen. Vooral aan de noord- en westkust (El Cuyo, Isla Aguada, Campeche) — boottochten kunnen dan uitvallen.</li>
-    <li>Calakmul (beide varianten): vroeg starten, poorten open om 8:00 — dan zijn brulapen en toekans het actiefst en is het koel.</li>
-    <li>Variant 2: de trajecten rond Palenque zijn lange, monotone wegen — volgetankt vertrekken en bij daglicht rijden. Candelaria en Isla Aguada hebben nette maar eenvoudige hotelletjes.</li>
-    <li>Hotelprijzen en annuleringsdata gelden voor de datums van <em>variant 2</em> (Puerto Morelos 22–23 dec, Bacalar 23–24, Calakmul 24–27, Candelaria 27–28, Palenque 28–30, Isla Aguada 30–31, Campeche 31 dec–2 jan, Santa Elena 2–3, Mérida 3–5, El Cuyo 5–7 jan). Het 🌯-symbool markeert de voorkeur.</li>
-    <li>Tijdsverschil met Nederland (december/januari): <em>Quintana Roo</em> — Cancún, Puerto Morelos, Bacalar — is 6 uur vroeger (UTC−5); <em>Yucatán, Campeche en Chiapas</em> — Mérida, Izamal, Uxmal, El Cuyo, Calakmul, Palenque — zijn 7 uur vroeger (UTC−6). Mexico kent sinds 2022 geen zomertijd meer, dus dit verschil blijft de hele reis gelijk.</li>
-    <li>Let op de tijdzonegrens <em>binnen</em> de route: van Bacalar naar Campeche-staat gaat de klok een uur terug (je wint een uur); op de vertrekdag van El Cuyo naar Cancún een uur vooruit (je verliest een uur) — reken daarmee voor de vlucht van 17:00.</li>
-    <li>Di 22 dec en do 7 jan zijn KLM-dagen (TUI vliegt alleen zaterdag) — controleer de dienstregeling bij het boeken.</li>
-    <li>Vertrekdag: de vlucht gaat om ±17:00; vanuit El Cuyo (±2u45) ben je met vertrek rond 10:30 ruim op tijd.</li>
+    <li>Rijtijden zijn kaal — reken bij ruïnes en natuurstops de bezoektijd erbovenop (zie "te doen &amp; hoeveel tijd" per plaats).</li>
+    <li>Vier langere rijdagen: Xpujil → Palenque (±5u, tanken en pinnen in Escárcega halverwege), Puerto Morelos → Bacalar (±4u, 308 km over de 307), Mérida → El Cuyo (±4u mét Izamal en Ek Balam) en Palenque → Isla Aguada (±3u40). De overige zes ritten blijven onder de ±2u30.</li>
+    <li>Neem contant geld mee: ruïnes, boottochten en de kleinere dorpen werken vaak alleen met pesos, en wisselgeld is er schaars.</li>
+    <li>Toegangsprijzen voor Calakmul en Palenque verdubbelen per 1 januari 2026 voor buitenlandse bezoekers — jullie bezoeken beide nog in december.</li>
+    <li>Tijdsverschil met Nederland: Quintana Roo (Cancún, Puerto Morelos, Bacalar) 6 uur vroeger, de rest van de route 7 uur. De klok gaat één keer terug (richting Campeche-staat) en op de vertrekdag weer vooruit.</li>
+    <li>Reken op een <em>norte</em>: een koufront dat tussen november en februari een paar dagen wind en bewolking kan brengen, vooral aan de noord- en westkust. Boottochten kunnen dan uitvallen.</li>
+    <li>Waar al geboekt is, staat alleen het gereserveerde hotel, gemarkeerd met 🌯. Op de overige plaatsen staan nog meerdere opties, met mijn suggestie gemarkeerd. Prijzen en wat er eventueel ter plekke moet worden afgerekend, volgen later.</li>
   </ul>
-  <p class="credit">Route samengesteld voor een Yucatán-reis met huurauto · 22 dec t/m 7 jan.</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 // ---- herbruikbare stops ----
 const S = {
-  pmStart:{day:"Dag 1 · di 22 dec", place:"Puerto Morelos", nights:1, cat:"transit", drive:0.5, driveLabel:"±30 min vanaf de luchthaven",
+  pmStart:{day:"Dag 1 · di 22 dec", place:"Puerto Morelos", nights:1, cat:"transit", drive:0.5, driveLabel:"±30 min · 25 km",
     icon:"reef", grad:"linear-gradient(135deg, var(--cenote-2), var(--maya-dim))",
     text:"Aankomst om 15:00, meteen door naar dit rustige vissersdorp — een fijne eerste avond aan zee.",
     lat:20.8478084, lng:-86.8755342},
-  vertrekCuyo:{day:"Vertrek · do 7 jan", place:"Cancún Airport", nights:0, cat:"transit", drive:2.75, driveLabel:"±2u45 · vertrek vlucht ±17:00",
+  vertrekCuyo:{day:"Vertrek · do 7 jan", place:"Cancún Airport", nights:0, cat:"transit", drive:2.75, driveLabel:"±2u45 · 169 km",
     icon:"transit", grad:"linear-gradient(135deg, var(--cenote-2), var(--cenote))",
     text:"Rond 10:30 vertrekken uit El Cuyo, auto inleveren en ruim op tijd voor de vlucht.",
     lat:21.0365, lng:-86.8770},
@@ -335,84 +355,23 @@ const G = {
 };
 
 const variants = {
-  V1: {
-    intro:"<strong>De klassieker.</strong> Met de klok mee: eerst diep de jungle in, dan de koloniale steden en ruïnes, afbouwen aan de noordkust. Kerst bij Calakmul, oud & nieuw op de Plaza Grande in Mérida, vier rustige Mérida-dagen als hart van de reis.",
-    stats:[{num:"8",label:"stops"},{num:"±19u30",label:"totaal rijden"},{num:"4",label:"eennachtsstops"},{num:"±3u15",label:"langste dag"}],
-    stops:[
-      S.pmStart,
-      st("Dag 2 · wo 23 dec","Bacalar",1,"natuur",3,"±3u · lunchstop bij Tulum","water",G.water,"Bekend terrein, maar een logische tussenstop op weg naar het zuiden — een middag aan de lagune van zeven kleuren.",P.bacalar),
-      st("Dag 3–5 · 24–26 dec","Xpujil / Calakmul",3,"erfgoed",2,"±2u","pyramid",G.jungle,"Eén dag voor Calakmul zelf, één dag voor de Río Bec-sites Becán, Chicanná en Hormiguero — met bij zonsondergang de vleermuizengrot langs de weg.",P.xpujil,"Kerst in de jungle"),
-      st("Dag 6–7 · 27–28 dec","Campeche",2,"stad",3,"±3u","arch",G.stad,"Ommuurde koloniale havenstad (UNESCO) met kleurrijke gevels aan zee. Dagtrip-optie: de ruïne Edzná (±1u).",P.campeche),
-      st("Dag 8 · di 29 dec","Uxmal · Santa Elena",1,"erfgoed",2.25,"±2–2u30 · Ruta Puuc: Loltún, Labná, Sayil, Kabah","pyramid",G.ruine,"Onderweg de volledige Puuc-route, eindigend bij Uxmal — één van de best bewaarde Maya-sites. Overnacht in het dorpje Santa Elena vlakbij.",P.uxmal),
-      st("Dag 9–12 · 30 dec – 2 jan","Mérida",4,"stad",1.25,"±1u15","arch",G.stad2,"Vier nachten: historisch centrum, markten, musea, en dagtrips naar de cenotes bij Homún én naar Celestún — met vier nachten passen ze allebei.",P.merida,"Oud & nieuw op de Plaza Grande"),
-      st("Dag 13 · zo 3 jan","Izamal",1,"stad",1.25,"±1u15","arch",G.geel,"De gele stad — compact genoeg voor één nacht: centrum, klooster en de Kinich Kakmó-piramide midden in het dorp.",P.izamal),
-      st("Dag 14–16 · 4–6 jan","El Cuyo",3,"natuur",3.25,"±3u15 · via Ek Balam","flamingo",G.kust,"Onderweg Ek Balam (rustige ruïne, beklimbaar). Uitvalsbasis voor Las Coloradas én de flamingotocht bij Río Lagartos — drie dagen afbouwen aan zee.",P.elcuyo),
-      S.vertrekCuyo
-    ]
-  },
   V2: {
-    intro:"<strong>De expeditie.</strong> Dezelfde lus als variant 1, maar doorgestoken naar Palenque — met twee originele rivierstops (El Tigre per boot, dolfijnen in de Laguna de Términos) zodat geen rijdag boven de ±3 uur uitkomt. Hoger tempo, meer eennachtsstops, het meest avontuurlijk.",
-    stats:[{num:"10",label:"stops"},{num:"±26u",label:"totaal rijden"},{num:"7",label:"eennachtsstops"},{num:"2",label:"basic overnachtingen"}],
+    intro:"De boog: eerst zuidwaarts de jungle in voor kerst bij Calakmul, dan een lange rit naar Palenque voor de ruïnes en de watervallen, dolfijnen bij Isla Aguada, oud &amp; nieuw op de malecón van Campeche, terug omhoog via de Puuc-route en Mérida, en afbouwen aan de stille noordkust bij El Cuyo.",
+    stats:[{num:"9",label:"stops"},{num:"16",label:"nachten"},{num:"±27u40",label:"totaal rijden"},{num:"4",label:"dagen >3u"}],
     stops:[
       S.pmStart,
-      st("Dag 2 · wo 23 dec","Bacalar",1,"natuur",3,"±3u · lunchstop bij Tulum","water",G.water,"Bekend terrein, maar een logische tussenstop op weg naar het zuiden — een middag aan de lagune van zeven kleuren.",P.bacalar),
-      st("Dag 3–5 · 24–26 dec","Xpujil / Calakmul",3,"erfgoed",2,"±2u","pyramid",G.jungle,"Eén dag voor Calakmul zelf, één dag voor de Río Bec-sites Becán, Chicanná en Hormiguero — met bij zonsondergang de vleermuizengrot langs de weg.",P.xpujil,"Kerst in de jungle"),
-      st("Dag 6 · zo 27 dec","Candelaria",1,"natuur",3,"±3u","boat",G.rivier,"Dorpje aan de Río Candelaria. Per boot over de rivier naar de afgelegen ruïne El Tigre — brulapen, geen toeristen. Accommodatie is eenvoudig.",P.candelaria),
-      st("Dag 7–8 · 28–29 dec","Palenque",2,"erfgoed",2.25,"±2–2u30","waterfall",G.palenque,"Qua setting de mooiste Maya-site van Mexico. Aankomstdag: 's middags de waterval Misol-Ha (20 min — je loopt er achter het watergordijn langs). De volle dag: de ruïnes vroeg, als de nevel nog tussen de tempels hangt, met aansluitend het sitemuseum met Pakals graftombe. Let op: Agua Azul ligt aan route 199 (kleurcode oranje in het NL-reisadvies) — wie binnen 'geel' wil blijven, houdt het bij Misol-Ha.",P.palenque),
-      st("Dag 9 · wo 30 dec","Isla Aguada",1,"natuur",3,"±3u","boat",G.rif,"Vertrekochtend nog in Palenque: Ecoparque Aluxes, opvang voor gered wildlife — zeekoeien, jaguars, vrij rondvliegende ara's. Na aankomst (±13:30) lunch bij Don Guillo, en eind van de middag de boottocht over de Laguna de Términos: dolfijnen én het vogeleiland vol fregatvogels, in het mooiste licht. Afsluiten met zonsondergang bij de vuurtoren.",P.islaaguada),
-      st("Dag 10–11 · 31 dec – 1 jan","Campeche",2,"stad",2.5,"±2u30","arch",G.stad,"Oud & nieuw in de ommuurde koloniale havenstad (UNESCO). Nieuwjaarsdag rustig: centrum, stadsmuren, zeeboulevard.",P.campeche,"Oud & nieuw op de malecón"),
-      st("Dag 12 · za 2 jan","Uxmal · Santa Elena",1,"erfgoed",2.25,"±2–2u30 · Ruta Puuc: Loltún, Labná, Sayil, Kabah","pyramid",G.ruine,"Onderweg de volledige Puuc-route, eindigend bij Uxmal. Overnacht in het dorpje Santa Elena vlakbij.",P.uxmal),
-      st("Dag 13–14 · 3–4 jan","Mérida",2,"stad",1.25,"±1u15","arch",G.stad2,"Twee nachten: historisch centrum, markten, en één dagtrip — kies tussen de cenotes bij Homún of Celestún.",P.merida),
-      st("Dag 15–16 · 5–6 jan","El Cuyo",2,"natuur",3.5,"±3u30 · lunchstop Izamal, langs Ek Balam","flamingo",G.kust,"Onderweg lunchen in het gele Izamal. Uitvalsbasis voor Las Coloradas én de flamingotocht bij Río Lagartos — twee dagen afbouwen aan zee.",P.elcuyo),
+      st("Dag 2 · wo 23 dec","Bacalar",1,"natuur",4,"±4u · 308 km, via Tulum","water",G.water,"Bekend terrein, maar een logische tussenstop op weg naar het zuiden — een middag aan de lagune van zeven kleuren.",P.bacalar),
+      st("Dag 3–5 · 24–26 dec","Xpujil / Calakmul",3,"erfgoed",2,"±1u50 · 120 km","pyramid",G.jungle,"Basis voor Calakmul én de Río Bec-ruïnes rond het dorp. Aankomst 24 dec rond het middaguur, daarna twee volle dagen (25 en 26 dec): één voor Calakmul, één ontspannen dag langs de sites vlakbij.",P.xpujil,"Kerst in de jungle"),
+      st("Dag 6–8 · 27–29 dec","Palenque",3,"erfgoed",5,"±4u45 · 360 km via Escárcega — langste rit","waterfall",G.palenque,"Qua setting de mooiste Maya-site van Mexico: tempels tegen nevelige, beboste heuvels. Eén lange asfaltrit vanaf Xpujil, daarna drie dagen zonder haast — de ruïnes plus twee watervallen in de heuvels.",P.palenque),
+      st("Dag 9 · wo 30 dec","Isla Aguada",1,"natuur",3.67,"±3u40 · 286 km","boat",G.rif,"Vissersdorp aan de Laguna de Términos, Mexico's grootste kustlagune. Vertrekochtend nog Ecoparque Aluxes bij Palenque; aankomst hier rond 14:15, dus eind van de middag de boottocht naar de dolfijnen en zonsondergang bij de vuurtoren.",P.islaaguada),
+      st("Dag 10–11 · 31 dec – 1 jan","Campeche",2,"stad",2.25,"±2u10 · 175 km","arch",G.stad,"Oud & nieuw in de ommuurde koloniale havenstad (UNESCO). Nieuwjaarsdag rustig: centrum, stadsmuren, zeeboulevard.",P.campeche,"Oud & nieuw op de malecón"),
+      st("Dag 12 · za 2 jan","Uxmal · Santa Elena",1,"erfgoed",2.25,"±2u45 · via de Ruta Puuc","pyramid",G.ruine,"Onderweg de volledige Puuc-route, eindigend bij Uxmal. Overnacht in het dorpje Santa Elena vlakbij.",P.uxmal),
+      st("Dag 13–14 · 3–4 jan","Mérida",2,"stad",1.25,"±1u15 · 80 km","arch",G.stad2,"Twee nachten: historisch centrum, markten, en één dagtrip — kies tussen de cenotes bij Homún of Celestún.",P.merida),
+      st("Dag 15–16 · 5–6 jan","El Cuyo",2,"natuur",4,"±4u · 287 km via Izamal en Ek Balam","flamingo",G.kust,"Rustig kitesurfdorp aan de noordkust: ontdekt, maar niet overlopen — geen hoogbouw, geen beachclubs, wel kilometers strand. Onderweg lunchen in het gele Izamal. Uitvalsbasis voor Las Coloradas én de flamingotocht bij Río Lagartos.",P.elcuyo),
       S.vertrekCuyo
     ]
   }, };
 
-// ---- hotel- & restauranttips per locatie ----
-const REC = {
-  "Puerto Morelos": {
-    eat:"Muelle Once (vis aan zee) · Perla Negra (ceviche & 2-voor-1 margarita's) · Península Cocina del Sureste (rooftop, Yucateeks)"
-  },
-  "Bacalar": {
-    eat:"Nixtamal (fine dining rond maïs) · La Playita (dé klassieker aan het water) · Mango y Chile (vegan, uitzicht op het fort)"
-  },
-  "Xpujil / Calakmul": {
-    eat:"Xtabay (verrassend goed, vanaf 15:00) · Ma'alobkin (goed ontbijt vóór Calakmul) · verder eten waar je slaapt — Xpujil is klein. Vroeg boeken: weinig kamers, kerst is piek."
-  },
-  "Campeche": {
-    eat:"La Pigua (beroemdste visrestaurant) · Marganzo (traditioneel Campechaans) · 's avonds de eettentjes op de malecón"
-  },
-  "Uxmal · Santa Elena": {
-    eat:"The Pickled Onion · Hollywood Maya (familierestaurantje, huisgemaakt) · restaurant van Hacienda María Elena (bij Ticul, prima tussenstop)"
-  },
-  "Mérida": {
-    eat:"La Chaya Maya (dé klassieker voor Yucateeks) · Apoala (verfijnd, Parque Santa Lucía — reserveer rond oud & nieuw) · Micaela Mar y Leña (vis van de houtskoolgrill)"
-  },
-  "Izamal": {
-    eat:"Kinich (bekendste adres, Maya-keuken — soms wachttijd) · María 33 (ontbijt/lunch, airco) · La Casona (restaurant in een kunstboetiek)"
-  },
-  "El Cuyo": {
-    eat:"Zapote Bar Asador (houtvuurgrill, ook top op oudejaarsavond) · El Tata (ontbijt/lunch, familiezaak) · Naia Café (gezond) · Can Cocal (paella met voeten in het zand)"
-  },
-  "Celestún": {
-    eat:"La Fondita de Celestún Beach (verse vis op het zand) · de vispalapa's langs het strand — 's middags open, 's avonds is het dorp stil"
-  },
-  "Valladolid": {
-    eat:"Ix Cat Ik (Maya-keuken uit eigen tuin) · La Palapita de los Tamales (tamales-specialist, lokaal geliefd)"
-  },
-  "Palenque": {
-    eat:"Don Mucho's in El Panchán (legendarische jungle-hangout, live muziek) · verder vooral de hotelrestaurants"
-  },
-  "Tulum": {
-    eat:"Taquería Honorio (ontbijt/lunch, beroemde cochinita) · El Camello Jr (vis, lokaal geliefd) · Hartwood (iconisch, open vuur — reserveren)"
-  },
-  "Candelaria": {
-    eat:"Bij Palma Real of de comedores rond het plein — eenvoudig, contant geld meenemen"
-  },
-  "Isla Aguada": {
-    eat:"Don Guillo (vis onder de palmen — 's avonds vroeg dicht) · Casa Grande (alleen weekend)"
-  }
-};
 
 // ---- door de reiziger geselecteerde hotels (met Google-score + links) ----
 // link-helpers
@@ -421,112 +380,101 @@ const M = pid => "https://www.google.com/maps/place/?q=place_id:" + pid;
 
 const HOTELS = {
   "Puerto Morelos": [
-    {name:"Hostal Cuca Macuca", score:"4,4", count:188, desc:"Hostel met dakterras en dompelbad · 1 min van het centrum, 2 min van het strand.",
-     breakfast:"Geen ontbijt", price:"<b>€70</b> · annuleren tot 15 dec",
-     con:"Hostelformule met gedeelde voorzieningen en de laagste score van de twee — prima voor één nacht, minder als je comfort zoekt.",
-     booking:B("Cuca Macuca Puerto Morelos"), maps:M("ChIJB7AHSH-JTo8RiFxwOTQoHZo")},
-    {name:"Hotel Amar Inn", score:"4,7", count:391, pick:"strand + ontbijt + annuleerbaar — alles goed voor €117", why:"Voor €47 boven de hostel krijg je strandligging, ontbijt én een annuleerbaar tarief — de grootste kwaliteitssprong van de twee.", desc:"Kleinschalige B&B pal aan het strand · veel geroemd ontbijt, hartelijke ontvangst.",
-     breakfast:"Inclusief ontbijt", price:"<b>€117</b> · annuleren tot 21 dec",
-     con:"Eenvoudige, wat gedateerde kamers — de charme zit in de ligging en de gastvrouw, niet in luxe.",
+    {name:"Hotel Amar Inn", score:"4,7", count:391, booked:true,
+     desc:"Kleinschalige B&B pal aan het strand · veel geroemd ontbijt, hartelijke ontvangst.",
+     breakfast:"Inclusief ontbijt",
      booking:B("Hotel Amar Inn Puerto Morelos"), maps:M("ChIJi2Rma2iITo8R9Be4iMjdYCo")}
   ],
   "Bacalar": [
-    {name:"Hotel Sur Bacalar", score:"4,2", count:178, desc:"Klein en sfeervol, eigen Italiaans restaurant · ±300 m tot het plein.",
-     breakfast:"Geen ontbijt", price:"<b>€81</b> · annuleren tot 23 dec",
-     con:"Laagste score van de drie (★4,2) en geen ontbijt — het scheelt maar €20 met Azul 36, dat op beide punten beter zit.",
-     booking:B("Hotel Sur Bacalar"), maps:M("ChIJh8hOLzWxW48Rth-pTIlpXx8")},
-    {name:"Hotel Azul 36", score:"4,5", count:450, pick:"ontbijt en het dorp op loopafstand, praktisch bij één nacht", why:"Bij één nacht, na drie uur rijden, weegt loopafstand naar de restaurants zwaarder dan uitzicht op de lagune.", desc:"Ruime kamers en goed zwembad · ±350 m tot het plein, loopafstand van de restaurants.",
-     breakfast:"Inclusief ontbijt", price:"<b>€101</b> · annuleren tot 21 dec",
-     con:"Niet aan de lagune — je hebt er geen water voor de deur, wel het dorp.",
-     booking:B("Hotel Azul 36 Bacalar"), maps:M("ChIJtQdnvzixW48ReF-UaLXGV0o")},
-    {name:"Villas Ecotucan", score:"4,5", count:462, fav:true, desc:"Jungle-ecolodge áán de lagune met gratis kajaks · rustig en groen.",
-     breakfast:"Inclusief ontbijt", price:"<b>€108</b> · annuleren tot 20 dec",
-     con:"±8 km buiten het dorp: voor één nacht (aankomst na 3u rijden) betekent dat 's avonds nog de auto in voor eten, of ter plekke eten.",
+    {name:"Villas Ecotucan", score:"4,5", count:462, booked:true,
+     desc:"Jungle-ecolodge áán de lagune met gratis kajaks · rustig en groen.",
+     breakfast:"Inclusief ontbijt",
+     con:"Ligt ±8 km buiten het dorp, met de laatste ±1 km over een onverlichte, éénbaans zandweg met kuilen. Rij de afslag overdag één keer en zet er een pin op; wie 's avonds in het dorp wil eten (Nixtamal is open op woensdag), rijdt hoe dan ook in het donker terug. Het hotel kookt zelf — de makkelijkste avondoptie.",
      booking:B("Villas Ecotucan Bacalar"), maps:M("ChIJM95ZAkGzW48ROfAvIrYaxCY")}
   ],
   "Xpujil / Calakmul": [
-    {name:"Eco Aldea Kinich (Aldea Kinich Ahau)", score:"4,5", count:50, desc:"Cabañas verspreid in de jungle, veel privacy en goed vogelen.",
-     breakfast:"Inclusief ontbijt", price:"<b>€227</b> · annuleren tot 23 dec",
-     con:"Slechts 50 reviews, en gasten melden grillige stroom en wifi — bij drie nachten in de jungle weegt betrouwbaarheid zwaarder.",
-     booking:B("Aldea Kinich Ahau Xpujil"), maps:M("ChIJ43Xh9mgfWY8RFBLNB58OCSA")},
-    {name:"Casa Ka'an Calakmul", score:"4,7", count:380, fav:true, pick:"eigen restaurant en vroeg ontbijt, onmisbaar waar verder niets is", why:"Waar verder niets is, zijn een eigen restaurant en vroeg ontbijt vóór Calakmul meer waard dan de €106 die je bespaart.", desc:"Ruime casita's aan het bos, sterrenhemel en goed restaurant · ontbijt vroeg voor de start naar Calakmul.",
-     breakfast:"Inclusief ontbijt", price:"<b>€333</b> · annuleren tot 24 nov",
-     con:"Ruim €100 duurder, en de annuleringsdatum verloopt al op 24 november — vroeg beslissen dus.",
+    {name:"Casa Ka'an Calakmul", score:"4,7", count:380, booked:true, room:"Casa Aguacate",
+     desc:"Ruime casita's aan het bos, sterrenhemel en goed restaurant.",
+     breakfast:"Inclusief ontbijt",
+     con:"Vraag het ontbijt vroeg aan of laat inpakken: voor Calakmul wil je bij zonsopgang weg zijn. Verder is er in de omgeving weinig te eten, dus reken op avondeten ter plekke.",
      booking:B("Casa Kaan Calakmul"), maps:M("ChIJ7eeRHn3hWI8RYEWKMW-ODIM")}
   ],
-  "Candelaria": [
-    {name:"Hotel Taxahá", score:"4,5", count:431, pick:"de enige serieuze optie hier, en voor €49 prima", why:"Enige serieuze optie in Candelaria, en voor €49 en één nacht ruimschoots voldoende.", desc:"Nieuw en netjes met eigen parkeerterrein · de enige serieuze optie in Candelaria.",
-     breakfast:"Geen ontbijt", price:"<b>€49</b> · niet-terugbetaalbaar",
-     con:"Niet-terugbetaalbaar, en reviews melden wisselend warm water en straatgeluid. Voor €49 en één nacht acceptabel.",
-     booking:B("Hotel Taxaha Candelaria"), maps:M("ChIJe-ClAwil9oURRHREgRkwK3w")}
-  ],
   "Palenque": [
-    {name:"Cabañas Kin Balam", score:"4,4", count:1334, fav:true, pick:"naast de parkingang voor de vroege start, annuleerbaar, halve prijs", why:"Naast de parkingang, annuleerbaar, en minder dan de helft van Chanabnal — bij twee nachten waarvan je er één op pad bent telt ligging zwaarder dan luxe.", desc:"Jungle-cabañas pal naast de parkingang · ±4,5 km tot de ruïnes, ideaal voor een vroege start.",
-     breakfast:"Geen ontbijt", price:"<b>€115–143</b> · annuleren tot 27 dec",
-     con:"Basic en met hostelvibe; buiten het stadje, dus 's avonds ben je aangewezen op El Panchán vlakbij.",
-     booking:B("Cabanas Kin Balam Palenque"), maps:M("ChIJp-6gQSBF8oURbc1sFnaQ76U")},
-    {name:"Hotel Boutique Quinta Chanabnal", score:"4,7", count:245, desc:"Mooiste van Palenque: natuurlijke jungle-zwembaden, uitstekend eten · ±2,2 km tot de ruïnes.",
-     breakfast:"Inclusief ontbijt", price:"<b>€310</b> · niet-terugbetaalbaar",
-     con:"Ruim het dubbele van Kin Balam én niet-terugbetaalbaar, voor twee nachten waarvan je er één grotendeels op pad bent.",
-     booking:B("Quinta Chanabnal Palenque"), maps:M("ChIJj4Kopn1F8oURMNzsdg7jrbY")}
+    {name:"Cabañas Kin Balam", score:"4,4", count:1334, booked:true,
+     desc:"Jungle-cabañas pal naast de parkingang · ±4,5 km tot de ruïnes, ideaal voor een vroege start.",
+     breakfast:"Geen ontbijt",
+     con:"Buiten het stadje, dus voor eten ben je aangewezen op het eigen restaurant of El Panchán vlakbij (Don Mucho's). Basic en met hostelvibe — de ligging is de reden dat je hier zit.",
+     booking:B("Cabanas Kin Balam Palenque"), maps:M("ChIJp-6gQSBF8oURbc1sFnaQ76U")}
   ],
   "Isla Aguada": [
-    {name:"Cabañas Laguna", score:"4,4", count:332, desc:"Schoon en vriendelijk met zwembad, in het dorp.",
-     breakfast:"Geen ontbijt", price:"<b>€120</b> · annuleren tot 29 dec",
-     con:"Geen eten of drinken ter plekke — en in Isla Aguada sluiten de keukens vroeg (Don Guillo) of openen ze alleen in het weekend (Casa Grande).",
+    {name:"Cabañas Laguna", score:"4,4", count:332,
+     desc:"Schoon en vriendelijk met zwembad, in het dorp.",
+     breakfast:"Geen ontbijt",
+     con:"Geen eten of drinken ter plekke — je bent dus afhankelijk van het dorp, waar de keukens vroeg sluiten.",
      booking:B("Cabanas Laguna Isla Aguada"), maps:M("ChIJ67YCOGkg8YURxmPK_AnNEGs")},
-    {name:"Cielo Bonito Hotel Boutique", score:"4,3", count:72, pick:"eigen restaurant — cruciaal in een dorp waar keukens vroeg sluiten", why:"Het eigen restaurant geeft de doorslag: de dorpskeukens sluiten vroeg of openen alleen in het weekend.", desc:"Direct aan het strand met zwembad én eigen restaurant · dolfijnen soms vanaf het strand te zien.",
-     breakfast:"Geen ontbijt", price:"<b>€172</b> · annuleren tot 23 dec",
-     con:"€52 duurder en de laagste score (★4,3 op 72 reviews) — maar het eigen restaurant weegt hier zwaar, want het dorp heeft nauwelijks avondopties.",
+    {name:"Cielo Bonito Hotel Boutique", score:"4,3", count:72, pick:"eigen restaurant — cruciaal in een dorp waar keukens vroeg sluiten", why:"Direct aan het strand én met eigen keuken: in een dorp met nauwelijks avondopties weegt dat zwaarder dan een tiende sterretje.",
+     desc:"Direct aan het strand met zwembad én eigen restaurant · dolfijnen soms vanaf het strand te zien.",
+     breakfast:"Geen ontbijt",
+     con:"Laagste score van de twee (★4,3 op 72 reviews) en ±30 min lopen naar de malecón.",
      booking:B("Cielo Bonito Isla Aguada"), maps:M("ChIJc824Eioh8YURS3WFgcRHk20")}
   ],
   "Campeche": [
-    {name:"Hotel Boutique Casa Lanz XVII", score:"4,8", count:86, pick:"★4,8 op een half blok van het plein, annuleerbaar tot 31 dec", why:"Hoogste score, half blok van het hoofdplein, en annuleerbaar tot 31 dec — precies de dagen van oud & nieuw.", desc:"400 jaar oud pand met patio, een half blok van het hoofdplein · gratis fietsen.",
-     breakfast:"Geen ontbijt", price:"<b>€144</b> · annuleren tot 31 dec",
-     con:"Parkeren aan de weg (geen eigen plek), en met 86 reviews is de mooie score wat dunner onderbouwd dan die van Plaza Colonial.",
+    {name:"Hotel Boutique Casa Lanz XVII", score:"4,8", count:86, pick:"★4,8 op een half blok van het plein", why:"Hoogste score van de twee, historisch pand, gratis fietsen en alles op loopafstand — inclusief de malecón voor oud & nieuw.",
+     desc:"400 jaar oud pand met patio, een half blok van het hoofdplein · gratis fietsen.",
+     breakfast:"Geen ontbijt",
+     con:"Parkeren aan de weg (geen eigen plek), en met 86 reviews is de mooie score wat dunner onderbouwd.",
      booking:B("Casa Lanz XVII Campeche"), maps:M("ChIJtas-iaoz-IURPzAgzQmZAlk")},
-    {name:"Hotel Plaza Colonial", score:"4,4", count:667, desc:"Groot hotel midden in het centrum, zicht op de kathedraal · verreweg de meeste beoordelingen.",
-     breakfast:"Geen ontbijt", price:"<b>€191</b> · annuleren tot 29 dec",
-     con:"Duurste van de drie terwijl de score lager ligt; reviews zijn wisselend over kamerkwaliteit en service. Voordeel: met 667 beoordelingen weet je het best wat je krijgt.",
+    {name:"Hotel Plaza Colonial", score:"4,4", count:667,
+     desc:"Groot hotel midden in het centrum, zicht op de kathedraal · verreweg de meeste beoordelingen.",
+     breakfast:"Geen ontbijt",
+     con:"Lagere score en wisselende reviews over kamerkwaliteit en service. Voordeel: met 667 beoordelingen weet je het best wat je krijgt.",
      booking:B("Hotel Plaza Colonial Campeche"), maps:M("ChIJEbgpIvoz-IUR0l2C9Zg_ndU")}
   ],
   "Uxmal · Santa Elena": [
-    {name:"The Pickled Onion", score:"4,5", count:498, pick:"goedkoopst, eigen keuken en de beste basis voor de Puuc-route", why:"Goedkoopst, eigen keuken, en de klassieke basis voor een vroege start op de Ruta Puuc.", desc:"Gemoedelijke B&B met casitas en zwembad, eigen keuken · handigste basis voor Uxmal en de Puuc-route.",
-     breakfast:"Inclusief ontbijt", price:"<b>€81</b> · annuleren tot 28 dec",
+    {name:"The Pickled Onion", score:"4,5", count:498, pick:"eigen keuken en de beste basis voor de Puuc-route", why:"Casitas met zwembad én een eigen keuken in een dorp met nauwelijks alternatieven — precies wat je wilt na een dag Ruta Puuc.",
+     desc:"Gemoedelijke B&B met casitas en zwembad, eigen keuken.",
+     breakfast:"Inclusief ontbijt",
      con:"De keuken sluit rond 19:00 — kom je later aan, dan is er in Santa Elena weinig alternatief.",
      booking:B("The Pickled Onion Santa Elena"), maps:M("ChIJB9MO6re0V48RGaQk5b6D204")},
-    {name:"Eco-hotel Nueva Altia", score:"4,7", count:130, desc:"Rustige tuinen, plunge pool en eigen mini-ruïnes · duurzaam, op zonne-energie.",
-     breakfast:"Inclusief ontbijt", price:"<b>€103</b> · annuleren tot 1 jan",
-     con:"€22 duurder en minder reviews; eten ter plekke vooraf regelen, want het dorp heeft nauwelijks opties.",
+    {name:"Eco-hotel Nueva Altia", score:"4,7", count:130,
+     desc:"Rustige tuinen, plunge pool en eigen mini-ruïnes · duurzaam, op zonne-energie.",
+     breakfast:"Inclusief ontbijt",
+     con:"Minder reviews; eten ter plekke vooraf regelen, want het dorp heeft nauwelijks opties.",
      booking:B("Nueva Altia Santa Elena"), maps:M("ChIJ6wIQXbu0V48RCLmmvWWPm9k")}
   ],
   "Mérida": [
-    {name:"Kuká y Naranjo / y Letras / y Milpa", score:"4,6–4,8", count:359, desc:"Drie kleine boutique-B&B's naast elkaar, kunstzinnig ingericht met patio's en plunge pools.",
-     breakfast:"Inclusief ontbijt", price:"<b>€151–220</b> afhankelijk van kamer · annuleren tot 29 dec tegen extra kosten",
-     con:"Annuleren kost geld (geen gratis annulering), en met 10–15 min lopen zit je verder van het centrum dan Zamná.",
-     booking:B("Kuka y Naranjo Merida"), maps:M("ChIJlwul5NdzVo8RVvxo48Ye3So")},
-    {name:"Hotel Zamná Boutique", score:"4,8", count:271, pick:"hoogste score, ontbijt en 8 min van de Plaza Grande", why:"Beste combinatie van score, ligging en ontbijt — 8 minuten lopen naar de Plaza Grande.", desc:"Rustige zijstraat in Santiago met verwarmd zwembad en jacuzzi · 8 min lopen naar de Plaza Grande.",
-     breakfast:"Inclusief ontbijt", price:"<b>€158–206</b> · niet-terugbetaalbaar óf annuleren tot 29 dec",
-     con:"Het voordeligste tarief is niet-terugbetaalbaar; wil je flexibel blijven, dan kost dat extra.",
-     booking:B("Hotel Zamna Boutique Merida"), maps:M("ChIJabWRFd5zVo8Roxdym_XNE5s")}
+    {name:"Hotel Zamná Boutique", score:"4,8", count:271, pick:"hoogste score, ontbijt en 8 min van de Plaza Grande", why:"★4,8 op 271 reviews, verwarmd zwembad, ontbijt inbegrepen en op loopafstand van het centrum.",
+     desc:"Rustige zijstraat in Santiago met verwarmd zwembad en jacuzzi · 8 min lopen naar de Plaza Grande.",
+     breakfast:"Inclusief ontbijt",
+     con:"Alleen parkeren op straat.",
+     booking:B("Hotel Zamna Boutique Merida"), maps:M("ChIJabWRFd5zVo8Roxdym_XNE5s")},
+    {name:"Kuká y Naranjo / y Letras / y Milpa", score:"4,6–4,8", count:359,
+     desc:"Drie kleine boutique-B&B's naast elkaar, kunstzinnig ingericht met patio's en plunge pools.",
+     breakfast:"Inclusief ontbijt",
+     con:"10–15 min lopen naar het centrum, dus verder weg dan Zamná; annuleren kost hier geld.",
+     booking:B("Kuka y Naranjo Merida"), maps:M("ChIJlwul5NdzVo8RVvxo48Ye3So")}
   ],
   "El Cuyo": [
-    {name:"T'uut Hotel", score:"4,7", count:12, desc:"Nieuw en stijlvol, rooftop-zwembad en kitchenette · ±350 m van het strand.",
-     breakfast:"Geen ontbijt", price:"<b>€145</b> · annuleren tot 29 dec",
-     con:"Pas 12 beoordelingen — de mooie score zegt nog weinig. Goedkoopste optie mét annuleermogelijkheid, dus het risico is beperkt.",
-     booking:B("Tuut Hotel El Cuyo"), maps:M("ChIJW3pgA9xzUo8RgX1RZmUa7nA")},
-    {name:"Hotelito El Cuyo", score:"4,7", count:139, desc:"Klein pand met Italiaans restaurant (goede pasta) · ±500 m van het strand.",
-     breakfast:"Inclusief ontbijt", price:"<b>€159–186</b> · niet-terugbetaalbaar óf annuleren tot 1 jan",
-     con:"Reviews noemen harde bedden en geluid van het eigen restaurant; ook het verst van het strand van de vijf.",
-     booking:B("Hotelito El Cuyo"), maps:M("ChIJK7Tp7oNzUo8RaIC-EcxZMjw")},
-    {name:"Casa Mía El Cuyo Eco Beach", score:"4,8", count:226, pick:"★4,8 op 40 m van het strand, mét ontbijt en annuleerbaar", why:"Hoogste score op een stevige basis, 40 m van het strand, ontbijt inbegrepen én annuleerbaar: geen echt nadeel.", desc:"Eco-boutique aan het rustige uiteinde van het dorp, mooie tuinen · ±40 m van het strand.",
-     breakfast:"Inclusief ontbijt", price:"<b>€166</b> · annuleren tot 22 dec",
-     con:"Aan de rand van het dorp, dus voor restaurants een klein stukje lopen — verder weinig op aan te merken.",
+    {name:"Casa Mía El Cuyo Eco Beach", score:"4,8", count:226, pick:"★4,8 op 40 m van het strand, mét ontbijt", why:"Hoogste score op een stevige basis, 40 m van het strand en ontbijt inbegrepen: geen echt nadeel.",
+     desc:"Eco-boutique aan het rustige uiteinde van het dorp, mooie tuinen · ±40 m van het strand.",
+     breakfast:"Inclusief ontbijt",
+     con:"Aan de rand van het dorp, dus voor restaurants een klein stukje lopen.",
      booking:B("Casa Mia El Cuyo"), maps:M("ChIJG4j5AyARUo8RwUA9KtocVIg")},
-    {name:"Casa Cuyo Hotel & Kitesurf School", score:"4,8", count:326, desc:"Rustige ligging met zwembad, hangmatten en goed uitgeruste gemeenschappelijke keuken · eigen parkeerplek.",
-     breakfast:"Geen ontbijt", price:"<b>€254</b> · niet-terugbetaalbaar",
-     con:"Duurste van de vijf, zonder ontbijt én niet-terugbetaalbaar; Casa Mía heeft dezelfde score voor €88 minder, mét ontbijt.",
-     booking:B("Casa Cuyo Hotel El Cuyo"), maps:M("ChIJeadExRJzUo8R32sbvmzSvX8")}
+    {name:"Casa Cuyo Hotel & Kitesurf School", score:"4,8", count:326,
+     desc:"Rustige ligging met zwembad, hangmatten en goed uitgeruste gemeenschappelijke keuken · eigen parkeerplek.",
+     breakfast:"Geen ontbijt",
+     con:"Geen ontbijt, terwijl Casa Mía dezelfde score heeft mét ontbijt.",
+     booking:B("Casa Cuyo Hotel El Cuyo"), maps:M("ChIJeadExRJzUo8R32sbvmzSvX8")},
+    {name:"T'uut Hotel", score:"4,7", count:12,
+     desc:"Nieuw en stijlvol, rooftop-zwembad en kitchenette · ±350 m van het strand.",
+     breakfast:"Geen ontbijt",
+     con:"Pas 12 beoordelingen — de mooie score zegt nog weinig.",
+     booking:B("Tuut Hotel El Cuyo"), maps:M("ChIJW3pgA9xzUo8RgX1RZmUa7nA")},
+    {name:"Hotelito El Cuyo", score:"4,7", count:139,
+     desc:"Klein pand met Italiaans restaurant (goede pasta) · ±500 m van het strand.",
+     breakfast:"Inclusief ontbijt",
+     con:"Reviews noemen harde bedden en geluid van het eigen restaurant; het verst van het strand.",
+     booking:B("Hotelito El Cuyo"), maps:M("ChIJK7Tp7oNzUo8RaIC-EcxZMjw")}
   ]
 };
 
@@ -535,24 +483,23 @@ const RESTOS = {
   "Puerto Morelos": [
     {name:"Muelle Once", score:"4,8", count:1840, desc:"vis aan zee, ontbijt tot diner", maps:"https://www.google.com/maps/place/?q=place_id:ChIJQ-LdRDeJTo8RGw91ehOBqzc"},
     {name:"Como Quieras Quiero", score:"4,8", count:214, desc:"seafood & steakhouse, top service (vanaf 15:00)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJH8LU3N-JTo8RDsP4SFSKhJQ"},
-    {name:"Perla Negra", score:"4,8", count:258, desc:"ceviche & 2-voor-1 margarita's", maps:"https://www.google.com/maps/place/?q=place_id:ChIJCVkHP32JTo8R3RA8KiYmh3k"}
+    {name:"Perla Negra", score:"4,8", count:258, desc:"ceviche & 2-voor-1 margarita's", maps:"https://www.google.com/maps/place/?q=place_id:ChIJCVkHP32JTo8R3RA8KiYmh3k"},
+    {name:"Al Chimichurri", score:"4,6", count:1075, desc:"Argentijnse grill — steaks, empanadas, pizza (dagelijks 14:00–23:00)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ7dk8LByJTo8RdY189eaqtx4"}
   ],
   "Campeche": [
-    {name:"La Pigua", score:"4,4", count:1239, desc:"beroemdste visrestaurant (prijzig, kleine porties)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJx1nauP8z-IURAgBhGO4zwUo"},
-    {name:"Marganzo", score:"4,3", count:3983, desc:"traditioneel Campechaans, bij de poort", maps:"https://www.google.com/maps/place/?q=place_id:ChIJwYH-GfEz-IUR8Y-Per5KVCM"},
-    {name:"Eettentjes op de malecón", score:null, count:null, desc:"'s avonds, informeel", maps:null}
+    {name:"La María Cocina Peninsular", score:"4,7", count:1391, desc:"verfijnde schiereiland-keuken, klein en elegant · 13:00–22:00, di dicht", maps:"https://www.google.com/maps/place/?q=place_id:ChIJWWU0B_oz-IUR2XwWdHiemyo"},
+    {name:"Patroni's Bar", score:"4,7", count:3168, desc:"pizza, pasta en steaks aan Calle 59 · vanaf 17:00 (weekend 14:00), meeste reviews van de stad", maps:"https://www.google.com/maps/place/?q=place_id:ChIJgYVGBfEz-IURU6zSDJHffA0"},
+    {name:"Santo Taquito", score:"4,7", count:617, desc:"taco's met verse tortilla's · 12:00–21:30, di dicht", maps:"https://www.google.com/maps/place/?q=place_id:ChIJBYDOW1Yz-IURdSKgvmrKZ54"},
+    {name:"Bartola", score:"4,5", count:509, desc:"ontbijt en brunch met zicht op de Golf · 7:30–15:00", maps:"https://www.google.com/maps/place/?q=place_id:ChIJCyyVCy0z-IURIltT76t0LWs"}
   ],
   "Uxmal · Santa Elena": [
-    {name:"The Pickled Onion", score:"4,5", count:498, desc:"B&B mét goede keuken (keuken sluit ~19:00)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJB9MO6re0V48RGaQk5b6D204"},
-    {name:"Hollywood Maya", score:null, count:null, desc:"familierestaurantje langs de weg, huisgemaakt", maps:null}
+    {name:"The Pickled Onion", score:"4,5", count:498, desc:"je eigen hotel · eigen keuken, maar sluit rond 19:00 — het dorp heeft weinig alternatief", maps:"https://www.google.com/maps/place/?q=place_id:ChIJB9MO6re0V48RGaQk5b6D204"},
+    {name:"Hacienda María Elena", score:"4,5", count:63, desc:"aan de weg Ticul–Santa Elena, 7:00–22:00 · ruime kaart onder een palapa, ±15 min rijden", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ5Yi06OlTVo8RcoyfdIU6P0I"}
   ],
   "Mérida": [
     {name:"La Chaya Maya", score:"4,5", count:26032, desc:"dé klassieker voor Yucateeks (cochinita, papadzules)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJtzCcrGFxVo8RZLu9elke5cE"},
     {name:"Apoala", score:"4,4", count:1510, desc:"verfijnd, Parque Santa Lucía — reserveer rond oud & nieuw", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ55ExAGFxVo8RQhNzu5FLPwc"},
     {name:"Micaela Mar & Leña", score:"4,7", count:3905, desc:"bekroonde vis van de houtskoolgrill", maps:"https://www.google.com/maps/place/?q=place_id:ChIJseySUF1xVo8RBmLvDoDCEOY"}
-  ],
-  "Izamal": [
-    {name:"Kinich", score:"4,7", count:8990, desc:"bekendste adres, Maya-keuken — kan wachttijd hebben", maps:"https://www.google.com/maps/place/?q=place_id:ChIJF__6xoKkVo8RYEBMxSlhanQ"}
   ],
   "Bacalar": [
     {name:"Nixtamal", score:"4,5", count:2093, desc:"fine dining op houtvuur, jungle-setting (di dicht)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJAyEIXzCxW48R5z-x20WluiI"},
@@ -560,7 +507,9 @@ const RESTOS = {
     {name:"Mango y Chile", score:"4,5", count:1848, desc:"vegan, uitzicht op het fort (di dicht)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJCVPEPzmxW48RJsj8TC5s2Tc"}
   ],
   "Palenque": [
-    {name:"Don Mucho's (El Panchán)", score:"4,3", count:1222, desc:"legendarische jungle-hangout, live muziek & vuurshow", maps:"https://www.google.com/maps/place/?q=place_id:ChIJUXQpsiFF8oURsZy8GUci3gE"}
+    {name:"Don Mucho's (El Panchán)", score:"4,3", count:1222, desc:"loopafstand vanaf Kin Balam · jungle-hangout met live muziek en vuurshow, 7:00–24:00", maps:"https://www.google.com/maps/place/?q=place_id:ChIJUXQpsiFF8oURsZy8GUci3gE"},
+    {name:"Café Jade", score:"4,5", count:2713, desc:"in La Cañada, ±10 min rijden · ruime kaart, 8:00–22:30 — beste score van de stad", maps:"https://www.google.com/maps/place/?q=place_id:ChIJWQv6P4dP8oUR7oK8kmkVpk8"},
+    {name:"Restaurante Maya Cañada", score:"4,4", count:1844, desc:"regionale gerechten op een groen terras · 7:00–23:00, aan de prijzige kant", maps:"https://www.google.com/maps/place/?q=place_id:ChIJnRgj9X1F8oURg7pR_LTLOGA"}
   ],
   "El Cuyo": [
     {name:"Zapote Bar Asador", score:"4,9", count:639, desc:"houtvuurgrill — top, ook op oudejaarsavond (reserveer)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJcRCAfnZzUo8RJt6kyu3Uql0"},
@@ -573,45 +522,13 @@ const RESTOS = {
     {name:"Sazón Veracruz", score:"4,5", count:1004, desc:"ruime porties, hele dag open — betrouwbaar", maps:"https://www.google.com/maps/place/?q=place_id:ChIJP35MOePhWI8RoORSvx00DdQ"}
   ],
   "Isla Aguada": [
-    {name:"Cocktelería ¡Ay Ajá!", score:"5,0", count:26, desc:"verse cocktails & knoflookgarnalen (ma dicht)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJASg10lsh8YUR1pp2t-OSSxU"},
-    {name:"Casa Grande", score:"4,6", count:90, desc:"seafood-schotel, huisspecialiteit — alleen weekend", maps:"https://www.google.com/maps/place/?q=place_id:ChIJZ0aGmPsh8YURe-HtZ1iU-xk"},
-    {name:"Don Guillo", score:"4,3", count:300, desc:"verse vis onder de palmen — 's avonds vroeg dicht (ma dicht)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJb_gTPGYg8YURuWRXPOuK3bg"}
-  ],
-  "Candelaria": [
-    {name:"Hashiru (Japans)", score:"4,5", count:50, desc:"verrassend goede Japanse keuken (wo dicht)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJW-gFEZml9oURkqivMuszIB4"},
-    {name:"La Palapa de Gonzalo", score:"4,3", count:103, desc:"huisgemaakt, aan de Río Candelaria (ma dicht)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJAQAAcIKl9oURBNldTdbey5o"},
-    {name:"Restaurant La Parroquia", score:"4,3", count:80, desc:"lokaal, airco — ontbijt tot diner (weekend dicht)", maps:"https://www.google.com/maps/place/?q=place_id:ChIJsdiCCp2l9oUR2f7ZZ4adu-0"}
+    {name:"Hotel Albatros (restaurant)", score:"4,6", count:139, desc:"12:00–23:30 · de enige echte avondoptie — één gast meldt dat het alleen in het hoogseizoen open is, eind december zit je goed", maps:"https://www.google.com/maps/place/?q=place_id:ChIJhz1h6m4h8YUR29s-BrViqOg"},
+    {name:"Almarena Beach Club", score:"4,6", count:58, desc:"wo t/m zo 10:00–20:00 · aan het strand, garnalentaco's — 30 dec is een woensdag, dus open", maps:"https://www.google.com/maps/place/?q=place_id:ChIJrYJornwh8YURLkQACF7QQQ0"},
+    {name:"Don Guillo", score:"4,3", count:301, desc:"9:00–18:30, ma dicht · vis onder de palmen, maar sluit vroeg en de tijden zijn wisselvallig", maps:"https://www.google.com/maps/place/?q=place_id:ChIJb_gTPGYg8YURuWRXPOuK3bg"}
   ]
 };
 
 
-// ---- logistiek per stop: nachten, vertrektijd, tussenstop ----
-const PLAN = {
-  V1: [
-    "aankomst 15:00 — ±15:45 wegrijden bij de luchthaven, geen tussenstop",
-    "vertrek ±9:00 · tussenstop: lunch in Tulum-pueblo (halverwege)",
-    "vertrek ±9:30 · geen tussenstop nodig (±2u) — wél voltanken in Bacalar · \u23F1 klok 1 uur terug: je rijdt Campeche-staat binnen (UTC−6)",
-    "vertrek ±8:00 · tussenstop: tanken & pinnen in Escárcega (hét bevoorradingspunt)",
-    "vertrek ±8:00 · de tussenstops zíjn het programma: Loltún, Labná, Sayil en Kabah",
-    "vertrek ±10:00, na een ochtendrondje Uxmal · geen tussenstop nodig (±1u15)",
-    "vertrek ±10:00 · geen tussenstop nodig (±1u15)",
-    "vertrek ±8:30 · tussenstop: Ek Balam (reken 2u voor het bezoek)",
-    "vertrek ±10:30 · geen tussenstop — tank vol vóór vertrek uit El Cuyo · \u23F1 klok 1 uur vooruit bij Quintana Roo: je bent ±14:15 lokale tijd op het vliegveld"
-  ],
-  V2: [
-    "aankomst 15:00 — ±15:45 wegrijden bij de luchthaven, geen tussenstop",
-    "vertrek ±9:00 · tussenstop: lunch in Tulum-pueblo (halverwege)",
-    "vertrek ±9:30 · geen tussenstop nodig (±2u) — wél voltanken in Bacalar · \u23F1 klok 1 uur terug: je rijdt Campeche-staat binnen (UTC−6)",
-    "vertrek ±8:30 · tussenstop: tanken & pinnen in Escárcega — daarna weinig voorzieningen",
-    "vertrek ±9:00 · tussenstop: waterval Misol-Ha ligt vlak vóór Palenque, kan 's middags al",
-    "vertrek ±10:30, na een ochtend Ecoparque Aluxes · geen tussenstop (±3u) — voltanken in Palenque",
-    "vertrek ±9:30 · tussenstop: lunch aan de cocktailboulevard van Champotón",
-    "vertrek ±8:00 · de tussenstops zíjn het programma: Loltún, Labná, Sayil en Kabah",
-    "vertrek ±10:00, na een ochtendrondje Uxmal · geen tussenstop nodig (±1u15)",
-    "vertrek ±8:30 · tussenstop: lunch in het gele Izamal, evt. Ek Balam erna",
-    "vertrek ±10:30 · geen tussenstop — tank vol vóór vertrek uit El Cuyo · \u23F1 klok 1 uur vooruit bij Quintana Roo: je bent ±14:15 lokale tijd op het vliegveld"
-  ]
-};
 
 
 // ---- kosten van bezienswaardigheden & activiteiten (p.p., cash in pesos) ----
@@ -641,12 +558,6 @@ const COSTS = {
     ],
     note:"Ruta Puuc: losse kaartjes per site. Uxmal is duurder door de aparte Yucatán-heffing. Alles cash."
   },
-  "Izamal": {
-    items:[
-      {lbl:"Kinich Kakmó-piramide", amt:"gratis"}
-    ],
-    note:"De piramide van Izamal is vrij toegankelijk."
-  },
   "El Cuyo": {
     items:[
       {lbl:"Las Coloradas — toegang roze meren", amt:"±100 MXN"}
@@ -669,16 +580,228 @@ const WEATHER = {
   "Bacalar":            {day:29, night:19, sea:null},
   "Xpujil / Calakmul":  {day:29, night:16, sea:null},
   "Campeche":           {day:29, night:20, sea:null},
-  "Candelaria":         {day:30, night:19, sea:null},
   "Palenque":           {day:29, night:19, sea:null},
   "Isla Aguada":        {day:28, night:20, sea:26},
   "Uxmal · Santa Elena":{day:29, night:17, sea:null},
   "Mérida":             {day:30, night:18, sea:null},
-  "Izamal":             {day:30, night:18, sea:null},
   "El Cuyo":            {day:27, night:19, sea:25}
 };
 
-const MAX_DRIVE = 4;
+
+// ---- te doen per plaats, met tijdsindicatie ----
+const DOING = {
+  "Puerto Morelos": {
+    items:[
+      {t:"Het dorpsplein en de scheve vuurtoren", time:"1 uur", d:"Aankomstavond is kort — de oude vuurtoren staat scheef sinds een orkaan in 1967 en het pleintje ligt op loopafstand van alle restaurants."},
+      {t:"Snorkelen op het rif", time:"±2 uur", d:"Het Nationaal Marien Park ligt op ±500 m uit de kust: schildpadden, roggen, verpleegsterhaaien. Alleen haalbaar als je een ochtend hebt — niet op de aankomstdag."},
+      {t:"Ruta de los Cenotes", time:"halve/hele dag", d:"De weg landinwaarts richting Leona Vicario staat vol cenotes met ziplines en klifsprongen. Vergt een hele ochtend, dus eerder iets voor een volgende reis."}
+    ],
+    note:"Jullie komen om 15:00 aan en zijn ±15:45 op de weg — reken op een eetavond, niet op een programma."
+  },
+  "Bacalar": {
+    items:[
+      {t:"Boottocht of kajak op de lagune", time:"1,5–3 uur", d:"De 'lagune van zeven kleuren' met stops bij de dieper gelegen cenotes Esmeralda en Negro, die alleen vanaf het water bereikbaar zijn. Bij zonsopgang is het water spiegelglad."},
+      {t:"Cenote Cocalitos", time:"1–2 uur", d:"Stromatolieten — levende, miljoenen jaren oude rotsformaties — met hangmatten en schommels in het ondiepe water. ±100 MXN, di t/m zo 10:00–17:00, maandag dicht."},
+      {t:"Fuerte de San Felipe", time:"1 uur", d:"Piratenfort uit 1729 aan het plein, met museum en uitzicht over de lagune."},
+      {t:"Cenote Azul", time:"1–2 uur", d:"Ruim 90 m diep, met restaurant en springplateaus. ±50 MXN, dagelijks 10:00–18:00. Reviews melden dat het terrein wat verlopen is."}
+    ],
+    note:"Aankomst rond 12:30, dus een halve dag. Kies één waterprogramma en hou het licht — dit is een tussenstop."
+  },
+  "Xpujil / Calakmul": {
+    items:[
+      {t:"Calakmul", time:"hele dag", d:"±2u rijden heen, waarvan de laatste 60 km door het reservaat op ±30 km/u (toekans, slingerapen, soms een jaguar), en 3 à 4 uur op de site. Structuur II is met 55 m de hoogste Maya-piramide ter wereld en beklimbaar, met uitzicht over de canopy tot in Guatemala. Reservaatspoort 6:00–15:00, ruïne 8:00–17:00 — te laat bij de poort betekent geen toegang."},
+      {t:"Becán", time:"±1,5 uur", d:"7 km van het dorp. Uniek: een 2 km lange, met de hand gegraven verdedigingsgracht rondom het centrum — zeldzaam in de Maya-wereld. Veel beklimbaar."},
+      {t:"Chicanná", time:"±1 uur", d:"8 km, vlak bij Becán. Klein maar fotogeniek: een paleisgevel met de opengesperde bek van de aardgod Itzamná als deuropening."},
+      {t:"Xpujil-ruïne", time:"±1 uur", d:"In het dorp zelf, lopend vanaf je hotel: compact paleis met drie kenmerkende valse torens."},
+      {t:"Hormiguero (optioneel)", time:"2–3 uur", d:"14 km zuidelijk over onverharde weg. Minst bezocht, met een nóg groter Itzamná-masker dan Chicanná."},
+      {t:"Vleermuizengrot", time:"±1 uur", d:"Bij zonsondergang vliegen honderdduizenden vleermuizen uit. Ligt langs de weg naar Calakmul — het handigst aansluitend op de terugweg van de Calakmul-dag."}
+    ],
+    note:"Becán + Chicanná + Xpujil samen zijn 4 à 5 uur, dus die dag houdt een vrije middag over."
+  },
+  "Palenque": {
+    items:[
+      {t:"De ruïnes", time:"2,5–3,5 uur", d:"Ga bij opening om 8:00 — dan hangt de ochtendnevel nog tussen de tempels en ben je vóór de tourbussen, die vanaf 10:00 arriveren. Het sitemuseum met de replica van Pakals graftombe zit bij je ticket in."},
+      {t:"Misol-Ha", time:"45 min–1 uur", d:"35 m hoge waterval, 20 km voorbij de ruïnes over dezelfde weg — combineert dus natuurlijk met de ruïnedag: eerst de site, dan door naar de val. Je loopt achter het watergordijn door een grot. Eigen restaurant bij de parkeerplaats (dagelijks 7:00–19:00, uitzicht op de val); entree ±20–30 MXN, contant."},
+      {t:"Cascadas Roberto Barrios", time:"halve/hele dag", d:"±30–50 min rijden. Vijf getrapte kalkstenen watervallen met turquoise poelen, rotsen om over te lopen en een natuurlijke glijbaan. Reizigers die beide zagen noemen dit vrijwel unaniem mooier én rustiger dan Agua Azul."},
+      {t:"Ecoparque Aluxes", time:"1–1,5 uur", d:"Opvang voor gered wildlife bij de site: zeekoeien, jaguars, tapirs, vrij rondvliegende ara's. Ideaal voor de vertrekochtend."}
+    ],
+    note:"Dagindeling: 27 dec aankomst ±15:00, inchecken en avondeten bij Don Mucho's · 28 dec ruïnes bij opening én aansluitend Misol-Ha · 29 dec Roberto Barrios · 30 dec Ecoparque Aluxes vóór vertrek. Agua Azul ligt aan route 199 (kleurcode oranje in het NL-reisadvies) en is bewust weggelaten — Roberto Barrios is het betere alternatief."
+  },
+  "Isla Aguada": {
+    items:[
+      {t:"Boottocht Laguna de Términos", time:"±2 uur", d:"Vertrekt vanaf de pier in het dorp, dus geen rijden. Onderweg tuimelaars, die hier het hele jaar leven en bij helder water met tientallen tegelijk verschijnen, plus een stop bij Isla de los Pájaros — 15–20 min varen, broedplaats van reigers, fregatvogels en de jabiru, de grootste zeevogel van Amerika. Meestal ook een zwemstop bij een zandbank."},
+      {t:"De vuurtoren en het strand", time:"1 uur", d:"Rustige afsluiter bij zonsondergang, op loopafstand."}
+    ],
+    note:"Regel de boot via je hotel of rechtstreeks bij een lokale aanbieder (vaak per WhatsApp), het liefst een dag van tevoren. 's Ochtends is het licht het mooist en zijn de dieren actiever — en omdat de rit naar Campeche maar ±2u10 duurt zonder tussenstop, kan de tocht ook op de vertrekochtend van 31 dec: varen van 8:00 tot 10:00, daarna rustig doorrijden."
+  },
+  "Campeche": {
+    items:[
+      {t:"Puerta de Tierra en de stadsmuren", time:"±1 uur", d:"Voor ±15 MXN loop je over de vestingmuren met uitzicht over de gekleurde binnenstad. Geen schaduw — neem water en een pet. Dagelijks 9:00–17:00; de avondshow is alleen in het Spaans."},
+      {t:"Edzná (dagtrip)", time:"halve dag", d:"±1u rijden. Indrukwekkende site met een vijf verdiepingen hoog tempel-paleis, ±100 MXN, gratis parkeren, dagelijks 8:00–17:00. Meerdere bezoekers noemen de ervaring beter dan Chichén Itzá door de rust — vaak loop je er vrijwel alleen rond. Neem muggenspray mee."},
+      {t:"Historisch centrum en malecón", time:"2–3 uur", d:"Pastelkleurige straten binnen de muren, en 's avonds de zeeboulevard — op oudejaarsavond hét verzamelpunt."}
+    ],
+    note:"Oud &amp; nieuw valt hier (31 dec–1 jan). Nieuwjaarsdag zijn veel musea dicht, dus plan Edzná op 31 december."
+  },
+  "Uxmal · Santa Elena": {
+    items:[
+      {t:"Ruta Puuc onderweg", time:"3–4 uur", d:"Kabah (met de gevel vol regengod-maskers), Sayil, Labná en de Grutas de Loltún — de grot alleen met gids, op vaste tijden. Losse kaartjes per site."},
+      {t:"Uxmal", time:"2–3 uur", d:"Best bewaarde Puuc-architectuur van het schiereiland, met de ovale Piramide van de Waarzegger. 's Avonds is er soms een lichtshow."}
+    ],
+    note:"Eén nacht: de Puuc-route ís het programma van de rijdag, Uxmal doe je aan het eind van de middag of de volgende ochtend vroeg."
+  },
+  "Mérida": {
+    items:[
+      {t:"Historisch centrum", time:"halve dag", d:"Plaza Grande, de kathedraal en Casa Montejo (gratis, di t/m zo) — plus markten en 's avonds gratis optredens op de pleinen."},
+      {t:"Paseo de Montejo", time:"2–3 uur", d:"Boulevard met herenhuizen uit de henequén-tijd. Palacio Cantón (antropologie, di–zo 8:00–16:30) en Quinta Montes Molina (±120 MXN, ±45 min) zijn beide te bezichtigen."},
+      {t:"Gran Museo del Mundo Maya", time:"±2 uur", d:"Het grote Maya-museum aan de rand van de stad. Let op: dinsdag gesloten."},
+      {t:"Dagtrip cenotes Homún", time:"halve/hele dag", d:"±1u rijden. Reeks grotcenotes rond het dorp, los of als combitour te bezoeken."},
+      {t:"Dagtrip Celestún", time:"hele dag", d:"±1,5u rijden. Flamingo's en mangrovetunnels per boot in het biosfeerreservaat."}
+    ],
+    note:"Met twee nachten past één dagtrip. Veel musea zijn maandag of dinsdag dicht — check dat vooraf, jullie zijn er zondag en maandag."
+  },
+  "El Cuyo": {
+    items:[
+      {t:"Het strand", time:"zoveel je wilt", d:"Kilometers wit strand zonder sargassum, ondiep tot ver in zee. Rond de pier is het levendigst; loop je een stuk weg van het dorp, dan heb je het strand vaak voor jezelf. Schaduw is schaars — palapa's zijn te huur."},
+      {t:"Las Coloradas", time:"halve dag", d:"±1u rijden. De felroze zoutmeren; mooiste licht rond zonsopgang of laat in de middag."},
+      {t:"Flamingo-boottocht Río Lagartos", time:"halve dag", d:"±1u rijden. Vaartocht door het biosfeerreservaat langs flamingo's, krokodillen en de mangroves."},
+      {t:"Kitesurfen", time:"les vanaf 2 uur", d:"El Cuyo is een bekende kitespot met constante wind; de lokale kiteschool geeft les aan beginners en gevorderden."},
+      {t:"Sterrenkijken", time:"1 uur", d:"Nauwelijks lichtvervuiling — op het strand is de Melkweg met het blote oog te zien."}
+    ],
+    note:"Dec–feb is hoogseizoen én hét windseizoen, dus de kitesurfers zijn er — maar druk zoals de Riviera Maya wordt het nooit; buiten het dorp vind je zo een leeg stuk strand. Let op: 6 januari is Día de Reyes, een Mexicaanse feestdag, dus dat kan wat meer binnenlandse bezoekers trekken. Verder: beperkte voorzieningen en matig telefoonbereik — dat hoort bij de rust. Een norte kan een paar dagen wind en bewolking brengen, waardoor boottochten uitvallen; plan de flamingo's dus niet op de laatste ochtend."
+  }
+};
+
+
+// ---- kenmerk per plaats, voor de samenvattingstabel ----
+const KENMERK = {
+  "Puerto Morelos":     "aankomstavond aan zee",
+  "Bacalar":            "lagune van zeven kleuren",
+  "Xpujil / Calakmul":  "jungle & de grootste Maya-stad",
+  "Palenque":           "ruïnes in nevelheuvels + watervallen",
+  "Isla Aguada":        "dolfijnen in de kustlagune",
+  "Campeche":           "ommuurde koloniale havenstad",
+  "Uxmal · Santa Elena":"Puuc-architectuur & Ruta Puuc",
+  "Mérida":             "culturele hoofdstad",
+  "El Cuyo":            "rustig kitesurfdorp & roze zoutmeren",
+  "Cancún Airport":     "vlucht 17:00"
+};
+
+
+// ---- onderweg: etappes, timing en eventuele stop ----
+const ROUTE = {
+  "Puerto Morelos": {
+    kort:"landen 15:00 → hotel ±16:15",
+    legs:[{a:"Vliegveld Cancún → Puerto Morelos", km:"25 km", t:"±30 min"}],
+    total:"25 km · ±30 min",
+    klok:"Landen 15:00 → weg van het vliegveld ±15:45 → hotel ±16:15",
+    keuze:"Alleen een avond. Snorkelen (eerste boot 9:00) en de Ruta de los Cenotes vragen een ochtend en passen dus niet vandaag — die staan bij de volgende dag."
+  },
+  "Bacalar": {
+    kort:"vertrek 9:30 → aankomst ±14:45",
+    legs:[{a:"Puerto Morelos → Tulum", km:"98 km", t:"±1u20"},
+          {a:"Tulum → Bacalar", km:"210 km", t:"±2u40"}],
+    total:"308 km · ±4u",
+    klok:"Vertrek 9:30 → Tulum 11:00 → Bacalar ±14:45",
+    keuze:"Halve middag over. Hou die vrij voor de lagune zelf — Ecotucan ligt aan het water en heeft gratis kajaks. Cenote Azul en Cocalitos liggen zuidelijk aan de 307: die doe je beter de volgende ochtend en route naar Xpujil dan er nu heen en terug te rijden.",
+    stop:"Tulum",
+    rest:[
+      {n:"Panza", s:"4,9", c:1082, d:"vanaf 8:00 · brunch en houtoven-pizza, met zwembad", m:"https://www.google.com/maps/place/?q=place_id:ChIJI2p9HKjRT48RfqnK-H0ipo8"},
+      {n:"Il Bacaro La Veleta", s:"4,8", c:2519, d:"vanaf 8:00 · Italiaans, plafondventilatoren tegen de hitte", m:"https://www.google.com/maps/place/?q=place_id:ChIJV70ojt3XT48RGXAtu43BRDE"},
+      {n:"Negro Huitlacoxe", s:"4,8", c:1435, d:"vanaf 10:00 · Mexicaans, tuinterras en houtvuurgrill", m:"https://www.google.com/maps/place/?q=place_id:ChIJfaf2xQLRT48RInnRfYvU1R8"},
+      {n:"La Negra Tomasa", s:"4,7", c:6628, d:"vanaf 12:00 · vis, veruit de meeste reviews — reken op wachttijd", m:"https://www.google.com/maps/place/?q=place_id:ChIJO22eVazRT48ReD5TmZRH-PY"},
+      {n:"El Cayuco", s:"4,9", c:1413, d:"vanaf 13:00 (di dicht) · hoogst gewaardeerd, alleen bij late doorkomst", m:"https://www.google.com/maps/place/?q=place_id:ChIJe3NfoiTRT48RQvr51vmHAGM"}
+    ]
+  },
+  "Xpujil / Calakmul": {
+    kort:"vertrek 10:00 → aankomst ±10:50 lokaal",
+    legs:[{a:"Bacalar → Xpujil", km:"120 km", t:"±1u50"}],
+    total:"120 km · ±1u50",
+    klok:"Vertrek 10:00 → Xpujil ±11:50, lokaal ±10:50 (klok een uur terug)",
+    keuze:"Je bent er voor de lunch en wint een uur door de tijdzone. Dat maakt de aankomstmiddag bruikbaar: de Xpujil-ruïne ligt in het dorp zelf, op loopafstand, en kost ±1 uur. Calakmul en de Río Bec-sites bewaar je voor de twee volle dagen erna."
+  },
+  "Palenque": {
+    kort:"vertrek 9:30 → aankomst ±15:00",
+    legs:[{a:"Xpujil → Escárcega", km:"150 km", t:"±1u45"},
+          {a:"Escárcega → Palenque", km:"210 km", t:"±3u"}],
+    total:"360 km · ±4u45",
+    klok:"Vertrek 9:30 → Escárcega ±11:15 (tanken, pinnen, koffie) → Palenque ±15:00",
+    keuze:"Aankomst 15:00 is te laat om nog iets te beginnen: de ruïnes vragen 2,5–3,5 uur en de laatste toegang is 16:00. Ook Misol-Ha valt af. Beide schuiven naar de volle dagen; deze middag is voor inchecken en 's avonds El Panchán.",
+    stop:"Escárcega",
+    rest:[
+      {n:"Mi Ranchito", s:"4,0", c:1860, d:"vanaf 7:00 · ruime kaart, betrouwbaar voor onderweg — cochinita pibil wordt geroemd", m:"https://www.google.com/maps/place/?q=place_id:ChIJfzYfavzv9oURwjJ_KIwiGaE"},
+      {n:"La Patrona", s:"4,8", c:89, d:"beste van het stadje, maar pas open vanaf 13:00 — alleen bij late doorkomst", m:"https://www.google.com/maps/place/?q=place_id:ChIJraLYTQLw9oURdRB_qiRriV4"}
+    ]
+  },
+  "Isla Aguada": {
+    kort:"vertrek 10:30 → aankomst ±14:15",
+    legs:[{a:"Palenque → Isla Aguada", km:"286 km", t:"±3u40"}],
+    total:"286 km · ±3u40",
+    klok:"Ecoparque Aluxes 8:30–10:00 → vertrek 10:30 → Isla Aguada ±14:15",
+    keuze:"De boottocht kan vanmiddag óf morgenochtend. Morgen is beter: het licht is mooier, de dolfijnen actiever, en de rit naar Campeche is maar ±2u10 — varen van 8:00 tot 10:00 en dan doorrijden past ruim. Deze middag blijft dan over voor het strand en de vuurtoren."
+  },
+  "Campeche": {
+    kort:"vertrek 11:00 → aankomst ±13:10",
+    legs:[{a:"Isla Aguada → Campeche", km:"175 km", t:"±2u10"}],
+    total:"175 km · ±2u10",
+    klok:"Vertrek 11:00 → Campeche ±13:10, lunchen doe je daar",
+    keuze:"Aankomst op oudejaarsdag: middag voor de stadsmuren en de Puerta de Tierra, 's avonds de malecón. Edzná (±1u rijden, halve dag) doe je op 1 januari — dan is de stad toch stil. Het ligt ook ruwweg op de route naar Uxmal, maar 2 januari is al een volle Puuc-dag, dus en route werkt niet."
+  },
+  "Uxmal · Santa Elena": {
+    kort:"vertrek 8:00 → aankomst eind van de middag",
+    legs:[{a:"Campeche → Kabah", km:"150 km", t:"±2u"},
+          {a:"Kabah → Sayil → Labná", km:"18 km", t:"±25 min"},
+          {a:"Labná → Loltún (doodlopend)", km:"20 km", t:"±25 min"},
+          {a:"terug naar Santa Elena", km:"40 km", t:"±45 min"}],
+    total:"±230 km · ±2u45 rijden, met vier bezoeken een volle dag",
+    klok:"Vertrek 8:00 → Kabah ±10:00 → Loltún begin middag → Santa Elena eind van de middag",
+    keuze:"Uxmal zelf kán nog om 16:00, en 's avonds is er soms een lichtshow — maar na vier sites ben je op. Beter morgenochtend bij opening om 8:00: koeler, leger, en je vertrekt toch pas om 11:00 naar Mérida. Dat kost je dus geen tijd.",
+    stop:"Ticul (onderweg)",
+    rest:[
+      {n:"Hacienda María Elena", s:"4,5", c:63, d:"7:00–22:00 · aan de weg Ticul–Santa Elena, ruime kaart onder een palapa", m:"https://www.google.com/maps/place/?q=place_id:ChIJ5Yi06OlTVo8RcoyfdIU6P0I"},
+      {n:"The Pickled Onion", s:"4,5", c:498, d:"je eigen hotel kookt ook overdag · keuken sluit rond 19:00", m:"https://www.google.com/maps/place/?q=place_id:ChIJB9MO6re0V48RGaQk5b6D204"}
+    ]
+  },
+  "Mérida": {
+    kort:"vertrek 11:00 → aankomst ±12:15",
+    legs:[{a:"Santa Elena → Mérida", km:"80 km", t:"±1u15"}],
+    total:"80 km · ±1u15",
+    klok:"Uxmal 8:00–10:30 → vertrek 11:00 → Mérida ±12:15",
+    keuze:"Halve dag plus een volle dag. Eén dagtrip past: Homún (cenotes, ±1u) of Celestún (flamingo's, ±1u30). Celestún ligt westelijk, dus altijd heen en terug; Homún ligt oostelijk maar de dag naar El Cuyo is al ±4u, dus en route lukt ook dat niet."
+  },
+  "El Cuyo": {
+    kort:"vertrek 8:30 → aankomst ±16:00",
+    legs:[{a:"Mérida → Izamal", km:"72 km", t:"±1u"},
+          {a:"Izamal → Ek Balam", km:"110 km", t:"±1u30"},
+          {a:"Ek Balam → El Cuyo", km:"105 km", t:"±1u30"}],
+    total:"287 km · ±4u · direct via Tizimín: 252 km, ±3u45",
+    klok:"Vertrek 8:30 → Izamal ±9:30 (ontbijt) → Ek Balam late ochtend → El Cuyo ±16:00",
+    keuze:"Las Coloradas en de flamingotocht moeten op 6 januari: ze liggen westelijk, terwijl je op de vertrekdag oostwaarts naar het vliegveld rijdt. En route werkt dus niet. De aankomstmiddag is voor het strand.",
+    stop:"Izamal",
+    rest:[
+      {n:"María 33", s:"4,9", c:543, d:"8:00–15:00 · brunchzaak met airco, twee minuten van het klooster", m:"https://www.google.com/maps/place/?q=place_id:ChIJcXZxQQCjVo8RFGXk_-JrIYQ"},
+      {n:"Kinich", s:"4,7", c:8998, d:"vanaf 11:00 · het bekendste adres, maar reken op wachttijd", m:"https://www.google.com/maps/place/?q=place_id:ChIJF__6xoKkVo8RYEBMxSlhanQ"},
+      {n:"La Casona de Izamal", s:"4,3", c:544, d:"vanaf 9:00 · rustig alternatief als Kinich vol is", m:"https://www.google.com/maps/place/?q=place_id:ChIJX9kfb-ajVo8RKWbQAeOw7Xs"}
+    ]
+  },
+  "Cancún Airport": {
+    kort:"vertrek 10:30 → vliegveld ±14:15 · vlucht 17:00",
+    legs:[{a:"El Cuyo → Cancún Airport", km:"169 km", t:"±2u45"}],
+    total:"169 km · ±2u45",
+    klok:"Vertrek 10:30 → vliegveld ±14:15 lokaal (klok een uur vooruit) → vlucht 17:00",
+    keuze:"Bijna drie uur marge voor een internationale vlucht. Tank vol vóór vertrek uit El Cuyo; onderweg is de keuze beperkt."
+  }
+};
+
+
+// ---- alternatief scenario per stop ----
+const ALT = {
+  "Isla Aguada": {
+    t:"Alternatief: Isla Aguada overslaan",
+    p:"Palenque → Campeche rechtstreeks is ±360 km en ±4u45 — vergelijkbaar met de rit naar Palenque toe, en ongeveer een uur mínder dan de omweg via Isla Aguada (3u40 + 2u10 = bijna 6u). Je levert de dolfijnen en de Laguna de Términos in, maar wint een vrijgekomen nacht én een hotelwissel minder. Die nacht past het best bij <b>Campeche</b> (dan drie nachten, met ruimte voor Edzná zonder haast) of bij <b>Mérida</b> (dan drie nachten, waardoor zowel Homún als Celestún passen). Nadeel: je ruilt twee halve rijdagen in voor één lange."
+  }
+};
+
+const MAX_DRIVE = 5;
 const timelineEl = document.getElementById('timeline');
 const statStripEl = document.getElementById('statStrip');
 const introEl = document.getElementById('variantIntro');
@@ -721,7 +844,8 @@ function render(key){
     const driveRow = s.driveLabel ? `<div class="drivebar-row"><div class="drivebar"><i style="width:${barPct}%"></i></div><span>${s.driveLabel}</span></div>` : '';
     const feest = s.feest ? `<br><span class="feest">★ ${s.feest}</span>` : '';
     const nightsTxt = s.nights > 0 ? `<strong>${s.nights} ${s.nights === 1 ? 'nacht' : 'nachten'}</strong> · ` : '';
-    const planRow = PLAN[key] && PLAN[key][i] ? `<div class="plan">${nightsTxt}${PLAN[key][i]}</div>` : '';
+    const rt = ROUTE[s.place];
+    const planRow = rt ? `<div class="plan">${nightsTxt}${rt.kort}${rt.stop ? ` · stop: ${rt.stop}` : ''}</div>` : '';
     const w = WEATHER[s.place];
     const wBadge = w ? `<span class="wbadge"><span class="temp">${w.day}° / ${w.night}°</span>${w.sea ? `<span class="sea">zee ${w.sea}°</span>` : ''}</span>` : '';
     return `
@@ -742,20 +866,44 @@ function render(key){
         ${planRow}
         <h2>${s.place}${nightsDots}${wBadge}</h2>
         <p>${s.text}${feest}</p>
-        ${(REC[s.place] || HOTELS[s.place] || RESTOS[s.place]) ? `
+        ${DOING[s.place] ? `
+        <details class="doing">
+          <summary>Te doen &amp; hoeveel tijd</summary>
+          <div class="doing-body">
+            ${DOING[s.place].items.map(d => `<div class="di"><span class="dt">${d.t}</span><span class="dtime">${d.time}</span><span class="dd">${d.d}</span></div>`).join('')}
+            ${DOING[s.place].note ? `<p class="doing-note">${DOING[s.place].note}</p>` : ''}
+          </div>
+        </details>` : ''}
+        ${ROUTE[s.place] ? `
+        <details class="lunch">
+          <summary>Onderweg &amp; timing</summary>
+          <div class="lunch-body">
+            <table class="legs">
+              ${ROUTE[s.place].legs.map(l => `<tr><td>${l.a}</td><td class="rt">${l.km} · ${l.t}</td></tr>`).join('')}
+              <tr class="tot"><td>Totaal</td><td class="rt">${ROUTE[s.place].total}</td></tr>
+            </table>
+            <p class="klok">${ROUTE[s.place].klok}</p>
+            <p class="keuze">${ROUTE[s.place].keuze}</p>
+            ${ROUTE[s.place].rest ? `<p class="stopkop">Stop onderweg — ${ROUTE[s.place].stop}</p>`
+              + ROUTE[s.place].rest.map(r => `<div class="lr"><span class="ln">${r.n}</span><span class="ls">★ ${r.s} (${r.c})</span><a href="${r.m}" target="_blank" rel="noopener">kaart</a><span class="ld">${r.d}</span></div>`).join('') : ''}
+          </div>
+        </details>` : ''}
+        ${ALT[s.place] ? `
+        <div class="altbox"><span class="alt-t">${ALT[s.place].t}</span><p>${ALT[s.place].p}</p></div>` : ''}
+        ${(HOTELS[s.place] || RESTOS[s.place]) ? `
         <details class="recs">
           <summary>Slapen & eten</summary>
           <div class="recs-body">
             ${HOTELS[s.place] ? `<p><strong>Slapen:</strong></p>` + HOTELS[s.place].map(h => `
               <div class="hotel">
-                <span class="hname">${h.name}</span>${h.fav ? `<span class="fav" title="jullie voorkeur">🌯</span>` : ''}${h.pick ? `<span class="pick">mijn keuze</span>` : ''}${h.score ? `<span class="score">★ ${h.score} (${h.count})</span>` : ''}
+                <span class="hname">${h.name}</span>${h.booked ? `<span class="booked" title="gereserveerd">🌯</span>` : ''}${h.pick ? `<span class="pick">mijn keuze</span>` : ''}${h.score ? `<span class="score">★ ${h.score} (${h.count})</span>` : ''}
                 ${h.desc ? `<span class="desc">${h.desc}</span>` : ''}
+                ${h.room ? `<span class="room">Kamer: ${h.room}</span>` : ''}
                 ${h.distance ? `<span class="meta"><b>Ligging:</b> ${h.distance}</span>` : ''}
                 ${h.breakfast ? `<span class="meta"><b>Ontbijt:</b> ${h.breakfast}</span>` : ''}
-                ${h.price ? `<span class="price">${h.price}</span>` : ''}
                 ${h.why ? `<span class="why">Waarom deze: ${h.why}</span>` : ''}
-                ${h.pick ? `<span class="con" style="color:var(--henequen)">Mijn keuze omdat: ${h.pick}.</span>` : ''}
-                ${h.con ? `<span class="con">Bedenking: ${h.con}</span>` : ''}
+                ${(h.pick && !h.booked) ? `<span class="con" style="color:var(--henequen)">Mijn keuze omdat: ${h.pick}.</span>` : ''}
+                ${h.con ? `<span class="con">${h.booked ? 'Goed om te weten' : 'Bedenking'}: ${h.con}</span>` : ''}
                 <span class="links">${h.booking ? `<a href="${h.booking}" target="_blank" rel="noopener">Booking.com</a>` : ''}${h.booking && h.maps ? `<span class="sep">·</span>` : ''}${h.maps ? `<a href="${h.maps}" target="_blank" rel="noopener">Google Maps</a>` : ''}</span>
               </div>`).join('') : ''}
             ${RESTOS[s.place] ? `<p><strong>Eten:</strong></p>` + RESTOS[s.place].map(r => `
@@ -763,7 +911,7 @@ function render(key){
                 <span class="rname">${r.name}</span>${r.score ? `<span class="score">★ ${r.score} (${r.count})</span>` : ''}
                 ${r.maps ? `<a href="${r.maps}" target="_blank" rel="noopener">kaart</a>` : ''}
                 <br><span class="rdesc">${r.desc}</span>
-              </div>`).join('') : (REC[s.place] ? `<p><strong>Eten:</strong> ${REC[s.place].eat}</p>` : '')}
+              </div>`).join('') : ''}
           </div>
         </details>` : ''}
         ${COSTS[s.place] ? `
@@ -781,15 +929,8 @@ function render(key){
   if (!map || !activeLayer || !ghostLayer) return;
   activeLayer.clearLayers();
   ghostLayer.clearLayers();
-  let allPts = [];
-  Object.keys(variants).forEach(k => {
-    const pts = variants[k].stops.map(s => [s.lat, s.lng]);
-    allPts = allPts.concat(pts);
-    if (k !== key) {
-      ghostLayer.addLayer(L.polyline(pts, {color:'#F2E9D8', opacity:0.18, weight:2, dashArray:'2,8', lineCap:'round'}));
-    }
-  });
   const pts = data.stops.map(s => [s.lat, s.lng]);
+  const allPts = pts;
   activeLayer.addLayer(L.polyline(pts, {color:'#3B9FB4', weight:3, dashArray:'2,10', lineCap:'round'}));
   data.stops.forEach((s,i) => {
     const icon = L.divIcon({className:'', html:`<div class="pin ${s.cat}">${i+1}</div>`, iconSize:[26,26], iconAnchor:[13,13]});
@@ -798,17 +939,62 @@ function render(key){
   map.fitBounds(L.latLngBounds(allPts), {padding:[28,28]});
 }
 
-document.querySelectorAll('.toggle button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.toggle button').forEach(b => {
-      b.classList.remove('active'); b.setAttribute('aria-selected','false');
-    });
-    btn.classList.add('active'); btn.setAttribute('aria-selected','true');
-    render(btn.dataset.v);
-  });
-});
 
-render('V1');
+render('V2');
+
+// ---- samenvattingstabel + live weer ----
+(function(){
+  const tbody = document.getElementById('sumBody');
+  const note  = document.getElementById('sumNote');
+  if (!tbody) return;
+  const stops = variants.V2.stops;
+  const rows = stops.map(s => {
+    const datum = (s.day.split('·')[1] || s.day).trim();
+    const list = HOTELS[s.place] || [];
+    const bk   = list.find(h => h.booked);
+    const pick = list.find(h => h.pick);
+    const chosen = bk || pick || null;
+    const hotel = chosen ? chosen.name : '—';
+    const tag = chosen ? (bk ? 'gereserveerd' : 'suggestie — nog te kiezen') : (s.nights > 0 ? 'nog te kiezen' : '');
+    return {place:s.place, kenmerk:KENMERK[s.place] || '', datum, nights:s.nights,
+            drive:s.driveLabel ? s.driveLabel.split('·')[0].trim() : '—',
+            hotel, tag, lat:s.lat, lng:s.lng};
+  });
+  tbody.innerHTML = rows.map((r,i) =>
+    `<tr><td class="pl">${r.place}</td>`
+    + `<td class="km">${r.kenmerk}</td>`
+    + `<td class="dt">${r.datum}</td>`
+    + `<td class="nt">${r.nights > 0 ? r.nights : '—'}</td>`
+    + `<td class="rt">${r.drive}</td>`
+    + `<td class="ht">${r.hotel}${r.tag ? `<span class="tag${r.tag === 'gereserveerd' ? ' res' : ''}">${r.tag}</span>` : ''}</td>`
+    + `<td class="now" id="w${i}">…</td></tr>`
+  ).join('');
+
+  const codes = {0:'helder',1:'overwegend helder',2:'half bewolkt',3:'bewolkt',45:'mist',48:'mist',
+    51:'motregen',53:'motregen',55:'motregen',61:'lichte regen',63:'regen',65:'zware regen',
+    80:'buien',81:'buien',82:'zware buien',95:'onweer',96:'onweer',99:'onweer'};
+
+  const lat = rows.map(r => r.lat).join(',');
+  const lng = rows.map(r => r.lng).join(',');
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code&timezone=auto`;
+
+  fetch(url).then(r => r.ok ? r.json() : Promise.reject()).then(data => {
+    const arr = Array.isArray(data) ? data : [data];
+    arr.forEach((d,i) => {
+      const cell = document.getElementById('w'+i);
+      if (!cell || !d.current) return;
+      const temp = Math.round(d.current.temperature_2m);
+      const txt = codes[d.current.weather_code] || '';
+      cell.textContent = `${temp}° ${txt}`;
+    });
+    const now = new Date().toLocaleString('nl-NL', {hour:'2-digit', minute:'2-digit', day:'numeric', month:'short'});
+    note.textContent = `Actueel weer ter plekke, opgehaald ${now} · bron Open-Meteo. Rijtijd is de rit náár die plaats toe.`;
+  }).catch(() => {
+    rows.forEach((r,i) => { const c = document.getElementById('w'+i); if (c) c.textContent = '—'; });
+    note.textContent = 'Live weer kon niet worden opgehaald (geen internetverbinding of geblokkeerd). Rijtijd is de rit náár die plaats toe.';
+  });
+})();
+
 </script>
 
 </body>
