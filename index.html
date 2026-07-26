@@ -30,6 +30,7 @@
   ::selection{background:var(--maya);color:var(--cenote);}
 
   .hero{position:relative;padding:5rem 1.5rem 2.5rem;max-width:920px;margin:0 auto;}
+  .version{position:absolute;top:1.5rem;right:1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;color:var(--text-meta);}
   .eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--salt);margin:0 0 1.1rem;}
   h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.02;margin:0 0 1.1rem;letter-spacing:-0.01em;}
   h1 em{font-style:italic;font-weight:500;color:var(--maya);}
@@ -200,6 +201,9 @@
   table.sum td.ht{color:var(--sascab-dim);font-size:0.82rem;}
   table.sum td.ht .tag{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text-meta);display:block;}
   table.sum td.ht .tag.res{color:var(--henequen);}
+  table.sum.ruins{min-width:660px;}
+  table.sum td.pl .tag,table.sum td.st .tag{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text-meta);display:block;font-weight:400;}
+  table.sum td.st{font-size:0.78rem;color:var(--text-meta);}
   .sum-note{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-meta);padding:0.7rem 0.2rem 0;line-height:1.6;}
   .credit{margin-top:2.5rem;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-meta);letter-spacing:0.04em;}
 
@@ -267,6 +271,7 @@
 </svg>
 
 <section class="hero">
+  <span class="version">V.2.0.4</span>
   <p class="eyebrow">Roadtrip · huurauto · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:00 · 16 nachten</p>
   <h1>Yucatán — <em>de expeditie</em></h1>
   <p class="lede">Zestien nachten met een huurauto, Cancún uit en weer in. Opgezet rond twee regels: minimaal twee nachten per plek tenzij één logisch is, en zoveel mogelijk plekken die jullie nog niet kennen. Zes van de tien ritten blijven onder de ±2u30; vier dagen zijn langer, waarvan één van ±5u.</p>
@@ -300,6 +305,17 @@
     </table>
   </div>
   <p class="sum-note" id="sumNote">Weer wordt opgehaald…</p>
+</section>
+
+<section class="summary">
+  <h3>Alle ruïnes op een rij</h3>
+  <div class="sum-scroll">
+    <table class="sum ruins">
+      <thead><tr><th>Datum</th><th>Ruïne</th><th>Vertrek vanaf</th><th>Belangrijkste kenmerk</th></tr></thead>
+      <tbody id="ruinBody"></tbody>
+    </table>
+  </div>
+  <p class="sum-note">Toegangsprijzen staan per plaats onder <em>Toegangsprijzen ruïnes &amp; cenotes</em>. Grotten (Loltún) en cenotes staan hier niet in.</p>
 </section>
 
 <footer>
@@ -383,28 +399,28 @@ const HOTELS = {
     {name:"Hotel Amar Inn", score:"4,7", count:391, booked:true,
      desc:"Kleinschalige B&B pal aan het strand · veel geroemd ontbijt, hartelijke ontvangst.",
      breakfast:"Inclusief ontbijt",
-     booking:B("Hotel Amar Inn Puerto Morelos"), maps:M("ChIJi2Rma2iITo8R9Be4iMjdYCo")}
+     site:"https://www.amarinn.mx/", booking:B("Hotel Amar Inn Puerto Morelos"), maps:M("ChIJi2Rma2iITo8R9Be4iMjdYCo")}
   ],
   "Bacalar": [
     {name:"Villas Ecotucan", score:"4,5", count:462, booked:true,
      desc:"Jungle-ecolodge áán de lagune met gratis kajaks · rustig en groen.",
      breakfast:"Inclusief ontbijt",
      con:"Ligt ±8 km buiten het dorp, met de laatste ±1 km over een onverlichte, éénbaans zandweg met kuilen. Rij de afslag overdag één keer en zet er een pin op; wie 's avonds in het dorp wil eten (Nixtamal is open op woensdag), rijdt hoe dan ook in het donker terug. Het hotel kookt zelf — de makkelijkste avondoptie.",
-     booking:B("Villas Ecotucan Bacalar"), maps:M("ChIJM95ZAkGzW48ROfAvIrYaxCY")}
+     site:"https://ecotucan.com/en/", booking:B("Villas Ecotucan Bacalar"), maps:M("ChIJM95ZAkGzW48ROfAvIrYaxCY")}
   ],
   "Xpujil / Calakmul": [
     {name:"Casa Ka'an Calakmul", score:"4,7", count:380, booked:true, room:"Casa Aguacate",
      desc:"Ruime casita's aan het bos, sterrenhemel en goed restaurant.",
      breakfast:"Inclusief ontbijt",
      con:"Vraag het ontbijt vroeg aan of laat inpakken: voor Calakmul wil je bij zonsopgang weg zijn. Verder is er in de omgeving weinig te eten, dus reken op avondeten ter plekke.",
-     booking:B("Casa Kaan Calakmul"), maps:M("ChIJ7eeRHn3hWI8RYEWKMW-ODIM")}
+     site:"https://www.casakaan.com/en", booking:B("Casa Kaan Calakmul"), maps:M("ChIJ7eeRHn3hWI8RYEWKMW-ODIM")}
   ],
   "Palenque": [
     {name:"Cabañas Kin Balam", score:"4,4", count:1334, booked:true,
      desc:"Jungle-cabañas pal naast de parkingang · ±4,5 km tot de ruïnes, ideaal voor een vroege start.",
      breakfast:"Geen ontbijt",
      con:"Buiten het stadje, dus voor eten ben je aangewezen op het eigen restaurant of El Panchán vlakbij (Don Mucho's). Basic en met hostelvibe — de ligging is de reden dat je hier zit.",
-     booking:B("Cabanas Kin Balam Palenque"), maps:M("ChIJp-6gQSBF8oURbc1sFnaQ76U")}
+     site:"https://www.kin-balam.com/en", booking:B("Cabanas Kin Balam Palenque"), maps:M("ChIJp-6gQSBF8oURbc1sFnaQ76U")}
   ],
   "Campeche": [
     {name:"Hotel Boutique Casa Lanz XVII", score:"4,8", count:86, pick:"★4,8 op een half blok van het plein", why:"Hoogste score van de twee, historisch pand, gratis fietsen en alles op loopafstand — inclusief de malecón voor oud & nieuw.",
@@ -638,6 +654,38 @@ const KENMERK = {
   "Cancún Airport":     "vlucht 17:00"
 };
 
+const RUINES = [
+  {d:"23 dec", n:"Tulum", stop:"Puerto Morelos", via:"onderweg naar Bacalar", opt:true,
+   k:"Enige Maya-stad pal aan zee, op de klif. Alleen zinvol bij opening om 8:00 — en jullie zagen hem al."},
+  {d:"24 dec", n:"Xpujil", stop:"Xpujil / Calakmul",
+   k:"Compact paleis met drie valse torens: trappen die nergens heen leiden. Lopend vanaf het hotel."},
+  {d:"25 dec", n:"Calakmul", stop:"Xpujil / Calakmul",
+   k:"Structuur II is met 55 m de hoogste Maya-piramide ter wereld, en beklimbaar. Midden in het biosfeerreservaat."},
+  {d:"26 dec", n:"Becán", stop:"Xpujil / Calakmul",
+   k:"Handgegraven verdedigingsgracht van 2 km rondom het centrum — zeldzaam in de Maya-wereld."},
+  {d:"26 dec", n:"Chicanná", stop:"Xpujil / Calakmul",
+   k:"Paleisgevel met de opengesperde bek van aardgod Itzamná als deuropening."},
+  {d:"26 dec", n:"Hormiguero", stop:"Xpujil / Calakmul", opt:true,
+   k:"Nóg groter Itzamná-masker dan Chicanná, en het minst bezocht. Laatste stuk onverhard."},
+  {d:"28 dec", n:"Palenque", stop:"Palenque",
+   k:"Ochtendnevel tussen de tempels in de heuvels. Replica van Pakals graftombe zit bij het ticket in."},
+  {d:"1 jan", n:"Edzná", stop:"Campeche",
+   k:"Tempel-paleis van vijf verdiepingen. Rustig — meerdere bezoekers noemen het beter dan Chichén Itzá."},
+  {d:"2 jan", n:"Kabah", stop:"Campeche", via:"onderweg naar Santa Elena",
+   k:"De Codz Poop: één gevel volledig bedekt met maskers van regengod Chac."},
+  {d:"2 jan", n:"Sayil", stop:"Campeche", via:"onderweg naar Santa Elena",
+   k:"Het Grote Paleis, drie verdiepingen breed uitgelegd over ±85 m, met zuilengalerijen."},
+  {d:"2 jan", n:"Labná", stop:"Campeche", via:"onderweg naar Santa Elena",
+   k:"De gaafst bewaarde Puuc-poortboog van het schiereiland, met een sacbé naar het paleis."},
+  {d:"3 jan", n:"Uxmal", stop:"Uxmal · Santa Elena",
+   k:"Best bewaarde Puuc-architectuur, met de ovale Piramide van de Waarzegger. Bij opening om 8:00."},
+  {d:"5 jan", n:"Izamal", stop:"Mérida", via:"onderweg naar El Cuyo",
+   k:"Kinich Kakmó: piramide midden in het gele stadje, gratis. Ontbijtstop onderweg."},
+  {d:"5 jan", n:"Ek Balam", stop:"Mérida", via:"onderweg naar El Cuyo",
+   k:"Beklimbare acropolis met een uitzonderlijk gaaf stucwerk-fries onder een rieten kap."}
+];
+
+
 
 // ---- onderweg: etappes, stop en geadviseerde tijden ----
 const ROUTE = {
@@ -836,7 +884,7 @@ function render(key){
                 ${h.why ? `<span class="why">Waarom deze: ${h.why}</span>` : ''}
                 ${(h.pick && !h.booked) ? `<span class="con" style="color:var(--henequen)">Mijn keuze omdat: ${h.pick}.</span>` : ''}
                 ${h.con ? `<span class="con">${h.booked ? 'Goed om te weten' : 'Bedenking'}: ${h.con}</span>` : ''}
-                <span class="links">${h.booking ? `<a href="${h.booking}" target="_blank" rel="noopener">Booking.com</a>` : ''}${h.booking && h.maps ? `<span class="sep">·</span>` : ''}${h.maps ? `<a href="${h.maps}" target="_blank" rel="noopener">Google Maps</a>` : ''}</span>
+                <span class="links">${[h.site ? `<a href="${h.site}" target="_blank" rel="noopener">Website</a>` : '', h.booking ? `<a href="${h.booking}" target="_blank" rel="noopener">Booking.com</a>` : '', h.maps ? `<a href="${h.maps}" target="_blank" rel="noopener">Google Maps</a>` : ''].filter(Boolean).join('<span class="sep">·</span>')}</span>
               </div>`).join('') : ''}
             ${RESTOS[s.place] ? `<p><strong>Eten:</strong></p>` + RESTOS[s.place].map(r => `
               <div class="resto">
@@ -925,6 +973,18 @@ render('V2');
     rows.forEach((r,i) => { const c = document.getElementById('w'+i); if (c) c.textContent = '—'; });
     note.textContent = 'Live weer kon niet worden opgehaald (geen internetverbinding of geblokkeerd). Rijtijd is de rit náár die plaats toe.';
   });
+})();
+
+
+// ---- ruïnetabel ----
+(function(){
+  const tb = document.getElementById('ruinBody');
+  if (!tb || typeof RUINES === 'undefined') return;
+  tb.innerHTML = RUINES.map(r =>
+    `<tr><td class="dt">${r.d}</td>`
+    + `<td class="pl">${r.n}${r.opt ? `<span class="tag">optioneel</span>` : ''}</td>`
+    + `<td class="st">${r.stop}${r.via ? `<span class="tag">${r.via}</span>` : ''}</td>`
+    + `<td class="km">${r.k}</td></tr>`).join('');
 })();
 
 </script>
