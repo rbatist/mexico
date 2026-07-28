@@ -271,7 +271,7 @@
 </svg>
 
 <section class="hero">
-  <span class="version">V.2.0.4</span>
+  <span class="version">V.2.0.5</span>
   <p class="eyebrow">Roadtrip · huurauto · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:00 · 16 nachten</p>
   <h1>Yucatán — <em>de expeditie</em></h1>
   <p class="lede">Zestien nachten met een huurauto, Cancún uit en weer in. Opgezet rond twee regels: minimaal twee nachten per plek tenzij één logisch is, en zoveel mogelijk plekken die jullie nog niet kennen. Zes van de tien ritten blijven onder de ±2u30; vier dagen zijn langer, waarvan één van ±5u.</p>
@@ -335,7 +335,7 @@
 <script>
 // ---- herbruikbare stops ----
 const S = {
-  pmStart:{day:"Dag 1 · di 22 dec", place:"Puerto Morelos", nights:1, cat:"transit", drive:0.5, driveLabel:"±30 min · 25 km",
+  pmStart:{day:"Dag 1 · di 22 t/m 23 dec", place:"Puerto Morelos", nights:1, cat:"transit", drive:0.5, driveLabel:"±30 min · 25 km",
     icon:"reef", grad:"linear-gradient(135deg, var(--cenote-2), var(--maya-dim))",
     text:"Aankomst om 15:00, meteen door naar dit rustige vissersdorp — een fijne eerste avond aan zee.",
     lat:20.8478084, lng:-86.8755342},
@@ -377,13 +377,13 @@ const variants = {
     stats:[{num:"8",label:"stops"},{num:"16",label:"nachten"},{num:"±26u35",label:"totaal rijden"},{num:"4",label:"dagen >3u"}],
     stops:[
       S.pmStart,
-      st("Dag 2 · wo 23 dec","Bacalar",1,"natuur",4,"±4u · 308 km","water",G.water,"Bekend terrein, maar een logische tussenstop op weg naar het zuiden — een middag aan de lagune van zeven kleuren.",P.bacalar),
-      st("Dag 3–5 · 24–26 dec","Xpujil / Calakmul",3,"erfgoed",1.83,"±1u50 · 120 km","pyramid",G.jungle,"Basis voor Calakmul én de Río Bec-ruïnes rond het dorp. Aankomst 24 dec rond het middaguur, daarna twee volle dagen (25 en 26 dec): één voor Calakmul, één ontspannen dag langs de sites vlakbij.",P.xpujil,"Kerst in de jungle"),
-      st("Dag 6–8 · 27–29 dec","Palenque",3,"erfgoed",4.75,"±4u45 · 360 km","waterfall",G.palenque,"Qua setting de mooiste Maya-site van Mexico: tempels tegen nevelige, beboste heuvels. Eén lange asfaltrit vanaf Xpujil, daarna drie dagen zonder haast — de ruïnes plus twee watervallen in de heuvels.",P.palenque),
-      st("Dag 9–11 · 30 dec – 1 jan","Campeche",3,"stad",4.75,"±4u45 · 360 km","arch",G.stad,"Ommuurde koloniale havenstad (UNESCO) met pastelkleurige gevels binnen de vestingmuren. Drie nachten: aankomst na de langste rit sinds Palenque, oud &amp; nieuw op de malecón, en ruimte voor Edzná zonder haast.",P.campeche,"Oud &amp; nieuw op de malecón"),
-      st("Dag 12 · za 2 jan","Uxmal · Santa Elena",1,"erfgoed",2.75,"±2u45 · ±230 km","pyramid",G.ruine,"Onderweg de volledige Puuc-route, eindigend bij Uxmal. Overnacht in het dorpje Santa Elena vlakbij.",P.uxmal),
-      st("Dag 13–14 · 3–4 jan","Mérida",2,"stad",1.25,"±1u15 · 80 km","arch",G.stad2,"Twee nachten: historisch centrum, markten, en één dagtrip — kies tussen de cenotes bij Homún of Celestún.",P.merida),
-      st("Dag 15–16 · 5–6 jan","El Cuyo",2,"natuur",4,"±4u · 287 km","flamingo",G.kust,"Rustig kitesurfdorp aan de noordkust: ontdekt, maar niet overlopen — geen hoogbouw, geen beachclubs, wel kilometers strand. Onderweg lunchen in het gele Izamal. Uitvalsbasis voor Las Coloradas én de flamingotocht bij Río Lagartos.",P.elcuyo),
+      st("Dag 2 · wo 23 t/m 24 dec","Bacalar",1,"natuur",4,"±4u · 308 km","water",G.water,"Bekend terrein, maar een logische tussenstop op weg naar het zuiden — een middag aan de lagune van zeven kleuren.",P.bacalar),
+      st("Dag 3–5 · do 24 t/m 27 dec","Xpujil / Calakmul",3,"erfgoed",1.83,"±1u50 · 120 km","pyramid",G.jungle,"Basis voor Calakmul én de Río Bec-ruïnes rond het dorp. Aankomst 24 dec rond het middaguur, daarna twee volle dagen (25 en 26 dec): één voor Calakmul, één ontspannen dag langs de sites vlakbij.",P.xpujil,"Kerst in de jungle"),
+      st("Dag 6–8 · zo 27 t/m 30 dec","Palenque",3,"erfgoed",4.75,"±4u45 · 360 km","waterfall",G.palenque,"Qua setting de mooiste Maya-site van Mexico: tempels tegen nevelige, beboste heuvels. Eén lange asfaltrit vanaf Xpujil, daarna drie dagen zonder haast — de ruïnes plus twee watervallen in de heuvels.",P.palenque),
+      st("Dag 9–11 · wo 30 dec t/m 2 jan","Campeche",3,"stad",4.75,"±4u45 · 360 km","arch",G.stad,"Ommuurde koloniale havenstad (UNESCO) met pastelkleurige gevels binnen de vestingmuren. Drie nachten: aankomst na de langste rit sinds Palenque, oud &amp; nieuw op de malecón, en ruimte voor Edzná zonder haast.",P.campeche,"Oud &amp; nieuw op de malecón"),
+      st("Dag 12 · za 2 t/m 3 jan","Uxmal · Santa Elena",1,"erfgoed",2.75,"±2u45 · ±230 km","pyramid",G.ruine,"Onderweg de volledige Puuc-route, eindigend bij Uxmal. Overnacht in het dorpje Santa Elena vlakbij.",P.uxmal),
+      st("Dag 13–14 · zo 3 t/m 5 jan","Mérida",2,"stad",1.25,"±1u15 · 80 km","arch",G.stad2,"Twee nachten: historisch centrum, markten, en één dagtrip — kies tussen de cenotes bij Homún of Celestún.",P.merida),
+      st("Dag 15–16 · di 5 t/m 7 jan","El Cuyo",2,"natuur",4,"±4u · 287 km","flamingo",G.kust,"Rustig kitesurfdorp aan de noordkust: ontdekt, maar niet overlopen — geen hoogbouw, geen beachclubs, wel kilometers strand. Onderweg lunchen in het gele Izamal. Uitvalsbasis voor Las Coloradas én de flamingotocht bij Río Lagartos.",P.elcuyo),
       S.vertrekCuyo
     ]
   }, };
@@ -435,50 +435,25 @@ const HOTELS = {
      booking:B("Hotel Plaza Colonial Campeche"), maps:M("ChIJEbgpIvoz-IUR0l2C9Zg_ndU")}
   ],
   "Uxmal · Santa Elena": [
-    {name:"The Pickled Onion", score:"4,5", count:498, pick:"eigen keuken en de beste basis voor de Puuc-route", why:"Casitas met zwembad én een eigen keuken in een dorp met nauwelijks alternatieven — precies wat je wilt na een dag Ruta Puuc.",
+    {name:"The Pickled Onion", score:"4,5", count:498, booked:true,
      desc:"Gemoedelijke B&B met casitas en zwembad, eigen keuken.",
      breakfast:"Inclusief ontbijt",
      con:"De keuken sluit rond 19:00 — kom je later aan, dan is er in Santa Elena weinig alternatief.",
-     booking:B("The Pickled Onion Santa Elena"), maps:M("ChIJB9MO6re0V48RGaQk5b6D204")},
-    {name:"Eco-hotel Nueva Altia", score:"4,7", count:130,
-     desc:"Rustige tuinen, plunge pool en eigen mini-ruïnes · duurzaam, op zonne-energie.",
-     breakfast:"Inclusief ontbijt",
-     con:"Minder reviews; eten ter plekke vooraf regelen, want het dorp heeft nauwelijks opties.",
-     booking:B("Nueva Altia Santa Elena"), maps:M("ChIJ6wIQXbu0V48RCLmmvWWPm9k")}
+     booking:B("The Pickled Onion Santa Elena"), maps:M("ChIJB9MO6re0V48RGaQk5b6D204")}
   ],
   "Mérida": [
-    {name:"Hotel Zamná Boutique", score:"4,8", count:271, pick:"hoogste score, ontbijt en 8 min van de Plaza Grande", why:"★4,8 op 271 reviews, verwarmd zwembad, ontbijt inbegrepen en op loopafstand van het centrum.",
-     desc:"Rustige zijstraat in Santiago met verwarmd zwembad en jacuzzi · 8 min lopen naar de Plaza Grande.",
+    {name:"Kuká y Naranjo", score:"4,6–4,8", count:359, booked:true,
+     desc:"Klein boutique-B&B, kunstzinnig ingericht met patio en plunge pool · één van drie zusterhuizen naast elkaar.",
      breakfast:"Inclusief ontbijt",
-     con:"Alleen parkeren op straat.",
-     booking:B("Hotel Zamna Boutique Merida"), maps:M("ChIJabWRFd5zVo8Roxdym_XNE5s")},
-    {name:"Kuká y Naranjo / y Letras / y Milpa", score:"4,6–4,8", count:359,
-     desc:"Drie kleine boutique-B&B's naast elkaar, kunstzinnig ingericht met patio's en plunge pools.",
-     breakfast:"Inclusief ontbijt",
-     con:"10–15 min lopen naar het centrum, dus verder weg dan Zamná; annuleren kost hier geld.",
+     con:"10–15 min lopen naar het centrum; annuleren kost hier geld.",
      booking:B("Kuka y Naranjo Merida"), maps:M("ChIJlwul5NdzVo8RVvxo48Ye3So")}
   ],
   "El Cuyo": [
-    {name:"Casa Mía El Cuyo Eco Beach", score:"4,8", count:226, pick:"★4,8 op 40 m van het strand, mét ontbijt", why:"Hoogste score op een stevige basis, 40 m van het strand en ontbijt inbegrepen: geen echt nadeel.",
+    {name:"Casa Mía El Cuyo Eco Beach", score:"4,8", count:226, booked:true,
      desc:"Eco-boutique aan het rustige uiteinde van het dorp, mooie tuinen · ±40 m van het strand.",
      breakfast:"Inclusief ontbijt",
      con:"Aan de rand van het dorp, dus voor restaurants een klein stukje lopen.",
-     booking:B("Casa Mia El Cuyo"), maps:M("ChIJG4j5AyARUo8RwUA9KtocVIg")},
-    {name:"Casa Cuyo Hotel & Kitesurf School", score:"4,8", count:326,
-     desc:"Rustige ligging met zwembad, hangmatten en goed uitgeruste gemeenschappelijke keuken · eigen parkeerplek.",
-     breakfast:"Geen ontbijt",
-     con:"Geen ontbijt, terwijl Casa Mía dezelfde score heeft mét ontbijt.",
-     booking:B("Casa Cuyo Hotel El Cuyo"), maps:M("ChIJeadExRJzUo8R32sbvmzSvX8")},
-    {name:"T'uut Hotel", score:"4,7", count:12,
-     desc:"Nieuw en stijlvol, rooftop-zwembad en kitchenette · ±350 m van het strand.",
-     breakfast:"Geen ontbijt",
-     con:"Pas 12 beoordelingen — de mooie score zegt nog weinig.",
-     booking:B("Tuut Hotel El Cuyo"), maps:M("ChIJW3pgA9xzUo8RgX1RZmUa7nA")},
-    {name:"Hotelito El Cuyo", score:"4,7", count:139,
-     desc:"Klein pand met Italiaans restaurant (goede pasta) · ±500 m van het strand.",
-     breakfast:"Inclusief ontbijt",
-     con:"Reviews noemen harde bedden en geluid van het eigen restaurant; het verst van het strand.",
-     booking:B("Hotelito El Cuyo"), maps:M("ChIJK7Tp7oNzUo8RaIC-EcxZMjw")}
+     booking:B("Casa Mia El Cuyo"), maps:M("ChIJG4j5AyARUo8RwUA9KtocVIg")}
   ]
 };
 
