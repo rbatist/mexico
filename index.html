@@ -88,6 +88,14 @@
   .stop h2 .wbadge{display:inline-flex;align-items:baseline;gap:0.5rem;margin-left:0.7rem;font-family:'JetBrains Mono',monospace;font-size:0.74rem;font-weight:400;letter-spacing:0.01em;vertical-align:middle;white-space:nowrap;}
   .stop h2 .wbadge .temp{color:var(--henequen);}
   .stop h2 .wbadge .sea{color:var(--maya-dim);}
+  .stop h2 .hday,.stop h2 .hmeta{font-family:'JetBrains Mono',monospace;font-weight:400;font-size:0.72rem;letter-spacing:0.06em;color:var(--text-meta);vertical-align:middle;}
+  .stop h2 .hday{text-transform:uppercase;letter-spacing:0.1em;color:var(--maya);margin-right:0.1rem;}
+  .stop.natuur h2 .hday{color:var(--henequen);}
+  .stop.stad h2 .hday{color:var(--salt);}
+  .stop.transit h2 .hday{color:var(--text-meta);}
+  .drivebar-row{flex-wrap:wrap;}
+  .drivebar-row .leg{color:var(--sascab-dim);letter-spacing:0.04em;}
+  .plan::first-letter{text-transform:uppercase;}
   .drivebar{height:3px;background:rgba(242,233,216,0.14);border-radius:2px;width:90px;overflow:hidden;}
   .drivebar i{display:block;height:100%;background:var(--salt);border-radius:2px;}
 
@@ -170,6 +178,9 @@
   details.lunch table.legs tr:first-child td{border-top:none;}
   details.lunch table.legs td.rt{text-align:right;white-space:nowrap;color:var(--sascab-dim);padding-left:0.6rem;}
   details.lunch table.legs tr.tot td{border-top:1px solid rgba(242,233,216,0.22);color:var(--sascab);font-weight:600;padding-top:0.35rem;}
+  table.legs .rt-tijd{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--henequen);white-space:nowrap;width:3.6rem;vertical-align:top;}
+  table.legs tr.rt-stap td{color:var(--sascab-dim);}
+  table.legs tr.rt-rit td{color:var(--text-meta);padding-left:0.2rem;}
   details.lunch .klok{font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--henequen);margin:0 0 0.6rem;line-height:1.5;}
   details.lunch .keuze{margin:0 0 0.7rem;line-height:1.55;}
   details.lunch .keuze b{color:var(--sascab);}
@@ -271,7 +282,7 @@
 </svg>
 
 <section class="hero">
-  <span class="version">V.2.0.5</span>
+  <span class="version">V.2.0.6</span>
   <p class="eyebrow">Roadtrip · huurauto · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:00 · 16 nachten</p>
   <h1>Yucatán — <em>de expeditie</em></h1>
   <p class="lede">Zestien nachten met een huurauto, Cancún uit en weer in. Opgezet rond twee regels: minimaal twee nachten per plek tenzij één logisch is, en zoveel mogelijk plekken die jullie nog niet kennen. Zes van de tien ritten blijven onder de ±2u30; vier dagen zijn langer, waarvan één van ±5u.</p>
@@ -324,10 +335,10 @@
     <li>Rijtijden zijn kaal — reken bij ruïnes en natuurstops de bezoektijd erbovenop (zie "te doen &amp; hoeveel tijd" per plaats).</li>
     <li>Vier langere rijdagen: Xpujil → Palenque en Palenque → Campeche (allebei ±4u45, met tanken in Escárcega halverwege), Puerto Morelos → Bacalar (±4u over de 307) en Mérida → El Cuyo (±4u mét Izamal en Ek Balam). De overige vier ritten blijven onder de ±2u45.</li>
     <li>Neem contant geld mee: ruïnes, boottochten en de kleinere dorpen werken vaak alleen met pesos, en wisselgeld is er schaars.</li>
-    <li>Toegangsprijzen voor Calakmul en Palenque verdubbelen per 1 januari 2026 voor buitenlandse bezoekers — jullie bezoeken beide nog in december.</li>
+    <li>De INAH-tarieven gingen per 1 januari 2026 omhoog: Calakmul en Palenque kosten buitenlanders sindsdien 210 MXN, Uxmal 140 MXN — steeds exclusief de aparte gemeenschaps- en deelstaatheffingen. Die tarieven golden tot en met 31 december 2026, dus vanaf Edzná op 1 januari kan er middenin de reis een nieuwe ronde ingaan.</li>
     <li>Tijdsverschil met Nederland: Quintana Roo (Cancún, Puerto Morelos, Bacalar) 6 uur vroeger, de rest van de route 7 uur. De klok gaat één keer terug (richting Campeche-staat) en op de vertrekdag weer vooruit.</li>
     <li>Reken op een <em>norte</em>: een koufront dat tussen november en februari een paar dagen wind en bewolking kan brengen, vooral aan de noord- en westkust. Boottochten kunnen dan uitvallen.</li>
-    <li>Waar al geboekt is, staat alleen het gereserveerde hotel, gemarkeerd met 🌯. Op de overige plaatsen staan nog meerdere opties, met mijn suggestie gemarkeerd. Prijzen en wat er eventueel ter plekke moet worden afgerekend, volgen later.</li>
+    <li>Alle acht hotels zijn geboekt, gemarkeerd met 🌯. Per hotel staan ontbijt, de in- en uitchecktijden en de annuleringstermijn vermeld. Prijzen en wat er ter plekke moet worden afgerekend, volgen later.</li>
   </ul>
 </footer>
 
@@ -339,9 +350,9 @@ const S = {
     icon:"reef", grad:"linear-gradient(135deg, var(--cenote-2), var(--maya-dim))",
     text:"Aankomst om 15:00, meteen door naar dit rustige vissersdorp — een fijne eerste avond aan zee.",
     lat:20.8478084, lng:-86.8755342},
-  vertrekCuyo:{day:"Vertrek · do 7 jan", place:"Cancún Airport", nights:0, cat:"transit", drive:2.75, driveLabel:"±2u45 · 169 km",
+  vertrekCuyo:{day:"Vertrek · do 7 jan", place:"Cancún Airport", nights:0, note:"vlucht naar Amsterdam om 17.05 uur", cat:"transit", drive:2.75, driveLabel:"±2u45 · 169 km",
     icon:"transit", grad:"linear-gradient(135deg, var(--cenote-2), var(--cenote))",
-    text:"Rond 10:30 vertrekken uit El Cuyo, auto inleveren en ruim op tijd voor de vlucht.",
+    text:"Rond 9:30 vertrekken uit El Cuyo, auto inleveren en ruim op tijd voor de vlucht.",
     lat:21.0365, lng:-86.8770},
   vertrekPM:{day:"Vertrek · do 7 jan", place:"Cancún Airport", nights:0, cat:"transit", drive:0.5, driveLabel:"±30 min · vertrek vlucht ±17:00",
     icon:"transit", grad:"linear-gradient(135deg, var(--cenote-2), var(--cenote))",
@@ -398,64 +409,60 @@ const HOTELS = {
   "Puerto Morelos": [
     {name:"Hotel Amar Inn", score:"4,7", count:391, booked:true,
      desc:"Kleinschalige B&B pal aan het strand · veel geroemd ontbijt, hartelijke ontvangst.",
-     breakfast:"Inclusief ontbijt",
+     breakfast:"Inclusief", checkin:"15:00–23:30", checkout:"6:30–12:00", cancel:"kosteloos t/m 20 dec",
      site:"https://www.amarinn.mx/", booking:B("Hotel Amar Inn Puerto Morelos"), maps:M("ChIJi2Rma2iITo8R9Be4iMjdYCo")}
   ],
   "Bacalar": [
     {name:"Villas Ecotucan", score:"4,5", count:462, booked:true,
      desc:"Jungle-ecolodge áán de lagune met gratis kajaks · rustig en groen.",
-     breakfast:"Inclusief ontbijt",
-     con:"Ligt ±8 km buiten het dorp, met de laatste ±1 km over een onverlichte, éénbaans zandweg met kuilen. Rij de afslag overdag één keer en zet er een pin op; wie 's avonds in het dorp wil eten (Nixtamal is open op woensdag), rijdt hoe dan ook in het donker terug. Het hotel kookt zelf — de makkelijkste avondoptie.",
+     breakfast:"Inclusief", checkin:"15:00–21:00", checkout:"tot 11:00", cancel:"kosteloos t/m 19 dec",
+     con:"Ligt ±8 km buiten het dorp, met de laatste ±1 km over een onverlichte, éénbaans zandweg met kuilen. Rij de afslag overdag één keer en zet er een pin op; wie \'s avonds in het dorp wil eten (Nixtamal is open op woensdag), rijdt hoe dan ook in het donker terug. Het hotel kookt zelf — de makkelijkste avondoptie.",
      site:"https://ecotucan.com/en/", booking:B("Villas Ecotucan Bacalar"), maps:M("ChIJM95ZAkGzW48ROfAvIrYaxCY")}
   ],
   "Xpujil / Calakmul": [
-    {name:"Casa Ka'an Calakmul", score:"4,7", count:380, booked:true, room:"Casa Aguacate",
-     desc:"Ruime casita's aan het bos, sterrenhemel en goed restaurant.",
-     breakfast:"Inclusief ontbijt",
-     con:"Vraag het ontbijt vroeg aan of laat inpakken: voor Calakmul wil je bij zonsopgang weg zijn. Verder is er in de omgeving weinig te eten, dus reken op avondeten ter plekke.",
+    {name:"Casa Ka\'an Calakmul", score:"4,7", count:380, booked:true, room:"Casa Aguacate",
+     desc:"Ruime casita\'s aan het bos, sterrenhemel en goed restaurant.",
+     breakfast:"Inclusief, 6:15–9:00", checkin:"14:00–21:00", checkout:"tot 11:00", cancel:"niet mogelijk — definitief",
+     con:"Het ontbijt begint om 6:15, en voor Calakmul wil je bij zonsopgang weg zijn — vraag het vroeg aan of laat het inpakken. Verder is er in de omgeving weinig te eten, dus reken op avondeten ter plekke.",
      site:"https://www.casakaan.com/en", booking:B("Casa Kaan Calakmul"), maps:M("ChIJ7eeRHn3hWI8RYEWKMW-ODIM")}
   ],
   "Palenque": [
     {name:"Cabañas Kin Balam", score:"4,4", count:1334, booked:true,
      desc:"Jungle-cabañas pal naast de parkingang · ±4,5 km tot de ruïnes, ideaal voor een vroege start.",
-     breakfast:"Geen ontbijt",
-     con:"Buiten het stadje, dus voor eten ben je aangewezen op het eigen restaurant of El Panchán vlakbij (Don Mucho's). Basic en met hostelvibe — de ligging is de reden dat je hier zit.",
+     breakfast:"Geen ontbijt", checkin:"vanaf 15:00", checkout:"tot 12:00", cancel:"kosteloos t/m 26 dec",
+     con:"Buiten het stadje, dus voor eten ben je aangewezen op het eigen restaurant of El Panchán vlakbij (Don Mucho\'s). Basic en met hostelvibe — de ligging is de reden dat je hier zit.",
      site:"https://www.kin-balam.com/en", booking:B("Cabanas Kin Balam Palenque"), maps:M("ChIJp-6gQSBF8oURbc1sFnaQ76U")}
   ],
   "Campeche": [
-    {name:"Hotel Boutique Casa Lanz XVII", score:"4,8", count:86, pick:"★4,8 op een half blok van het plein", why:"Hoogste score van de twee, historisch pand, gratis fietsen en alles op loopafstand — inclusief de malecón voor oud & nieuw.",
-     desc:"400 jaar oud pand met patio, een half blok van het hoofdplein · gratis fietsen.",
-     breakfast:"Geen ontbijt",
-     con:"Parkeren aan de weg (geen eigen plek), en met 86 reviews is de mooie score wat dunner onderbouwd.",
-     booking:B("Casa Lanz XVII Campeche"), maps:M("ChIJtas-iaoz-IURPzAgzQmZAlk")},
-    {name:"Hotel Plaza Colonial", score:"4,4", count:667,
-     desc:"Groot hotel midden in het centrum, zicht op de kathedraal · verreweg de meeste beoordelingen.",
-     breakfast:"Geen ontbijt",
-     con:"Lagere score en wisselende reviews over kamerkwaliteit en service. Voordeel: met 667 beoordelingen weet je het best wat je krijgt.",
-     booking:B("Hotel Plaza Colonial Campeche"), maps:M("ChIJEbgpIvoz-IUR0l2C9Zg_ndU")}
+    {name:"Hotel Boutique Casa Lanz XVII", score:"4,8", count:86, booked:true,
+     desc:"400 jaar oud pand met patio, een half blok van het hoofdplein · gratis fietsen, malecón op loopafstand voor oud & nieuw.",
+     breakfast:"Geen ontbijt", checkin:"15:00–23:00", checkout:"tot 12:00", cancel:"niet mogelijk — definitief",
+     con:"Parkeren aan de weg, geen eigen plek.",
+     booking:B("Casa Lanz XVII Campeche"), maps:M("ChIJtas-iaoz-IURPzAgzQmZAlk")}
   ],
   "Uxmal · Santa Elena": [
     {name:"The Pickled Onion", score:"4,5", count:498, booked:true,
-     desc:"Gemoedelijke B&B met casitas en zwembad, eigen keuken.",
-     breakfast:"Inclusief ontbijt",
-     con:"De keuken sluit rond 19:00 — kom je later aan, dan is er in Santa Elena weinig alternatief.",
+     desc:"Gemoedelijke B&B met casita\'s en zwembad, eigen keuken.",
+     breakfast:"Inclusief", checkin:"14:00–20:00", checkout:"7:00–11:30", cancel:"kosteloos t/m 27 dec",
+     con:"De keuken sluit rond 19:00 — kom je later aan, dan is er in Santa Elena weinig alternatief. Inchecken kan tot 20:00.",
      booking:B("The Pickled Onion Santa Elena"), maps:M("ChIJB9MO6re0V48RGaQk5b6D204")}
   ],
   "Mérida": [
     {name:"Kuká y Naranjo", score:"4,6–4,8", count:359, booked:true,
      desc:"Klein boutique-B&B, kunstzinnig ingericht met patio en plunge pool · één van drie zusterhuizen naast elkaar.",
-     breakfast:"Inclusief ontbijt",
-     con:"10–15 min lopen naar het centrum; annuleren kost hier geld.",
+     breakfast:"Inclusief", checkin:"vanaf 15:00", checkout:"tot 12:00", cancel:"kosteloos t/m 28 dec",
+     con:"10–15 min lopen naar het centrum.",
      booking:B("Kuka y Naranjo Merida"), maps:M("ChIJlwul5NdzVo8RVvxo48Ye3So")}
   ],
   "El Cuyo": [
     {name:"Casa Mía El Cuyo Eco Beach", score:"4,8", count:226, booked:true,
      desc:"Eco-boutique aan het rustige uiteinde van het dorp, mooie tuinen · ±40 m van het strand.",
-     breakfast:"Inclusief ontbijt",
+     breakfast:"Inclusief", checkin:"nog navragen", checkout:"tot 12:00", cancel:"kosteloos t/m 21 dec",
      con:"Aan de rand van het dorp, dus voor restaurants een klein stukje lopen.",
      booking:B("Casa Mia El Cuyo"), maps:M("ChIJG4j5AyARUo8RwUA9KtocVIg")}
   ]
 };
+
 
 // ---- restaurants met Google-score + Maps-link (geverifieerd) ----
 const RESTOS = {
@@ -509,43 +516,57 @@ const RESTOS = {
 const COSTS = {
   "Xpujil / Calakmul": {
     items:[
-      {lbl:"Calakmul — toegang totaal (gemeenschap + reserve + INAH)", amt:"±515 MXN (~€27)"},
-      {lbl:"Becán", amt:"±75 MXN"},
-      {lbl:"Chicanná", amt:"±65 MXN"},
+      {lbl:"Calakmul — Ejido Conhuás (poort km 0)", amt:"90 MXN"},
+      {lbl:"Calakmul — CONANP, biosfeerreserve (km 20)", amt:"225 MXN"},
+      {lbl:"Calakmul — INAH, de site zelf", amt:"210 MXN"},
+      {lbl:"Calakmul — totaal per persoon", amt:"±525 MXN (~€26)"},
+      {lbl:"Becán", amt:"±145–155 MXN"},
+      {lbl:"Chicanná", amt:"±145–155 MXN"},
+      {lbl:"Xpujil", amt:"±145–155 MXN"},
       {lbl:"Hormiguero", amt:"gratis / fooi"}
     ],
-    note:"Let op: vanaf 1 jan 2026 verdubbelt het buitenlandtarief voor 'Categorie 1'-sites (waaronder Calakmul). Vóór 1 jan dus goedkoper dan erna. Alles cash, klein geld meenemen — bij de site is wisselgeld schaars."
+    note:"Drie aparte loketten onderweg naar Calakmul, alles cash — de laatste pinautomaat staat in Xpujil. De poort bij Conhuás sluit om 14:30: wie later aankomt, mag de reserve niet meer in. Tarieven van 2026; per 1 januari 2027 stelt INAH nieuwe vast."
   },
   "Palenque": {
     items:[
-      {lbl:"Palenque ruïnes — INAH + parktoegang", amt:"±100 MXN (~€5)"}
+      {lbl:"Palenque — INAH, zona arqueológica", amt:"210 MXN"},
+      {lbl:"Palenque — CONANP, Parque Nacional", amt:"225 MXN"},
+      {lbl:"Palenque — totaal per persoon", amt:"±435 MXN (~€22)"}
     ],
-    note:"Palenque valt onder 'Categorie 1': buitenlandtarief stijgt per 1 jan 2026. In variant 2 bezoek je Palenque op 28–29 dec, dus nog vóór de verhoging."
+    note:"Twee verplichte kaartjes, te koop bij het bezoekerscentrum CATVI aan de ingang. Het sitemuseum met de replica van Pakals graftombe zit bij het INAH-deel in. Tarieven van 2026."
+  },
+  "Campeche": {
+    items:[
+      {lbl:"Edzná — INAH", amt:"210 MXN"}
+    ],
+    note:"Edzná valt in dezelfde INAH-categorie als Calakmul, maar zonder reserve- of gemeenschapsheffing. Jullie gaan op 1 januari, dus mogelijk al onder het tarief van 2027."
   },
   "Uxmal · Santa Elena": {
     items:[
-      {lbl:"Uxmal — INAH + deelstaat Yucatán", amt:"±413 MXN (~€22)"},
-      {lbl:"Kabah", amt:"±75 MXN"},
-      {lbl:"Sayil", amt:"±75 MXN"},
-      {lbl:"Labná", amt:"±75 MXN"},
-      {lbl:"Grutas de Loltún (met gids)", amt:"±175 MXN"}
+      {lbl:"Uxmal — INAH + deelstaat Yucatán", amt:"±586 MXN (~€29)"},
+      {lbl:"Kabah — INAH + deelstaat", amt:"±636 MXN"},
+      {lbl:"Sayil — INAH + deelstaat", amt:"±626 MXN"},
+      {lbl:"Labná — INAH + deelstaat", amt:"±626 MXN"},
+      {lbl:"Grutas de Loltún (met gids)", amt:"±175 MXN — nog na te kijken"}
     ],
-    note:"Ruta Puuc: losse kaartjes per site. Uxmal is duurder door de aparte Yucatán-heffing. Alles cash."
+    note:"Let op: Yucatán heeft de hoogste tarieven van het land. Bovenop het INAH-deel rekent de deelstaat ±481 MXN per site, óók bij de drie kleine Puuc-sites. Alle drie bezoeken kost samen ±1.890 MXN per persoon — de moeite waard om vooraf te kiezen welke je echt wilt. Alles cash bij het INAH-loket; het deelstaatloket neemt meestal ook pin."
   },
   "El Cuyo": {
     items:[
+      {lbl:"Ek Balam — INAH + deelstaat Yucatán", amt:"±691 MXN (~€35)"},
+      {lbl:"Ek Balam — parkeren, ejido Hunukú", amt:"±100 MXN"},
       {lbl:"Las Coloradas — toegang roze meren", amt:"±100 MXN"}
     ],
-    note:"Las Coloradas: toegang tot de roze zoutmeren. Alles cash."
+    note:"Ek Balam is de duurste Maya-site van Yucatán, duurder nog dan Chichén Itzá. Izamal is gratis. Alles cash."
   },
   "Mérida": {
     items:[
-      {lbl:"Cenotes bij Homún (per cenote)", amt:"±50–100 MXN"},
-      {lbl:"Homún — combitour meerdere cenotes", amt:"±300–500 MXN"}
+      {lbl:"Cenotes bij Homún (per cenote)", amt:"±50–100 MXN"}
     ],
-    note:"Cenotes bij Homún zijn een dagtrip vanuit Mérida; losse toegang per cenote, of een combitour langs meerdere. Alles cash."
+    note:"Cenotes bij Homún zijn een dagtrip vanuit Mérida; je betaalt per cenote bij de ingang. Alles cash."
   }
 };
+
 
 
 // ---- verwacht weer eind dec / begin jan (klimaatgemiddelden, geen voorspelling) ----
@@ -601,7 +622,7 @@ const DOING = {
   },
   "Mérida": {
     items:[
-      {dag:"4 jan · Homún", t:"Cenotes bij Homún (keuze)", tijd:"halve tot hele dag · ±1u rijden enkele reis", d:"Oostelijk van Mérida. Reeks grotcenotes rond het dorp, los of als combitour. Combineren met de rit naar El Cuyo lukt niet — die dag is al ±4u."},
+      {dag:"4 jan · Homún", t:"Cenotes bij Homún (keuze)", tijd:"halve tot hele dag · ±1u rijden enkele reis", d:"Oostelijk van Mérida. Reeks grotcenotes rond het dorp, per stuk te bezoeken. Combineren met de rit naar El Cuyo lukt niet — die dag is al ±4u."},
       {dag:"4 jan · Celestún", t:"Celestún (keuze)", tijd:"hele dag · ±1u30 rijden enkele reis", d:"Westelijk van Mérida, dus altijd heen en terug. Flamingo's en mangrovetunnels per boot in het biosfeerreservaat."},
       {dag:"4 jan · Mérida", t:"Paseo de Montejo en musea (keuze)", tijd:"halve dag", d:"Boulevard met herenhuizen uit de henequén-tijd: Palacio Cantón (di–zo) en Quinta Montes Molina (±120 MXN). Het Gran Museo del Mundo Maya is dinsdag dicht. Rustiger alternatief als je geen dagtrip wilt."}
     ]
@@ -665,10 +686,15 @@ const RUINES = [
 // ---- onderweg: etappes, stop en geadviseerde tijden ----
 const ROUTE = {
   "Bacalar": {
-    legs:[{a:"Puerto Morelos → Tulum", km:"98 km", t:"±1u20"},
-          {a:"Tulum → Bacalar", km:"210 km", t:"±2u40"}],
+    steps:[
+      {tijd:"10:30", w:"vertrek Puerto Morelos"},
+      {rit:"Puerto Morelos → Tulum", km:"98 km", d:"±1u20"},
+      {tijd:"12:00", w:"Tulum · lunchstop tot ±13:00"},
+      {rit:"Tulum → Bacalar", km:"210 km", d:"±2u40"},
+      {tijd:"15:45", w:"aankomst Bacalar"}
+    ],
+    klokNote:"Dit is de basisdag zonder ochtendprogramma. Kies je voor snorkelen (9:00–11:00) dan word je ±16:45 in Bacalar verwacht; ga je naar de Tulum-ruïnes, dan vertrek je al om 6:45 en ben je ±15:15 binnen.",
     total:"308 km · ±4u",
-    klok:"Vertrek ±10:30 → Tulum ±12:00 (lunch tot ±13:00) → Bacalar ±15:45",
     stop:"Tulum", stopType:"lunchstop",
     split:"98 km (±1u20) ernaartoe, 210 km (±2u40) verder",
     rest:[
@@ -679,9 +705,15 @@ const ROUTE = {
     ]
   },
   "Xpujil / Calakmul": {
-    legs:[{a:"Bacalar → Xpujil", km:"120 km", t:"±1u50"}],
+    steps:[
+      {tijd:"7:30", w:"kajakken op de lagune, tot 9:00"},
+      {tijd:"11:00", w:"uitchecken Villas Ecotucan"},
+      {tijd:"12:00", w:"Bacalar · lunch tot ±13:00"},
+      {tijd:"13:00", w:"vertrek Bacalar"},
+      {rit:"Bacalar → Xpujil", km:"120 km", d:"±1u50"},
+      {tijd:"13:50", w:"aankomst Xpujil, lokale tijd — de klok gaat hier een uur terug (14:50 in Bacalar)"}
+    ],
     total:"120 km · ±1u50",
-    klok:"Kajakken 7:30–9:00 → ontbijt → uitchecken ±11:00 → lunch in Bacalar ±12:00 → vertrek ±13:00 → Xpujil ±14:50, lokaal ±13:50 (klok een uur terug)",
     restKop:"Lunch vóór vertrek — Bacalar",
     rest:[
       {n:"Hijos del Cocho", s:"4,7", c:1973, d:"do vanaf 9:00 · vis, aguachile en taco's — echte lunchkeuken, vlak bij het plein", m:"https://www.google.com/maps/place/?q=place_id:ChIJN1lV2waxW48RcUGS8mziHGk"},
@@ -690,10 +722,15 @@ const ROUTE = {
     ]
   },
   "Palenque": {
-    legs:[{a:"Xpujil → Escárcega", km:"150 km", t:"±1u45"},
-          {a:"Escárcega → Palenque", km:"210 km", t:"±3u"}],
+    steps:[
+      {tijd:"8:45", w:"vertrek Xpujil"},
+      {rit:"Xpujil → Escárcega", km:"150 km", d:"±1u45"},
+      {tijd:"10:30", w:"Escárcega · tanken, pinnen, koffie"},
+      {rit:"Escárcega → Palenque", km:"210 km", d:"±3u"},
+      {tijd:"13:30", w:"aankomst Palenque · lunch bij aankomst, bijv. Don Mucho\'s op loopafstand van Kin Balam"}
+    ],
+    klokNote:"Deze keten is krap: 10:30 plus drie uur rijden is precies 13:30, dus voor de stop in Escárcega zit geen tijd in de berekening. Vertrek een kwartier eerder als je daar rustig wilt tanken en pinnen.",
     total:"360 km · ±4u45",
-    klok:"Vertrek ±8:45 → Escárcega ±10:30 (tanken, pinnen, koffie) → Palenque ±13:30 — lunch bij aankomst, bijv. Don Mucho's op loopafstand van Kin Balam",
     stop:"Escárcega", stopType:"tank- en pinstop",
     split:"150 km (±1u45) ernaartoe, 210 km (±3u) verder",
     rest:[
@@ -702,11 +739,16 @@ const ROUTE = {
     ]
   },
   "Campeche": {
-    legs:[{a:"Palenque → Escárcega", km:"210 km", t:"±3u"},
-          {a:"Escárcega → Champotón", km:"85 km", t:"±1u"},
-          {a:"Champotón → Campeche", km:"65 km", t:"±50 min"}],
+    steps:[
+      {tijd:"8:00", w:"vertrek Palenque"},
+      {rit:"Palenque → Escárcega", km:"210 km", d:"±3u"},
+      {tijd:"11:00", w:"Escárcega"},
+      {rit:"Escárcega → Champotón", km:"85 km", d:"±1u"},
+      {tijd:"12:00", w:"Champotón · lunchstop tot ±12:55"},
+      {rit:"Champotón → Campeche", km:"65 km", d:"±50 min"},
+      {tijd:"13:45", w:"aankomst Campeche"}
+    ],
     total:"360 km · ±4u45",
-    klok:"Vertrek 8:00 → Escárcega ±11:00 → Champotón ±12:00 (lunch) → Campeche ±13:45",
     stop:"Champotón", stopType:"lunchstop",
     split:"295 km (±4u) ernaartoe, 65 km (±50 min) verder",
     rest:[
@@ -715,12 +757,20 @@ const ROUTE = {
     ]
   },
   "Uxmal · Santa Elena": {
-    legs:[{a:"Campeche → Kabah", km:"150 km", t:"±2u"},
-          {a:"Kabah → Sayil → Labná", km:"18 km", t:"±25 min"},
-          {a:"Labná → Loltún (doodlopend)", km:"20 km", t:"±25 min"},
-          {a:"terug naar Santa Elena", km:"40 km", t:"±45 min"}],
+    steps:[
+      {tijd:"8:00", w:"vertrek Campeche"},
+      {rit:"Campeche → Kabah", km:"150 km", d:"±2u"},
+      {tijd:"10:00", w:"Kabah"},
+      {rit:"Kabah → Sayil → Labná", km:"18 km", d:"±25 min"},
+      {tijd:"", w:"Sayil en Labná"},
+      {rit:"Labná → Loltún (doodlopend)", km:"20 km", d:"±25 min"},
+      {tijd:"", w:"Grutas de Loltún · alleen met gids, op vaste tijden"},
+      {rit:"Loltún → Ticul → Santa Elena", km:"40 km", d:"±45 min"},
+      {tijd:"13:15", w:"Ticul · lunchstop"},
+      {tijd:"15:30", w:"aankomst Santa Elena"}
+    ],
+    klokNote:"Vier sites tussen 10:00 en de lunch is ambitieus: Kabah, Sayil en Labná vragen samen al ruim twee uur inclusief rijden, en Loltún duurt met gids ±1u15. Reken erop dat je moet kiezen, of dat de lunch later valt.",
     total:"±230 km · ±2u45 rijden",
-    klok:"Vertrek 8:00 → Kabah ±10:00 → Sayil & Labná → Loltún (gids, vaste tijden) → lunch Ticul ±13:15 → Santa Elena ±15:30",
     stop:"Ticul", stopType:"lunchstop",
     split:"de sites liggen 8–20 km uit elkaar; Ticul ligt er middenin",
     rest:[
@@ -729,11 +779,16 @@ const ROUTE = {
     ]
   },
   "El Cuyo": {
-    legs:[{a:"Mérida → Izamal", km:"72 km", t:"±1u"},
-          {a:"Izamal → Ek Balam", km:"110 km", t:"±1u30"},
-          {a:"Ek Balam → El Cuyo", km:"105 km", t:"±1u30"}],
+    steps:[
+      {tijd:"8:30", w:"vertrek Mérida"},
+      {rit:"Mérida → Izamal", km:"72 km", d:"±1u"},
+      {tijd:"9:30", w:"Izamal · ontbijtstop en het gele stadje"},
+      {rit:"Izamal → Ek Balam", km:"110 km", d:"±1u30"},
+      {tijd:"12:00", w:"Ek Balam · ±2 uur"},
+      {rit:"Ek Balam → El Cuyo", km:"105 km", d:"±1u30"},
+      {tijd:"16:00", w:"aankomst El Cuyo"}
+    ],
     total:"287 km · ±4u · direct via Tizimín: 252 km, ±3u45",
-    klok:"Vertrek 8:30 → Izamal ±9:30 (ontbijt) → Ek Balam late ochtend → El Cuyo ±16:00",
     stop:"Izamal", stopType:"ontbijtstop",
     split:"72 km (±1u) ernaartoe, 215 km (±3u) verder via Ek Balam",
     rest:[
@@ -742,10 +797,14 @@ const ROUTE = {
     ]
   },
   "Cancún Airport": {
-    legs:[{a:"El Cuyo → Leona Vicario", km:"±130 km", t:"±2u"},
-          {a:"Leona Vicario → Cancún Airport", km:"±40 km", t:"±40 min"}],
+    steps:[
+      {tijd:"9:30", w:"vertrek El Cuyo"},
+      {rit:"El Cuyo → Leona Vicario", km:"±130 km", d:"±2u"},
+      {tijd:"12:35", w:"Leona Vicario · lunchstop tot ±13:25 — de klok gaat hier een uur vooruit"},
+      {rit:"Leona Vicario → Cancún Airport", km:"±40 km", d:"±40 min"},
+      {tijd:"14:05", w:"aankomst vliegveld · vlucht 17:05"}
+    ],
     total:"169 km · ±2u45",
-    klok:"Vertrek ±9:30 → Leona Vicario ±12:35 lokaal (klok een uur vooruit; lunch tot ±13:25) → vliegveld ±14:05 → vlucht 17:00",
     stop:"Leona Vicario", stopType:"lunchstop",
     split:"±130 km (±2u) ernaartoe, ±40 km (±40 min) verder",
     rest:[
@@ -797,14 +856,16 @@ function render(key){
     const nightsDots = s.nights > 0 ? `<span class="nights" aria-label="${s.nights} nachten">${'<i></i>'.repeat(s.nights)}</span>` : '';
     const nodeSize = s.nights > 0 ? 10 + Math.min(s.nights,3) * 2 : 8;
     const barPct = Math.min(100, Math.round((s.drive / MAX_DRIVE) * 100));
-    const driveRow = s.driveLabel ? `<div class="drivebar-row"><div class="drivebar"><i style="width:${barPct}%"></i></div><span>${s.driveLabel}</span></div>` : '';
+    const driveRow = `<div class="drivebar-row"><span class="leg">${fromPlace} → ${s.place}</span>${s.driveLabel ? `<div class="drivebar"><i style="width:${barPct}%"></i></div><span>${s.driveLabel}</span>` : ''}</div>`;
     const feest = s.feest ? `<br><span class="feest">★ ${s.feest}</span>` : '';
     const nightsTxt = s.nights > 0 ? `<strong>${s.nights} ${s.nights === 1 ? 'nacht' : 'nachten'}</strong> · ` : '';
     const rt = ROUTE[s.place];
     const stopTxt = rt && rt.stop
       ? `<b>${rt.stopType} in ${rt.stop}</b> — ${rt.split}`
       : (s.drive >= 1.5 ? 'geen tussenstop onderweg' : '');
-    const planRow = `<div class="plan">${stopTxt ? nightsTxt + stopTxt : nightsTxt.replace(/ · $/, '')}</div>`;
+    const dagDeel = s.day.split('·')[0].trim();
+    const datumDeel = s.day.split('·').slice(1).join('·').trim();
+    const planRow = stopTxt ? `<div class="plan">${stopTxt}</div>` : '';
     const w = WEATHER[s.place];
     const wBadge = w ? `<span class="wbadge"><span class="temp">${w.day}° / ${w.night}°</span>${w.sea ? `<span class="sea">zee ${w.sea}°</span>` : ''}</span>` : '';
     return `
@@ -820,10 +881,9 @@ function render(key){
           <svg class="pc-icon" viewBox="0 0 100 100"><use href="#icon-${s.icon}"/></svg>
           <span class="pc-label">${s.place}</span>
         </div>
-        <span class="daytag">${s.day} · ${fromPlace} → ${s.place}</span>
+        <h2><span class="hday">${dagDeel} ·</span> ${s.place}${nightsDots}<span class="hmeta"> · ${datumDeel}${s.nights > 0 ? ' · ' + s.nights + (s.nights === 1 ? ' nacht' : ' nachten') : (s.note ? ' · ' + s.note : '')}</span>${wBadge}</h2>
         ${driveRow}
         ${planRow}
-        <h2>${s.place}${nightsDots}${wBadge}</h2>
         <p>${s.text}${feest}</p>
         ${DOING[s.place] ? `
         <details class="doing">
@@ -837,10 +897,12 @@ function render(key){
           <summary>Route en reistijd</summary>
           <div class="lunch-body">
             <table class="legs">
-              ${ROUTE[s.place].legs.map(l => `<tr><td>${l.a}</td><td class="rt">${l.km} · ${l.t}</td></tr>`).join('')}
-              <tr class="tot"><td>Totaal ${ROUTE[s.place].legs[0].a.split('→')[0].trim()} → ${s.place}</td><td class="rt">${ROUTE[s.place].total}</td></tr>
+              ${ROUTE[s.place].steps.map(st => st.rit
+                ? `<tr class="rt-rit"><td class="rt-tijd"></td><td>${st.rit}</td><td class="rt">${st.km} · ${st.d}</td></tr>`
+                : `<tr class="rt-stap"><td class="rt-tijd">${st.tijd || ''}</td><td colspan="2">${st.w}</td></tr>`).join('')}
+              <tr class="tot"><td class="rt-tijd"></td><td>Totaal ${(ROUTE[s.place].steps.find(x => x.rit) || {rit:''}).rit.split('→')[0].trim()} → ${s.place}</td><td class="rt">${ROUTE[s.place].total}</td></tr>
             </table>
-            <p class="klok">${ROUTE[s.place].klok}</p>
+            ${ROUTE[s.place].klokNote ? `<p class="klok">${ROUTE[s.place].klokNote}</p>` : ''}
             ${ROUTE[s.place].rest ? `<p class="stopkop">${ROUTE[s.place].restKop || (ROUTE[s.place].stopType + ' — ' + ROUTE[s.place].stop)}</p>`
               + ROUTE[s.place].rest.map(r => `<div class="lr"><span class="ln">${r.n}</span><span class="ls">★ ${r.s} (${r.c})</span><a href="${r.m}" target="_blank" rel="noopener">kaart</a><span class="ld">${r.d}</span></div>`).join('') : ''}
           </div>
@@ -849,19 +911,19 @@ function render(key){
         <details class="recs">
           <summary>Slapen & eten</summary>
           <div class="recs-body">
-            ${HOTELS[s.place] ? `<p><strong>Slapen:</strong></p>` + HOTELS[s.place].map(h => `
+            ${HOTELS[s.place] ? HOTELS[s.place].map(h => `
               <div class="hotel">
-                <span class="hname">${h.name}</span>${h.booked ? `<span class="booked" title="gereserveerd">🌯</span>` : ''}${h.pick ? `<span class="pick">mijn keuze</span>` : ''}${h.score ? `<span class="score">★ ${h.score} (${h.count})</span>` : ''}
+                <span class="hname">${h.name}</span>${h.booked ? `<span class="booked" title="gereserveerd">🌯</span>` : ''}${h.score ? `<span class="score">★ ${h.score} (${h.count})</span>` : ''}
                 ${h.desc ? `<span class="desc">${h.desc}</span>` : ''}
                 ${h.room ? `<span class="room">Kamer: ${h.room}</span>` : ''}
                 ${h.distance ? `<span class="meta"><b>Ligging:</b> ${h.distance}</span>` : ''}
                 ${h.breakfast ? `<span class="meta"><b>Ontbijt:</b> ${h.breakfast}</span>` : ''}
-                ${h.why ? `<span class="why">Waarom deze: ${h.why}</span>` : ''}
-                ${(h.pick && !h.booked) ? `<span class="con" style="color:var(--henequen)">Mijn keuze omdat: ${h.pick}.</span>` : ''}
-                ${h.con ? `<span class="con">${h.booked ? 'Goed om te weten' : 'Bedenking'}: ${h.con}</span>` : ''}
+                ${(h.checkin || h.checkout) ? `<span class="meta"><b>In- en uitchecken:</b> ${h.checkin || '?'} · ${h.checkout || '?'}</span>` : ''}
+                ${h.cancel ? `<span class="meta"><b>Annuleren:</b> ${h.cancel}</span>` : ''}
+                ${h.con ? `<span class="con">Goed om te weten: ${h.con}</span>` : ''}
                 <span class="links">${[h.site ? `<a href="${h.site}" target="_blank" rel="noopener">Website</a>` : '', h.booking ? `<a href="${h.booking}" target="_blank" rel="noopener">Booking.com</a>` : '', h.maps ? `<a href="${h.maps}" target="_blank" rel="noopener">Google Maps</a>` : ''].filter(Boolean).join('<span class="sep">·</span>')}</span>
               </div>`).join('') : ''}
-            ${RESTOS[s.place] ? `<p><strong>Eten:</strong></p>` + RESTOS[s.place].map(r => `
+            ${RESTOS[s.place] ? `<p><strong>Restaurantsuggesties:</strong></p>` + RESTOS[s.place].map(r => `
               <div class="resto">
                 <span class="rname">${r.name}</span>${r.score ? `<span class="score">★ ${r.score} (${r.count})</span>` : ''}
                 ${r.maps ? `<a href="${r.maps}" target="_blank" rel="noopener">kaart</a>` : ''}
@@ -907,10 +969,9 @@ render('V2');
     const datum = (s.day.split('·')[1] || s.day).trim();
     const list = HOTELS[s.place] || [];
     const bk   = list.find(h => h.booked);
-    const pick = list.find(h => h.pick);
-    const chosen = bk || pick || null;
+    const chosen = bk || null;
     const hotel = chosen ? chosen.name : '—';
-    const tag = chosen ? (bk ? 'gereserveerd' : 'suggestie — nog te kiezen') : (s.nights > 0 ? 'nog te kiezen' : '');
+    const tag = bk ? 'gereserveerd' : '';
     return {place:s.place, kenmerk:KENMERK[s.place] || '', datum, nights:s.nights,
             drive:s.driveLabel ? s.driveLabel.split('·')[0].trim() : '—',
             hotel, tag, lat:s.lat, lng:s.lng};
