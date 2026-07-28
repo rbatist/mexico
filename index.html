@@ -181,6 +181,9 @@
   table.legs .rt-tijd{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--henequen);white-space:nowrap;width:3.6rem;vertical-align:top;}
   table.legs tr.rt-stap td{color:var(--sascab-dim);}
   table.legs tr.rt-rit td{color:var(--text-meta);padding-left:0.2rem;}
+  .minimap{height:230px;border-radius:10px;overflow:hidden;margin:0.1rem 0 0.4rem;background:rgba(242,233,216,0.05);}
+  .minicap{font-family:'JetBrains Mono',monospace;font-size:0.66rem;color:var(--text-meta);margin:0 0 0.8rem;line-height:1.5;}
+  .mini-pin{font-family:'JetBrains Mono',monospace;font-size:0.62rem;white-space:nowrap;color:#F2E9D8;background:rgba(21,43,38,0.82);padding:2px 6px;border-radius:999px;border:1px solid rgba(242,233,216,0.25);}
   details.lunch .klok{font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--henequen);margin:0 0 0.6rem;line-height:1.5;}
   details.lunch .keuze{margin:0 0 0.7rem;line-height:1.55;}
   details.lunch .keuze b{color:var(--sascab);}
@@ -282,7 +285,7 @@
 </svg>
 
 <section class="hero">
-  <span class="version">V.2.0.6</span>
+  <span class="version">V.2.0.7</span>
   <p class="eyebrow">Roadtrip · huurauto · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:00 · 16 nachten</p>
   <h1>Yucatán — <em>de expeditie</em></h1>
   <p class="lede">Zestien nachten met een huurauto, Cancún uit en weer in. Opgezet rond twee regels: minimaal twee nachten per plek tenzij één logisch is, en zoveel mogelijk plekken die jullie nog niet kennen. Zes van de tien ritten blijven onder de ±2u30; vier dagen zijn langer, waarvan één van ±5u.</p>
@@ -545,11 +548,10 @@ const COSTS = {
     items:[
       {lbl:"Uxmal — INAH + deelstaat Yucatán", amt:"±586 MXN (~€29)"},
       {lbl:"Kabah — INAH + deelstaat", amt:"±636 MXN"},
-      {lbl:"Sayil — INAH + deelstaat", amt:"±626 MXN"},
       {lbl:"Labná — INAH + deelstaat", amt:"±626 MXN"},
       {lbl:"Grutas de Loltún (met gids)", amt:"±175 MXN — nog na te kijken"}
     ],
-    note:"Let op: Yucatán heeft de hoogste tarieven van het land. Bovenop het INAH-deel rekent de deelstaat ±481 MXN per site, óók bij de drie kleine Puuc-sites. Alle drie bezoeken kost samen ±1.890 MXN per persoon — de moeite waard om vooraf te kiezen welke je echt wilt. Alles cash bij het INAH-loket; het deelstaatloket neemt meestal ook pin."
+    note:"Let op: Yucatán heeft de hoogste tarieven van het land. Bovenop het INAH-deel rekent de deelstaat ±481 MXN per site, óók bij de drie kleine Puuc-sites. Kabah en Labná samen kosten al ±1.262 MXN per persoon. Sayil is geschrapt: je rijdt er wel langs, maar stopt niet. Alles cash bij het INAH-loket; het deelstaatloket neemt meestal ook pin."
   },
   "El Cuyo": {
     items:[
@@ -616,7 +618,7 @@ const DOING = {
   },
   "Uxmal · Santa Elena": {
     items:[
-      {dag:"2 jan · Ruta Puuc", t:"Kabah, Sayil, Labná en Loltún", tijd:"3–4 uur", d:"Vanaf Campeche kom je Kabah als eerste tegen (gevel vol regengod-maskers), daarna Sayil en Labná. Loltún is een doodlopende zijtak naar het oosten en kan alleen met gids, op vaste tijden. Losse kaartjes per site. Uxmal zelf sla je vandaag bewust over — dat bewaar je voor morgenochtend vroeg."},
+      {dag:"2 jan · Ruta Puuc", t:"Kabah, Labná en Loltún", tijd:"3–4 uur", d:"Vanaf Campeche kom je Kabah als eerste tegen (gevel vol regengod-maskers), daarna Labná met zijn poortboog. Sayil en Xlapak liggen aan dezelfde weg — je rijdt eraan voorbij zonder te stoppen, want met ±626 MXN per persoon is Sayil duur voor wat in de praktijk één paleis is. Loltún kan alleen met gids, op vaste tijden. De weg loopt daar dóór naar Oxkutzcab, zodat je via Ticul terugkomt in Santa Elena: een lus, geen heen-en-terug. Losse kaartjes per site. Uxmal sla je vandaag bewust over — dat bewaar je voor morgenochtend vroeg."},
       {dag:"3 jan · Uxmal", t:"Uxmal", tijd:"2–3 uur", d:"Beter morgenochtend bij opening om 8:00 dan vanmiddag om 16:00: koeler, leger, en je vertrekt toch pas om 11:00 naar Mérida — het kost je dus geen tijd. Best bewaarde Puuc-architectuur van het schiereiland, met de ovale Piramide van de Waarzegger."}
     ]
   },
@@ -669,8 +671,6 @@ const RUINES = [
    k:"Tempel-paleis van vijf verdiepingen. Rustig — meerdere bezoekers noemen het beter dan Chichén Itzá."},
   {d:"2 jan", n:"Kabah", stop:"Campeche", via:"onderweg naar Santa Elena",
    k:"De Codz Poop: één gevel volledig bedekt met maskers van regengod Chac."},
-  {d:"2 jan", n:"Sayil", stop:"Campeche", via:"onderweg naar Santa Elena",
-   k:"Het Grote Paleis, drie verdiepingen breed uitgelegd over ±85 m, met zuilengalerijen."},
   {d:"2 jan", n:"Labná", stop:"Campeche", via:"onderweg naar Santa Elena",
    k:"De gaafst bewaarde Puuc-poortboog van het schiereiland, met een sacbé naar het paleis."},
   {d:"3 jan", n:"Uxmal", stop:"Uxmal · Santa Elena",
@@ -761,15 +761,15 @@ const ROUTE = {
       {tijd:"8:00", w:"vertrek Campeche"},
       {rit:"Campeche → Kabah", km:"150 km", d:"±2u"},
       {tijd:"10:00", w:"Kabah"},
-      {rit:"Kabah → Sayil → Labná", km:"18 km", d:"±25 min"},
-      {tijd:"", w:"Sayil en Labná"},
-      {rit:"Labná → Loltún (doodlopend)", km:"20 km", d:"±25 min"},
+      {rit:"Kabah → Labná, langs Sayil en Xlapak", km:"18 km", d:"±25 min"},
+      {tijd:"", w:"Labná"},
+      {rit:"Labná → Loltún", km:"20 km", d:"±25 min"},
       {tijd:"", w:"Grutas de Loltún · alleen met gids, op vaste tijden"},
       {rit:"Loltún → Ticul → Santa Elena", km:"40 km", d:"±45 min"},
       {tijd:"13:15", w:"Ticul · lunchstop"},
       {tijd:"15:30", w:"aankomst Santa Elena"}
     ],
-    klokNote:"Vier sites tussen 10:00 en de lunch is ambitieus: Kabah, Sayil en Labná vragen samen al ruim twee uur inclusief rijden, en Loltún duurt met gids ±1u15. Reken erop dat je moet kiezen, of dat de lunch later valt.",
+    klokNote:"De dag is een lus, geen heen-en-terug: vanaf Loltún loopt de weg door naar Oxkutzcab en via Ticul terug naar Santa Elena. Reken wel ruim: Kabah en Labná vragen samen ruim anderhalf uur inclusief rijden, en Loltún duurt met gids ±1u15.",
     total:"±230 km · ±2u45 rijden",
     stop:"Ticul", stopType:"lunchstop",
     split:"de sites liggen 8–20 km uit elkaar; Ticul ligt er middenin",
@@ -812,6 +812,24 @@ const ROUTE = {
     ]
   }
 };
+
+const MINI = {
+  "Uxmal · Santa Elena": {
+    punten:[
+      {n:"Kabah", lat:20.2488, lng:-89.6477, k:"site"},
+      {n:"Labná", lat:20.1727, lng:-89.5790, k:"site"},
+      {n:"Loltún", lat:20.2534, lng:-89.4556, k:"site"},
+      {n:"Oxkutzcab", lat:20.3083, lng:-89.4210, k:"dorp"},
+      {n:"Ticul — lunch", lat:20.3978, lng:-89.5366, k:"dorp"},
+      {n:"Santa Elena — slapen", lat:20.3278, lng:-89.6441, k:"slaap"},
+      {n:"Uxmal — 3 jan", lat:20.3610, lng:-89.7708, k:"morgen"}
+    ],
+    lus:[[20.2488,-89.6477],[20.1727,-89.5790],[20.2534,-89.4556],[20.3083,-89.4210],[20.3978,-89.5366],[20.3278,-89.6441]],
+    morgen:[[20.3278,-89.6441],[20.3610,-89.7708]],
+    bijschrift:"De lus van 2 januari, met de klok mee vanaf Kabah. Gestippeld: Uxmal de ochtend erna, op weg naar Mérida."
+  }
+};
+
 
 
 
@@ -903,6 +921,7 @@ function render(key){
               <tr class="tot"><td class="rt-tijd"></td><td>Totaal ${(ROUTE[s.place].steps.find(x => x.rit) || {rit:''}).rit.split('→')[0].trim()} → ${s.place}</td><td class="rt">${ROUTE[s.place].total}</td></tr>
             </table>
             ${ROUTE[s.place].klokNote ? `<p class="klok">${ROUTE[s.place].klokNote}</p>` : ''}
+            ${MINI[s.place] ? `<div class="minimap" data-mini="${s.place}"></div><p class="minicap">${MINI[s.place].bijschrift}</p>` : ''}
             ${ROUTE[s.place].rest ? `<p class="stopkop">${ROUTE[s.place].restKop || (ROUTE[s.place].stopType + ' — ' + ROUTE[s.place].stop)}</p>`
               + ROUTE[s.place].rest.map(r => `<div class="lr"><span class="ln">${r.n}</span><span class="ls">★ ${r.s} (${r.c})</span><a href="${r.m}" target="_blank" rel="noopener">kaart</a><span class="ld">${r.d}</span></div>`).join('') : ''}
           </div>
@@ -1021,6 +1040,42 @@ render('V2');
     + `<td class="pl">${r.n}${r.opt ? `<span class="tag">optioneel</span>` : ''}</td>`
     + `<td class="st">${r.stop}${r.via ? `<span class="tag">${r.via}</span>` : ''}</td>`
     + `<td class="km">${r.k}</td></tr>`).join('');
+})();
+
+
+// ---- minikaart per routeblok, pas opbouwen bij openen ----
+(function(){
+  document.querySelectorAll('.minimap').forEach(el => {
+    const cfg = MINI[el.dataset.mini];
+    if (!cfg) return;
+    const details = el.closest('details');
+    if (typeof L === 'undefined') {
+      el.style.display = 'none';
+      const cap = el.nextElementSibling;
+      if (cap && cap.classList.contains('minicap')) cap.textContent = 'Kaartje niet beschikbaar zonder internetverbinding.';
+      return;
+    }
+    let gemaakt = false;
+    const bouw = () => {
+      if (gemaakt || !details.open) return;
+      gemaakt = true;
+      try {
+        const m = L.map(el, {scrollWheelZoom:false, zoomControl:false, attributionControl:false});
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {subdomains:'abcd', maxZoom:17}).addTo(m);
+        L.polyline(cfg.lus, {color:'#E8B04B', weight:3, opacity:0.9}).addTo(m);
+        if (cfg.morgen) L.polyline(cfg.morgen, {color:'#8FB8A8', weight:2, opacity:0.7, dashArray:'4,6'}).addTo(m);
+        cfg.punten.forEach(p => {
+          L.circleMarker([p.lat, p.lng], {radius:5, color:'#F2E9D8', weight:1.5,
+            fillColor: p.k === 'site' ? '#E8B04B' : (p.k === 'slaap' ? '#F2E9D8' : '#8FB8A8'), fillOpacity:1}).addTo(m)
+            .bindTooltip(`<span class="mini-pin">${p.n}</span>`, {permanent:true, direction:'right', offset:[6,0], className:'mini-tt'});
+        });
+        m.fitBounds(L.latLngBounds(cfg.punten.map(p => [p.lat, p.lng])), {padding:[34,34]});
+        setTimeout(() => m.invalidateSize(), 60);
+      } catch (e) { el.style.display = 'none'; }
+    };
+    details.addEventListener('toggle', bouw);
+    if (details.open) bouw();
+  });
 })();
 
 </script>
