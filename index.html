@@ -215,7 +215,9 @@
   table.sum td.ht .tag{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text-meta);display:block;}
   table.sum td.ht .tag.res{color:var(--henequen);}
   table.sum.ruins{min-width:660px;}
-  table.sum td.pl .tag,table.sum td.st .tag{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text-meta);display:block;font-weight:400;}
+  table.sum td.pr{font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+  table.sum td.pr .tag{display:block;font-size:0.6rem;color:var(--text-meta);letter-spacing:0.04em;}
+  table.sum td.pl .tag,table.sum td.st .tag,table.sum td.pr .tag{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text-meta);display:block;font-weight:400;}
   table.sum td.st{font-size:0.78rem;color:var(--text-meta);}
   .sum-note{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-meta);padding:0.7rem 0.2rem 0;line-height:1.6;}
   .credit{margin-top:2.5rem;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-meta);letter-spacing:0.04em;}
@@ -284,7 +286,7 @@
 </svg>
 
 <section class="hero">
-  <span class="version">V.2.1.3</span>
+  <span class="version">V.2.1.4</span>
   <p class="eyebrow">Roadtrip · huurauto · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:00 · 16 nachten</p>
   <h1>Yucatán — <em>de expeditie</em></h1>
   <p class="lede">Zestien nachten met een huurauto, Cancún uit en weer in. Opgezet rond twee regels: minimaal twee nachten per plek tenzij één logisch is, en zoveel mogelijk plekken die jullie nog niet kennen. Zes van de tien ritten blijven onder de ±2u30; vier dagen zijn langer, waarvan één van ±5u.</p>
@@ -313,7 +315,7 @@
   <h3>De reis in één oogopslag</h3>
   <div class="sum-scroll">
     <table class="sum">
-      <thead><tr><th>Plaats</th><th>Kenmerk</th><th>Datums</th><th>Nachten</th><th>Rijtijd erheen</th><th>Hotel</th><th>Nu ter plekke</th></tr></thead>
+      <thead><tr><th>Plaats</th><th>Kenmerk</th><th>Datums</th><th>Nachten</th><th>Rijtijd erheen</th><th>Hotel</th><th>Prijs</th><th>Nu ter plekke</th></tr></thead>
       <tbody id="sumBody"></tbody>
     </table>
   </div>
@@ -407,9 +409,13 @@ const variants = {
 const B = q => "https://www.booking.com/searchresults.html?ss=" + encodeURIComponent(q);
 const M = pid => "https://www.google.com/maps/place/?q=place_id:" + pid;
 const KOERS = 19.9;
-const EU = txt => String(txt).replace(/(\d[\d.]*)(\s*[\u2013-]\s*(\d[\d.]*))?(\s*MXN)/g, (heel, a, _r, b) => {
+const KOERS_USD = 1.15;
+const EURNUM = txt => { const m = /(\d[\d.]*)\s*(MXN|USD)/.exec(String(txt || '')); if (!m) return 0;
+  return parseFloat(m[1].replace(/\./g, '')) / (m[2] === 'USD' ? KOERS_USD : KOERS); };
+const EU = txt => String(txt).replace(/(\d[\d.]*)(\s*[\u2013-]\s*(\d[\d.]*))?(\s*(MXN|USD))/g, (heel, a, _r, b, _v, val) => {
+  const k = val === 'USD' ? KOERS_USD : KOERS;
   const num = s => parseFloat(String(s).replace(/\./g, ''));
-  const eur = n => { const v = n / KOERS; let s = v < 10 ? v.toFixed(1).replace('.', ',') : String(Math.round(v)); return s.replace(/,0$/, ''); };
+  const eur = n => { const v = n / k; let s = v < 10 ? v.toFixed(1).replace('.', ',') : String(Math.round(v)); return s.replace(/,0$/, ''); };
   const x = num(a); if (!isFinite(x)) return heel;
   const lo = eur(x), hi = b ? eur(num(b)) : null;
   return heel + ' (~\u20ac' + (hi && hi !== lo ? lo + '\u2013' + hi : lo) + ')';
@@ -422,55 +428,55 @@ const MU = (u, naam) => {
 
 const HOTELS = {
   "Puerto Morelos": [
-    {name:"Hotel Amar Inn", score:"4,7", count:391, booked:true,
+    {name:"Hotel Amar Inn", prijs:"147 USD", betaalKort:"ter plekke", betaling:"Volledig ter plekke af te rekenen.", score:"4,7", count:391, booked:true,
      desc:"Kleinschalige B&B pal aan het strand · veel geroemd ontbijt, hartelijke ontvangst.",
      breakfast:"Inclusief", checkin:"15:00–23:30", checkout:"6:30–12:00", cancel:"kosteloos t/m 20 dec",
      site:"https://www.amarinn.mx/", booking:B("Hotel Amar Inn Puerto Morelos"), maps:M("ChIJi2Rma2iITo8R9Be4iMjdYCo")}
   ],
   "Bacalar": [
-    {name:"Villas Ecotucan", score:"4,5", count:462, booked:true,
+    {name:"Villas Ecotucan", prijs:"2.159 MXN", betaalKort:"ter plekke", betaling:"Ter plekke af te rekenen; vooruitbetalen via Booking kan ook.", score:"4,5", count:462, booked:true,
      desc:"Jungle-ecolodge áán de lagune met gratis kajaks · rustig en groen.",
      breakfast:"Inclusief", checkin:"15:00–21:00", checkout:"tot 11:00", cancel:"kosteloos t/m 19 dec",
      con:"Ligt ±8 km buiten het dorp, met de laatste ±1 km over een onverlichte, éénbaans zandweg met kuilen. Rij de afslag overdag één keer en zet er een pin op; wie \'s avonds in het dorp wil eten (Nixtamal is open op woensdag), rijdt hoe dan ook in het donker terug. Het hotel kookt zelf — de makkelijkste avondoptie.",
      site:"https://ecotucan.com/en/", booking:B("Villas Ecotucan Bacalar"), maps:M("ChIJM95ZAkGzW48ROfAvIrYaxCY")}
   ],
   "Xpujil / Calakmul": [
-    {name:"Casa Ka\'an Calakmul", score:"4,7", count:380, booked:true, room:"Casa Aguacate",
+    {name:"Casa Ka\'an Calakmul", prijs:"5.487 MXN", betaalKort:"helft vooraf", betaling:"Helft aanbetaald; de andere helft (2.744 MXN) bij vertrek.", score:"4,7", count:380, booked:true, room:"Casa Aguacate",
      desc:"Ruime casita\'s aan het bos, sterrenhemel en goed restaurant.",
      breakfast:"Inclusief, 6:15–9:00", checkin:"14:00–21:00", checkout:"tot 11:00", cancel:"niet mogelijk — definitief",
      con:"Het ontbijt begint om 6:15, en voor Calakmul wil je bij zonsopgang weg zijn — vraag het vroeg aan of laat het inpakken. Verder is er in de omgeving weinig te eten, dus reken op avondeten ter plekke.",
      site:"https://www.casakaan.com/en", booking:B("Casa Kaan Calakmul"), maps:M("ChIJ7eeRHn3hWI8RYEWKMW-ODIM")}
   ],
   "Palenque": [
-    {name:"Cabañas Kin Balam", score:"4,4", count:1334, booked:true,
+    {name:"Cabañas Kin Balam", prijs:"4.386 MXN", betaalKort:"1 nacht vooraf", betaling:"Eén nacht vooruit te betalen (1.462 MXN), de rest ter plekke.", score:"4,4", count:1334, booked:true,
      desc:"Jungle-cabañas pal naast de parkingang · ±4,5 km tot de ruïnes, ideaal voor een vroege start.",
      breakfast:"Geen ontbijt", checkin:"vanaf 15:00", checkout:"tot 12:00", cancel:"kosteloos t/m 26 dec",
      con:"Buiten het stadje, dus voor eten ben je aangewezen op het eigen restaurant of El Panchán vlakbij (Don Mucho\'s). Basic en met hostelvibe — de ligging is de reden dat je hier zit.",
      site:"https://www.kin-balam.com/en", booking:B("Cabanas Kin Balam Palenque"), maps:M("ChIJp-6gQSBF8oURbc1sFnaQ76U")}
   ],
   "Campeche": [
-    {name:"Hotel Boutique Casa Lanz XVII", score:"4,8", count:86, booked:true,
+    {name:"Hotel Boutique Casa Lanz XVII", prijs:"255 USD", betaalKort:"betaald", betaling:"Volledig betaald.", score:"4,8", count:86, booked:true,
      desc:"400 jaar oud pand met patio, een half blok van het hoofdplein · gratis fietsen, malecón op loopafstand voor oud & nieuw.",
      breakfast:"Geen ontbijt", checkin:"15:00–23:00", checkout:"tot 12:00", cancel:"niet mogelijk — definitief",
      con:"Parkeren aan de weg, geen eigen plek.",
      booking:B("Casa Lanz XVII Campeche"), maps:M("ChIJtas-iaoz-IURPzAgzQmZAlk")}
   ],
   "Uxmal · Santa Elena": [
-    {name:"The Pickled Onion", score:"4,5", count:498, booked:true,
+    {name:"The Pickled Onion", prijs:"1.686 MXN", betaalKort:"ter plekke", betaling:"Volledig ter plekke af te rekenen.", score:"4,5", count:498, booked:true,
      desc:"Gemoedelijke B&B met casita\'s en zwembad, eigen keuken.",
      breakfast:"Inclusief", checkin:"14:00–20:00", checkout:"7:00–11:30", cancel:"kosteloos t/m 27 dec",
      con:"De keuken sluit rond 19:00 — kom je later aan, dan is er in Santa Elena weinig alternatief. Inchecken kan tot 20:00.",
      booking:B("The Pickled Onion Santa Elena"), maps:M("ChIJB9MO6re0V48RGaQk5b6D204")}
   ],
   "Mérida": [
-    {name:"Kuká y Naranjo", score:"4,6–4,8", count:359, booked:true,
+    {name:"Kuká y Naranjo", prijs:"4.068 MXN", betaalKort:"ter plekke", betaling:"Ter plekke af te rekenen; vooruitbetalen via Booking kan ook.", score:"4,6–4,8", count:359, booked:true,
      desc:"Klein boutique-B&B, kunstzinnig ingericht met patio en plunge pool · één van drie zusterhuizen naast elkaar.",
      breakfast:"Inclusief", checkin:"vanaf 15:00", checkout:"tot 12:00", cancel:"kosteloos t/m 28 dec",
      con:"10–15 min lopen naar het centrum.",
      booking:B("Kuka y Naranjo Merida"), maps:M("ChIJlwul5NdzVo8RVvxo48Ye3So")}
   ],
   "El Cuyo": [
-    {name:"Casa Mía El Cuyo Eco Beach", score:"4,8", count:226, booked:true,
+    {name:"Casa Mía El Cuyo Eco Beach", prijs:"3.297 MXN", betaalKort:"afschrijving 20 dec", betaling:"Wordt op 20 december automatisch afgeschreven.", score:"4,8", count:226, booked:true,
      desc:"Eco-boutique aan het rustige uiteinde van het dorp, mooie tuinen · ±40 m van het strand.",
      breakfast:"Inclusief", checkin:"nog navragen", checkout:"tot 12:00", cancel:"kosteloos t/m 21 dec",
      con:"Aan de rand van het dorp, dus voor restaurants een klein stukje lopen.",
@@ -962,6 +968,7 @@ function render(key){
                 ${h.breakfast ? `<span class="meta"><b>Ontbijt:</b> ${h.breakfast}</span>` : ''}
                 ${(h.checkin || h.checkout) ? `<span class="meta"><b>In- en uitchecken:</b> ${h.checkin || '?'} · ${h.checkout || '?'}</span>` : ''}
                 ${h.cancel ? `<span class="meta"><b>Annuleren:</b> ${h.cancel}</span>` : ''}
+                ${h.prijs ? `<span class="meta"><b>Prijs:</b> ${EU(h.prijs)} — ${h.betaling}</span>` : ''}
                 ${h.con ? `<span class="con">Goed om te weten: ${h.con}</span>` : ''}
                 <span class="links">${[h.site ? `<a href="${h.site}" target="_blank" rel="noopener">Website</a>` : '', h.booking ? `<a href="${h.booking}" target="_blank" rel="noopener">Booking.com</a>` : '', h.maps ? `<a href="${MU(h.maps, h.name)}" target="_blank" rel="noopener">Google Maps</a>` : ''].filter(Boolean).join('<span class="sep">·</span>')}</span>
               </div>`).join('') : ''}
@@ -1015,6 +1022,8 @@ render('V2');
     const hotel = chosen ? chosen.name : '—';
     const tag = bk ? 'gereserveerd' : '';
     return {place:s.place, kenmerk:KENMERK[s.place] || '', datum, nights:s.nights,
+            prijs:chosen && chosen.prijs ? chosen.prijs : '', betaalKort:chosen ? (chosen.betaalKort || '') : '',
+            eur:EURNUM(chosen && chosen.prijs),
             drive:s.driveLabel ? s.driveLabel.split('·')[0].trim() : '—',
             hotel, tag, lat:s.lat, lng:s.lng};
   });
@@ -1025,8 +1034,16 @@ render('V2');
     + `<td class="nt">${r.nights > 0 ? r.nights : '—'}</td>`
     + `<td class="rt">${r.drive}</td>`
     + `<td class="ht">${r.hotel}${r.tag ? `<span class="tag${r.tag === 'gereserveerd' ? ' res' : ''}">${r.tag}</span>` : ''}</td>`
+    + `<td class="pr">${r.eur ? '€' + Math.round(r.eur) : '—'}${r.betaalKort ? `<span class="tag">${r.betaalKort}</span>` : ''}</td>`
     + `<td class="now" id="w${i}">…</td></tr>`
-  ).join('');
+  ).join('') + (() => {
+    const tot = rows.reduce((a,r) => a + r.eur, 0);
+    const vooraf = rows.filter(r => /betaald|afschrijving/.test(r.betaalKort)).reduce((a,r) => a + r.eur, 0)
+      + (EURNUM('2.744 MXN')) + (EURNUM('1.462 MXN'));
+    const plek = tot - vooraf;
+    return `<tr class="tot"><td>Totaal · 8 hotels, 16 nachten</td><td></td><td></td><td>16</td><td></td><td></td>`
+      + `<td class="pr">€${Math.round(tot)}<span class="tag">€${Math.round(vooraf)} vooraf · €${Math.round(plek)} ter plekke</span></td><td></td></tr>`;
+  })();
 
   const codes = {0:'helder',1:'overwegend helder',2:'half bewolkt',3:'bewolkt',45:'mist',48:'mist',
     51:'motregen',53:'motregen',55:'motregen',61:'lichte regen',63:'regen',65:'zware regen',
