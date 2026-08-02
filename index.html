@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark">
-<title>Yucatán — 22 dec t/m 7 jan · de expeditie</title>
+<title>Yucatán — 22 dec t/m 7 jan · expeditie burrito</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -310,9 +310,9 @@
 </svg>
 
 <section class="hero">
-  <span class="version">V.2.1.7</span>
+  <span class="version">V.2.1.8</span>
   <p class="eyebrow">Roadtrip · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:05 · 16 nachten</p>
-  <h1>Yucatán — <em>de expeditie</em></h1>
+  <h1>Yucatán — <em>expeditie burrito</em></h1>
   <p class="variant-intro" id="variantIntro"></p>
   <div class="stat-strip" id="statStrip"></div>
   <p class="facts">4 deelstaten<svg class="fact-ico" aria-hidden="true"><use href="#icon-staat"/></svg> · 2 tijdzones<svg class="fact-ico" aria-hidden="true"><use href="#icon-klok"/></svg> · 14 ruïnes<svg class="fact-ico" aria-hidden="true"><use href="#icon-ruine"/></svg> · &gt;100 taco's<svg class="fact-ico" aria-hidden="true"><use href="#icon-taco"/></svg></p>
@@ -340,7 +340,7 @@
   <h3>De reis in één oogopslag</h3>
   <div class="sum-scroll">
     <table class="sum">
-      <thead><tr><th>Plaats</th><th>Actueel weerbericht</th><th>Kenmerk</th><th>Datums</th><th>Nachten</th><th>Rijtijd erheen</th><th>Hotel</th><th>Prijs</th></tr></thead>
+      <thead><tr><th>Plaats</th><th>Kenmerk</th><th>Datums</th><th>Actueel weerbericht</th><th>Nachten</th><th>Rijtijd erheen</th><th>Hotel</th><th>Prijs</th></tr></thead>
       <tbody id="sumBody"></tbody>
     </table>
   </div>
@@ -1055,9 +1055,9 @@ render('V2');
   });
   tbody.innerHTML = rows.map((r,i) =>
     `<tr><td class="pl">${r.place}</td>`
-    + `<td class="now" id="w${i}">…</td>`
     + `<td class="km">${r.kenmerk}</td>`
     + `<td class="dt">${r.datum}</td>`
+    + `<td class="now" id="w${i}">…</td>`
     + `<td class="nt">${r.nights > 0 ? r.nights : '—'}</td>`
     + `<td class="rt">${r.drive}</td>`
     + `<td class="ht">${r.hotel}${r.tag ? `<span class="tag${r.tag === 'gereserveerd' ? ' res' : ''}">${r.tag}</span>` : ''}</td>`
