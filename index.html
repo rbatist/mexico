@@ -284,7 +284,7 @@
 </svg>
 
 <section class="hero">
-  <span class="version">V.2.1.2</span>
+  <span class="version">V.2.1.3</span>
   <p class="eyebrow">Roadtrip · huurauto · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:00 · 16 nachten</p>
   <h1>Yucatán — <em>de expeditie</em></h1>
   <p class="lede">Zestien nachten met een huurauto, Cancún uit en weer in. Opgezet rond twee regels: minimaal twee nachten per plek tenzij één logisch is, en zoveel mogelijk plekken die jullie nog niet kennen. Zes van de tien ritten blijven onder de ±2u30; vier dagen zijn langer, waarvan één van ±5u.</p>
@@ -350,7 +350,7 @@
 const S = {
   pmStart:{day:"Dag 1 · di 22 t/m 23 dec", place:"Puerto Morelos", nights:1, cat:"transit", drive:0.5, driveLabel:"±30 min · 25 km",
     icon:"reef", grad:"linear-gradient(135deg, var(--cenote-2), var(--maya-dim))",
-    text:"Aankomst om 15:00, meteen door naar dit rustige vissersdorp — een fijne eerste avond aan zee.",
+    text:"Aankomst om 15:00, huurauto ophalen en door naar dit rustige vissersdorp — een fijne eerste avond aan zee.",
     lat:20.8478084, lng:-86.8755342},
   vertrekCuyo:{day:"Vertrek · do 7 jan", place:"Cancún Airport", nights:0, note:"vlucht naar Amsterdam om 17.05 uur", cat:"transit", drive:2.75, driveLabel:"±2u45 · 169 km",
     icon:"transit", grad:"linear-gradient(135deg, var(--cenote-2), var(--cenote))",
@@ -701,6 +701,17 @@ const RUINES = [
 
 // ---- onderweg: etappes, stop en geadviseerde tijden ----
 const ROUTE = {
+  "Puerto Morelos": {
+    steps:[
+      {tijd:"15:00", w:"landing Cancún · immigratie en bagage, ±1 uur"},
+      {tijd:"16:00", w:"shuttle naar het Alamo-kantoor, papieren en auto nakijken"},
+      {tijd:"17:00", w:"vertrek met de Jeep Renegade"},
+      {rit:"Cancún Airport → Puerto Morelos", km:"25 km", d:"±30 min"},
+      {tijd:"17:30", w:"aankomst Puerto Morelos"}
+    ],
+    klokNote:"Alamo zit buiten het vliegveld; de shuttle vertrekt bij de aankomsthal. De huur is vooruitbetaald — extra verzekeringen zijn niet nodig. Maak bij het ophalen foto\u0027s en een video rondom de auto, inclusief ruit, banden en bumpers.",
+    total:"25 km · ±30 min"
+  },
   "Bacalar": {
     steps:[
       {tijd:"10:30", w:"vertrek Puerto Morelos"},
@@ -829,9 +840,12 @@ const ROUTE = {
       {rit:"El Cuyo → Leona Vicario", km:"±130 km", d:"±2u"},
       {tijd:"12:35", w:"Leona Vicario · lunchstop tot ±13:25 — de klok gaat hier een uur vooruit"},
       {rit:"Leona Vicario → Cancún Airport", km:"±40 km", d:"±40 min"},
-      {tijd:"14:05", w:"aankomst vliegveld · vlucht 17:05"}
+      {tijd:"14:05", w:"tanken en de Renegade inleveren bij Alamo"},
+      {tijd:"14:45", w:"shuttle naar de terminal"},
+      {tijd:"15:05", w:"inchecken · vlucht 17:05"}
     ],
     total:"169 km · ±2u45",
+    klokNote:"Vol inleveren: de laatste pompen liggen bij Leona Vicario en aan de 180 vlak voor het vliegveld. Maak ook bij inleveren foto\u0027s van de auto, en vraag om een schriftelijke bevestiging dat er geen schade is.",
     stop:"Leona Vicario", stopType:"lunchstop",
     split:"±130 km (±2u) ernaartoe, ±40 km (±40 min) verder",
     rest:[
