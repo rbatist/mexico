@@ -186,6 +186,8 @@
   table.legs tr.rt-rit td{color:var(--text-meta);padding-left:0.2rem;}
   .doing-body .dd a{color:var(--maya);text-decoration:none;border-bottom:1px solid rgba(232,176,75,0.4);white-space:nowrap;}
   .doing-body .dd a:hover{border-bottom-color:var(--maya);}
+  .uren{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text-meta);margin-right:0.45rem;white-space:nowrap;}
+  .maal{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--maya);border:1px solid rgba(232,176,75,0.35);border-radius:999px;padding:1px 6px;margin:0 0.45rem;white-space:nowrap;vertical-align:0.05em;}
   details.lunch .klok{font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--henequen);margin:0 0 0.6rem;line-height:1.5;}
   details.lunch .keuze{margin:0 0 0.7rem;line-height:1.55;}
   details.lunch .keuze b{color:var(--sascab);}
@@ -310,7 +312,7 @@
 </svg>
 
 <section class="hero">
-  <span class="version">V.2.1.9</span>
+  <span class="version">V.2.2.0</span>
   <p class="eyebrow">Roadtrip · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:05 · 16 nachten</p>
   <h1>Yucatán — <em>expeditie burrito</em></h1>
   <p class="variant-intro" id="variantIntro"></p>
@@ -456,28 +458,27 @@ const HOTELS = {
   "Puerto Morelos": [
     {name:"Hotel Amar Inn", prijs:"147 USD", betaalKort:"ter plekke", betaling:"Volledig ter plekke af te rekenen.", score:"4,7", count:391, booked:true,
      desc:"Kleinschalige B&B pal aan het strand · veel geroemd ontbijt, hartelijke ontvangst.",
-     breakfast:"Inclusief", checkin:"15:00–23:30", checkout:"6:30–12:00", cancel:"kosteloos t/m 20 dec",
+     breakfast:"Inclusief — vers gebak en seizoensfruit, in recensies het hoogtepunt", checkin:"15:00–23:30", checkout:"6:30–12:00", cancel:"kosteloos t/m 20 dec",
      site:"https://www.amarinn.mx/", booking:B("Hotel Amar Inn Puerto Morelos"), maps:M("ChIJi2Rma2iITo8R9Be4iMjdYCo")}
   ],
   "Bacalar": [
     {name:"Villas Ecotucan", prijs:"2.159 MXN", betaalKort:"ter plekke", betaling:"Ter plekke af te rekenen; vooruitbetalen via Booking kan ook.", score:"4,5", count:462, booked:true,
      desc:"Jungle-ecolodge áán de lagune met gratis kajaks · rustig en groen.",
-     breakfast:"Inclusief", checkin:"15:00–21:00", checkout:"tot 11:00", cancel:"kosteloos t/m 19 dec",
+     breakfast:"Inclusief — goed, maar de bediening is traag", checkin:"15:00–21:00", checkout:"tot 11:00", cancel:"kosteloos t/m 19 dec",
      con:"Ligt ±8 km buiten het dorp, met de laatste ±1 km over een onverlichte, éénbaans zandweg met kuilen. Rij de afslag overdag één keer en zet er een pin op; wie \'s avonds in het dorp wil eten (Nixtamal is open op woensdag), rijdt hoe dan ook in het donker terug. Het hotel kookt zelf — de makkelijkste avondoptie.",
      site:"https://ecotucan.com/en/", booking:B("Villas Ecotucan Bacalar"), maps:M("ChIJM95ZAkGzW48ROfAvIrYaxCY")}
   ],
   "Xpujil / Calakmul": [
     {name:"Casa Ka\'an Calakmul", prijs:"5.487 MXN", betaalKort:"helft vooraf", betaling:"Helft aanbetaald; de andere helft (2.744 MXN) bij vertrek.", score:"4,7", count:380, booked:true, room:"Casa Aguacate",
      desc:"Ruime casita\'s aan het bos, sterrenhemel en goed restaurant.",
-     breakfast:"Inclusief, 6:15–9:00", checkin:"14:00–21:00", checkout:"tot 11:00", cancel:"niet mogelijk — definitief",
-     con:"Het ontbijt begint om 6:15, en voor Calakmul wil je bij zonsopgang weg zijn — vraag het vroeg aan of laat het inpakken. Verder is er in de omgeving weinig te eten, dus reken op avondeten ter plekke.",
+     breakfast:"Inclusief, 6:15–9:00 — bewust vroeg voor Calakmul", checkin:"14:00–21:00", checkout:"tot 11:00", cancel:"niet mogelijk — definitief",
+     con:"Bestel de lunch voor Calakmul een dag vooruit om mee te nemen; onderweg is er niets.",
      site:"https://www.casakaan.com/en", booking:B("Casa Kaan Calakmul"), maps:M("ChIJ7eeRHn3hWI8RYEWKMW-ODIM")}
   ],
   "Palenque": [
     {name:"Cabañas Kin Balam", prijs:"4.386 MXN", betaalKort:"1 nacht vooraf", betaling:"Eén nacht vooruit te betalen (1.462 MXN), de rest ter plekke.", score:"4,4", count:1334, booked:true,
      desc:"Jungle-cabañas pal naast de parkingang · ±4,5 km tot de ruïnes, ideaal voor een vroege start.",
      breakfast:"Geen ontbijt", checkin:"vanaf 15:00", checkout:"tot 12:00", cancel:"kosteloos t/m 26 dec",
-     con:"Buiten het stadje, dus voor eten ben je aangewezen op het eigen restaurant of El Panchán vlakbij (Don Mucho\'s). Basic en met hostelvibe — de ligging is de reden dat je hier zit.",
      site:"https://www.kin-balam.com/en", booking:B("Cabanas Kin Balam Palenque"), maps:M("ChIJp-6gQSBF8oURbc1sFnaQ76U")}
   ],
   "Campeche": [
@@ -490,21 +491,21 @@ const HOTELS = {
   "Uxmal · Santa Elena": [
     {name:"The Pickled Onion", prijs:"1.686 MXN", betaalKort:"ter plekke", betaling:"Volledig ter plekke af te rekenen.", score:"4,5", count:498, booked:true,
      desc:"Gemoedelijke B&B met casita\'s en zwembad, eigen keuken.",
-     breakfast:"Inclusief", checkin:"14:00–20:00", checkout:"7:00–11:30", cancel:"kosteloos t/m 27 dec",
-     con:"De keuken sluit rond 19:00 — kom je later aan, dan is er in Santa Elena weinig alternatief. Inchecken kan tot 20:00.",
+     breakfast:"Inclusief — vers fruit, yoghurt, eieren en sap", checkin:"14:00–20:00", checkout:"7:00–11:30", cancel:"kosteloos t/m 27 dec",
+     con:"De keuken sluit rond 19:00.",
      booking:B("The Pickled Onion Santa Elena"), maps:M("ChIJB9MO6re0V48RGaQk5b6D204")}
   ],
   "Mérida": [
     {name:"Kuká y Naranjo", prijs:"4.068 MXN", betaalKort:"ter plekke", betaling:"Ter plekke af te rekenen; vooruitbetalen via Booking kan ook.", score:"4,6–4,8", count:359, booked:true,
      desc:"Klein boutique-B&B, kunstzinnig ingericht met patio en plunge pool · één van drie zusterhuizen naast elkaar.",
-     breakfast:"Inclusief", checkin:"vanaf 15:00", checkout:"tot 12:00", cancel:"kosteloos t/m 28 dec",
+     breakfast:"Inclusief — eieren à la minute, maar koffie vóór het ontbijt is lastig", checkin:"vanaf 15:00", checkout:"tot 12:00", cancel:"kosteloos t/m 28 dec",
      con:"10–15 min lopen naar het centrum.",
      booking:B("Kuka y Naranjo Merida"), maps:M("ChIJlwul5NdzVo8RVvxo48Ye3So")}
   ],
   "El Cuyo": [
     {name:"Casa Mía El Cuyo Eco Beach", prijs:"3.297 MXN", betaalKort:"afschrijving 20 dec", betaling:"Wordt op 20 december automatisch afgeschreven.", score:"4,8", count:226, booked:true,
      desc:"Eco-boutique aan het rustige uiteinde van het dorp, mooie tuinen · ±40 m van het strand.",
-     breakfast:"Inclusief", checkin:"nog navragen", checkout:"tot 12:00", cancel:"kosteloos t/m 21 dec",
+     breakfast:"Inclusief — bereid door hun eigen kok", checkin:"nog navragen", checkout:"tot 12:00", cancel:"kosteloos t/m 21 dec",
      con:"Aan de rand van het dorp, dus voor restaurants een klein stukje lopen.",
      booking:B("Casa Mia El Cuyo"), maps:M("ChIJG4j5AyARUo8RwUA9KtocVIg")}
   ]
@@ -514,54 +515,53 @@ const HOTELS = {
 // ---- restaurants met Google-score + Maps-link (geverifieerd) ----
 const RESTOS = {
   "Puerto Morelos": [
-    {name:"Muelle Once", score:"4,8", count:1953, desc:"zeevruchten pal aan het water · 8:00–22:00 dagelijks, ook ontbijt", maps:"https://www.google.com/maps/place/?q=place_id:ChIJQ-LdRDeJTo8RGw91ehOBqzc"},
-    {name:"Como Quieras Quiero", score:"4,8", count:218, desc:"vis én vlees, ±300 m vanaf Amar Inn · 15:00–23:00 dagelijks", maps:"https://www.google.com/maps/place/?q=place_id:ChIJH8LU3N-JTo8RDsP4SFSKhJQ"},
-    {name:"El Pesquero", score:"4,6", count:1918, desc:"lokale visboer, zeevruchtentoren · 13:00–20:30 dagelijks, scherpe prijzen", maps:"https://www.google.com/maps/place/?q=place_id:ChIJXYoEUEKITo8RzRNjwfWCP6U"},
-    {name:"El Merkadito", score:"4,5", count:3924, desc:"Caribisch aan het strand · 11:00–22:00 dagelijks", maps:"https://www.google.com/maps/place/?q=place_id:ChIJC9tmWEKITo8RaMZ6qv-7rGk"}
+    {name:"Muelle Once", maal:"ontbijt · lunch · diner", open:"8:00–22:00", score:"4,8", count:1953, desc:"zeevruchten, pal aan het water · aan de dure kant", maps:"https://www.google.com/maps/place/?q=place_id:ChIJQ-LdRDeJTo8RGw91ehOBqzc"},
+    {name:"Como Quieras Quiero", maal:"diner", open:"vanaf 15:00", score:"4,8", count:218, desc:"vis én vlees · ±300 m vanaf Amar Inn, service in vrijwel elke recensie geroemd", maps:"https://www.google.com/maps/place/?q=place_id:ChIJH8LU3N-JTo8RDsP4SFSKhJQ"},
+    {name:"El Pesquero", maal:"lunch · diner", open:"13:00–20:30", score:"4,6", count:1918, desc:"lokale visboer, zeevruchtentoren · scherpste prijzen van het dorp", maps:"https://www.google.com/maps/place/?q=place_id:ChIJXYoEUEKITo8RzRNjwfWCP6U"},
+    {name:"El Merkadito", maal:"lunch · diner", open:"11:00–22:00", score:"4,5", count:3924, desc:"Caribische keuken aan het strand · smaken vielen sommige gasten tegen", maps:"https://www.google.com/maps/place/?q=place_id:ChIJC9tmWEKITo8RaMZ6qv-7rGk"}
   ],
   "Campeche": [
-    {name:"La María", score:"4,7", count:1392, desc:"verfijnd en klein, beste ceviche · di dicht, reserveren", maps:"https://www.google.com/maps/place/?q=place_id:ChIJWWU0B_oz-IUR2XwWdHiemyo"},
-    {name:"Patroni\'s Bar", score:"4,7", count:3168, desc:"pizza en steaks aan Calle 59, vanaf 17:00 · reserveer voor 31 dec", maps:"https://www.google.com/maps/place/?q=place_id:ChIJgYVGBfEz-IURU6zSDJHffA0"},
-    {name:"Santo Taquito", score:"4,7", count:617, desc:"verse tortilla\'s · di dicht", maps:"https://www.google.com/maps/place/?q=place_id:ChIJBYDOW1Yz-IURdSKgvmrKZ54"},
-    {name:"Gelateria Tigela", score:"4,7", count:407, desc:"Italiaans gelato, half blok van de malecón · 12:30–22:30, wo dicht", maps:"https://www.google.com/maps/place/?q=place_id:ChIJZeYtavoz-IURCAFHteVB-6w"},
-    {name:"Luan", score:"4,5", count:759, desc:"aan Calle 59 net als het hotel · 8:00–22:30 dagelijks, vers gebak", maps:"https://www.google.com/maps/place/?q=place_id:ChIJX3GMOPAz-IUR6HwvX61BGyc"},
-    {name:"Aduana 59", score:"4,5", count:1986, desc:"8:00–24:00 dagelijks — ook op nieuwjaarsdag open", maps:"https://www.google.com/maps/place/?q=place_id:ChIJJTHrCYQz-IURJhJTLUJr-Xo"}
+    {name:"La María", maal:"diner", score:"4,7", count:1392, desc:"verfijnd en klein, beste ceviche van de stad · reserveren", maps:"https://www.google.com/maps/place/?q=place_id:ChIJWWU0B_oz-IUR2XwWdHiemyo"},
+    {name:"Patroni\'s Bar", maal:"diner", open:"vanaf 17:00", score:"4,7", count:3168, desc:"pizza en steaks aan Calle 59 · reserveer voor 31 december", maps:"https://www.google.com/maps/place/?q=place_id:ChIJgYVGBfEz-IURU6zSDJHffA0"},
+    {name:"Santo Taquito", maal:"lunch · diner", score:"4,7", count:617, desc:"taco\'s met verse tortilla\'s", maps:"https://www.google.com/maps/place/?q=place_id:ChIJBYDOW1Yz-IURdSKgvmrKZ54"},
+    {name:"Luan", maal:"ontbijt · lunch · diner", open:"8:00–22:30", score:"4,5", count:759, desc:"vers gebak elke ochtend, aan Calle 59 net als het hotel · tafels in de volle zon", maps:"https://www.google.com/maps/place/?q=place_id:ChIJX3GMOPAz-IUR6HwvX61BGyc"},
+    {name:"Aduana 59", maal:"ontbijt · lunch · diner", open:"8:00–24:00", score:"4,5", count:1986, desc:"internationaal-Mexicaans, ook op nieuwjaarsdag open · veel straatverkopers", maps:"https://www.google.com/maps/place/?q=place_id:ChIJJTHrCYQz-IURJhJTLUJr-Xo"}
   ],
   "Uxmal · Santa Elena": [
-    {name:"Restaurant La Central", score:"4,7", count:264, desc:"in het dorp zelf, 12:00–20:00 dagelijks · sopa de lima geroemd", maps:"https://www.google.com/maps/place/?q=place_id:ChIJG9AkbrW0V48RzJghhklUTpc"},
-    {name:"Hollywood Maya", score:"5,0", count:77, desc:"aan de weg tussen Kabah en Uxmal · 9:00–21:00, ma dicht", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ8bcncQ21V48RwTUTTvsUmSg"},
-    {name:"The Pickled Onion", score:"4,5", count:498, desc:"je eigen hotel · keuken sluit 19:00", maps:"https://www.google.com/maps/place/?q=place_id:ChIJB9MO6re0V48RGaQk5b6D204"},
-    {name:"Hacienda María Elena", score:"4,5", count:63, desc:"aan de weg Ticul–Santa Elena, als enige tot 22:00 open", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ5Yi06OlTVo8RcoyfdIU6P0I"}
+    {name:"Restaurant La Central", maal:"lunch · diner", open:"12:00–20:00", score:"4,7", count:264, desc:"traditioneel Yucateeks in het dorp, sopa de lima geroemd · geen telefoon", maps:"https://www.google.com/maps/place/?q=place_id:ChIJG9AkbrW0V48RzJghhklUTpc"},
+    {name:"Hollywood Maya", maal:"ontbijt · lunch · diner", open:"9:00–21:00", score:"5,0", count:77, desc:"huisgemaakt Yucateeks aan de weg Kabah–Uxmal · pas geopend", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ8bcncQ21V48RwTUTTvsUmSg"},
+    {name:"The Pickled Onion", maal:"diner", open:"keuken tot 19:00", score:"4,5", count:500, desc:"internationaal, je eigen hotel", maps:"https://www.google.com/maps/place/?q=place_id:ChIJB9MO6re0V48RGaQk5b6D204"},
+    {name:"Hacienda María Elena", maal:"diner", open:"7:00–22:00", score:"4,5", count:63, desc:"ruime kaart onder een palapa aan de weg naar Ticul · ±15 min rijden", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ5Yi06OlTVo8RcoyfdIU6P0I"}
   ],
   "Mérida": [
-    {name:"VANA", score:"4,8", count:1890, desc:"cenote in het pand · 17:00–24:00 dagelijks", maps:"https://www.google.com/maps/place/?q=place_id:ChIJRykPsddxVo8RbS2NwKGHsTk"},
-    {name:"Micaela Mar & Leña", score:"4,7", count:3905, desc:"bekroonde vis van de grill", maps:"https://www.google.com/maps/place/?q=place_id:ChIJseySUF1xVo8RBmLvDoDCEOY"},
-    {name:"La Bierhaus", score:"4,6", count:3526, desc:"biertuin aan Parque Santa Lucía · 12:00–23:30 dagelijks, happy hour 12–15", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ-dFTk2FxVo8RXsN-lZyKBR8"},
-    {name:"Taquería La Lupita", score:"4,5", count:3903, desc:"lechón en cochinita in de Mercado de Santiago · 7:00–13:30, wo dicht", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ5V6HC3RxVo8RB2DGQkEDIe8"},
-    {name:"La Chaya Maya", score:"4,5", count:26032, desc:"dé Yucateekse klassieker, dagelijks 7:00–23:00", maps:"https://www.google.com/maps/place/?q=place_id:ChIJtzCcrGFxVo8RZLu9elke5cE"},
-    {name:"Dulcería y Sorbetería Colón", score:"4,5", count:10347, desc:"ruim honderd jaar oud, aan Paseo Montejo · 10:30–23:30 dagelijks, mamey en kokos", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ84KkeFxxVo8ReWeMn3zwrfI"}
+    {name:"VANA", maal:"diner · borrel", open:"17:00–24:00", score:"4,8", count:1890, desc:"internationaal en pizza, met een cenote in het pand", maps:"https://www.google.com/maps/place/?q=place_id:ChIJRykPsddxVo8RbS2NwKGHsTk"},
+    {name:"Micaela Mar & Leña", maal:"diner", score:"4,7", count:3905, desc:"bekroonde vis van de grill", maps:"https://www.google.com/maps/place/?q=place_id:ChIJseySUF1xVo8RBmLvDoDCEOY"},
+    {name:"La Bierhaus", maal:"borrel", open:"12:00–23:30", score:"4,6", count:3526, desc:"biertuin aan Parque Santa Lucía, happy hour 12–15 · eten wisselt", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ-dFTk2FxVo8RXsN-lZyKBR8"},
+    {name:"Taquería La Lupita", maal:"ontbijt · lunch", open:"7:00–13:30", score:"4,5", count:3903, desc:"lechón en cochinita in de Mercado de Santiago · spotgoedkoop", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ5V6HC3RxVo8RB2DGQkEDIe8"},
+    {name:"La Chaya Maya", maal:"ontbijt · lunch · diner", open:"7:00–23:00", score:"4,5", count:26032, desc:"dé Yucateekse klassieker · toeristisch", maps:"https://www.google.com/maps/place/?q=place_id:ChIJtzCcrGFxVo8RZLu9elke5cE"},
+    {name:"Dulcería y Sorbetería Colón", maal:"ijs", open:"10:30–23:30", score:"4,5", count:10347, desc:"ruim honderd jaar oud aan Paseo Montejo, mamey en kokos · op waterbasis", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ84KkeFxxVo8ReWeMn3zwrfI"}
   ],
   "Bacalar": [
-    {name:"Cheuinic", score:"4,9", count:531, desc:"Yucateeks fine dining, beste cocktails van het dorp · 18:00–23:00, di dicht", maps:"https://www.google.com/maps/place/?q=place_id:ChIJGzttOoKxW48Rx6XwP0LoxzQ"},
-    {name:"La Burguesía del Pueblo", score:"4,8", count:2742, desc:"burgers, 8:30–22:30 dagelijks · boven de winkel, trap rechts", maps:"https://www.google.com/maps/place/?q=place_id:ChIJnQOsrJyxW48RakObggpujvc"},
-    {name:"Nixtamal", score:"4,5", count:2093, desc:"houtvuur in junglesetting", maps:"https://www.google.com/maps/place/?q=place_id:ChIJAyEIXzCxW48R5z-x20WluiI"}
+    {name:"Cheuinic", maal:"diner", open:"18:00–23:00", score:"4,9", count:531, desc:"Yucateeks fine dining · beste cocktails van het dorp, de chef komt langs", maps:"https://www.google.com/maps/place/?q=place_id:ChIJGzttOoKxW48Rx6XwP0LoxzQ"},
+    {name:"La Burguesía del Pueblo", maal:"ontbijt · lunch · diner", open:"8:30–22:30", score:"4,8", count:2742, desc:"burgers, boven de winkel via de trap rechts · bestelling raakt weleens zoek", maps:"https://www.google.com/maps/place/?q=place_id:ChIJnQOsrJyxW48RakObggpujvc"},
+    {name:"Nixtamal", maal:"diner", score:"4,5", count:2093, desc:"Mexicaans op houtvuur in junglesetting", maps:"https://www.google.com/maps/place/?q=place_id:ChIJAyEIXzCxW48R5z-x20WluiI"}
   ],
   "Palenque": [
-    {name:"El Paraíso", score:"4,9", count:173, desc:"km 1,5 richting de ruïnes, dus vlakbij Kin Balam · pizza en salades, goedkoop · 15:00–23:00, ma dicht", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ7VGL_x9F8oURBB9T8w-vhLw"},
-    {name:"Café Jade", score:"4,5", count:2727, desc:"ruime kaart, 8:00–22:30 dagelijks — ook voor ontbijt", maps:"https://www.google.com/maps/place/?q=place_id:ChIJWQv6P4dP8oUR7oK8kmkVpk8"},
-    {name:"Don Mucho", score:"4,3", count:1222, desc:"loopafstand vanaf Kin Balam, vanaf 7:00 dus ook ontbijt · live muziek", maps:"https://www.google.com/maps/place/?q=place_id:ChIJUXQpsiFF8oURsZy8GUci3gE"}
+    {name:"El Paraíso", maal:"diner", open:"15:00–23:00 · ma dicht", score:"4,9", count:173, desc:"pizza en salades op km 1,5 richting de ruïnes · goedkoop, enorme porties", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ7VGL_x9F8oURBB9T8w-vhLw"},
+    {name:"Café Jade", maal:"ontbijt · lunch · diner", open:"8:00–22:30", score:"4,5", count:2727, desc:"Mexicaans met ruime kaart, mole geroemd · ±10 min rijden", maps:"https://www.google.com/maps/place/?q=place_id:ChIJWQv6P4dP8oUR7oK8kmkVpk8"},
+    {name:"Don Mucho\'s", maal:"ontbijt · diner", open:"vanaf 7:00", score:"4,3", count:1222, desc:"Italiaans-Mexicaans in El Panchán, live muziek · bediening wisselt sterk", maps:"https://www.google.com/maps/place/?q=place_id:ChIJUXQpsiFF8oURsZy8GUci3gE"}
   ],
   "El Cuyo": [
-    {name:"Zapote Bar Asador", score:"4,9", count:648, desc:"houtvuurgrill met volle bar · 17:00–22:00, ma dicht, reserveren", maps:"https://www.google.com/maps/place/?q=place_id:ChIJcRCAfnZzUo8RJt6kyu3Uql0"},
-    {name:"Naia Cafe", score:"4,9", count:995, desc:"meeste beoordelingen van het dorp · 8:00–15:00 dagelijks, veel vegan", maps:"https://www.google.com/maps/place/?q=place_id:ChIJvWEc_lxyUo8RN23fqIxBmL0"},
-    {name:"El Tata", score:"4,9", count:186, desc:"familiezaak · 7:30–14:30", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ61nUgntzUo8Rx6j6N2i5Mrs"},
-    {name:"Can Cocal", score:"4,7", count:210, desc:"voeten in het zand, paella en 2-voor-1 happy hour · 24 uur open", maps:"https://www.google.com/maps/place/?q=place_id:ChIJjW3ssVdzUo8Rx2HLqLFXnbM"},
-    {name:"Restaurante Nikte", score:"4,7", count:143, desc:"13:00–22:00 dagelijks, garnalentaco\'s · schenkt geen wijn", maps:"https://www.google.com/maps/place/?q=place_id:ChIJSUWoyylzUo8REgcnd-MuyFw"}
+    {name:"Zapote Bar Asador", maal:"diner", open:"17:00–22:00", score:"4,9", count:648, desc:"houtvuurgrill met volle bar · prijzig, reserveren", maps:"https://www.google.com/maps/place/?q=place_id:ChIJcRCAfnZzUo8RJt6kyu3Uql0"},
+    {name:"Naia Cafe", maal:"ontbijt · lunch", open:"8:00–15:00", score:"4,9", count:995, desc:"brunch met veel vegan · meeste beoordelingen van het dorp, soms wachttijd", maps:"https://www.google.com/maps/place/?q=place_id:ChIJvWEc_lxyUo8RN23fqIxBmL0"},
+    {name:"El Tata", maal:"ontbijt · lunch", open:"7:30–14:30", score:"4,9", count:186, desc:"familiekeuken", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ61nUgntzUo8Rx6j6N2i5Mrs"},
+    {name:"Can Cocal", maal:"borrel · diner", open:"24 uur", score:"4,7", count:210, desc:"vis en paella met voeten in het zand · 2-voor-1 happy hour", maps:"https://www.google.com/maps/place/?q=place_id:ChIJjW3ssVdzUo8Rx2HLqLFXnbM"},
+    {name:"Restaurante Nikte", maal:"lunch · diner", open:"13:00–22:00", score:"4,7", count:143, desc:"garnalentaco\'s van de grill · schenkt geen wijn", maps:"https://www.google.com/maps/place/?q=place_id:ChIJSUWoyylzUo8REgcnd-MuyFw"}
   ],
   "Xpujil / Calakmul": [
-    {name:"Casa Ka\'an — eigen restaurant", score:"4,7", count:382, desc:"openluchtkeuken op het terrein · ontbijt 6:15–9:00 en \u0027s avonds · met kerst je zekerste optie", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ7eeRHn3hWI8RYEWKMW-ODIM"},
-    {name:"Antojitos Doña Evita", score:"4,8", count:114, desc:"beste sauzen van het dorp, mole en chilaquiles · 7:00–17:00, zo dicht", maps:"https://www.google.com/maps/place/?q=place_id:ChIJSzm0vAUfWY8RyPYrxN2ODa8"},
-    {name:"Sazón Veracruz", score:"4,5", count:1004, desc:"ruime porties, 8:00–22:00 dagelijks · personeel spreekt alleen Spaans", maps:"https://www.google.com/maps/place/?q=place_id:ChIJP35MOePhWI8RoORSvx00DdQ"}
+    {name:"Casa Ka\'an — eigen restaurant", maal:"ontbijt · diner", score:"4,7", count:382, desc:"openluchtkeuken op het terrein · geen rijden, en met kerst je zekerste optie", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ7eeRHn3hWI8RYEWKMW-ODIM"},
+    {name:"Antojitos Doña Evita", maal:"ontbijt · lunch", open:"7:00–17:00", score:"4,8", count:114, desc:"mole en chilaquiles · beste sauzen van het dorp, goedkoop", maps:"https://www.google.com/maps/place/?q=place_id:ChIJSzm0vAUfWY8RyPYrxN2ODa8"},
+    {name:"Sazón Veracruz", maal:"ontbijt · lunch · diner", open:"8:00–22:00", score:"4,5", count:1004, desc:"Mexicaans met ruime porties · personeel spreekt alleen Spaans", maps:"https://www.google.com/maps/place/?q=place_id:ChIJP35MOePhWI8RoORSvx00DdQ"}
   ]
 };
 
@@ -642,12 +642,13 @@ const DOING = {
   "Bacalar": {
     items:[
       {dag:"23 dec · Puerto Morelos", t:"Snorkelen op het rif (optioneel)", tijd:"9:00–11:00", d:"Nationaal Marien Park op ±500 m uit de kust. Eerste boot om 9:00, vooraf boeken (min. 2 personen), geen zonnebrand vooraf. Daarna lunch in Tulum rond 12:50 en ±16:45 in Bacalar. Weeg het af: jullie snorkelden al bij Xcalak, dat is een ongereptere plek."},
-      {dag:"23 dec · Tulum", t:"De ruïnes (optioneel)", tijd:"3 uur deur-tot-deur", d:"Alleen zinvol bij vertrek om 6:45: bij opening om 8:00 is de site nog leeg en koel, na 10:00 komen de bussen. ±465 MXN p.p. plus parkeren, contant. Aansluitend vroege lunch in Tulum en ±15:15 in Bacalar. Jullie zagen Tulum al op de vorige reis."}
+      {dag:"23 dec · Tulum", t:"De ruïnes (optioneel)", tijd:"3 uur deur-tot-deur", d:"Alleen zinvol bij vertrek om 6:45: bij opening om 8:00 is de site nog leeg en koel, na 10:00 komen de bussen. ±465 MXN p.p. plus parkeren, contant. Aansluitend lunch in Tulum en ±15:15 in Bacalar. Jullie zagen Tulum al op de vorige reis."}
     ]
   },
   "Xpujil / Calakmul": {
     items:[
-      {dag:"24 dec · Bacalar", t:"Kajakken bij zonsopgang", tijd:"1,5 uur", d:"Ecotucan ligt áán de lagune met gratis kajaks. Vroeg in de ochtend is het water spiegelglad en heb je het vrijwel voor jezelf. Daarna ontbijt, uitchecken rond 11:00 en lunch in het dorp."},
+      {dag:"24 dec · Bacalar", t:"Kajakken bij zonsopgang", tijd:"1,5 uur", d:"Ecotucan ligt áán de lagune met gratis kajaks. Vroeg in de ochtend is het water spiegelglad en heb je het vrijwel voor jezelf. Daarna ontbijt en uitchecken rond 11:00."},
+      {dag:"24 dec · Los Rápidos", t:"Drijven in de stroom (keuze)", tijd:"1,5–2 uur · ±20 min ten zuiden van Bacalar", d:"Een smalle geul waar de lagune doorheen stroomt: je loopt over de steiger naar boven en laat je met een zwemvest terugdrijven, langs de stromatolieten. Dagelijks 10:00–18:00, 200 MXN p.p., pin mogelijk. Zonnebrand is verboden, dus neem een shirt mee; hangsloten voor de kluisjes zelf meenemen scheelt 50 MXN cash. Ligt praktisch op de route naar Xpujil, maar kost je wel de middag: aankomst dan rond 15:30 in plaats van 13:50.", url:"https://www.google.com/maps/place/?q=place_id:ChIJoaqq2ZW4W48RJQfWHeaLgL4", urlTxt:"kaart"},
       {dag:"24 dec · Xpujil", t:"Xpujil-ruïne", tijd:"±1 uur", d:"In het dorp zelf, lopend vanaf het hotel: compact paleis met drie kenmerkende valse torens. Precies genoeg voor een aankomstmiddag."},
       {dag:"25 dec · Calakmul", t:"Calakmul", tijd:"hele dag · ±2u rijden enkele reis", d:"De laatste 60 km door het reservaat op ±30 km/u (toekans, slingerapen, soms een jaguar), en 3 à 4 uur op de site. Structuur II is met 55 m de hoogste piramide van het schiereiland en beklimbaar. Reservaatspoort 6:00–15:00, ruïne 8:00–17:00 — te laat bij de poort betekent geen toegang."},
       {dag:"25 dec · Calakmul", t:"Vleermuizengrot", tijd:"±1 uur, bij zonsondergang", d:"Honderdduizenden vleermuizen vliegen uit rond 18:00. De grot ligt langs de Calakmul-weg, dus je pakt hem mee op de terugweg — daarna nog ±45 min naar het hotel."},
@@ -672,7 +673,7 @@ const DOING = {
   },
   "Uxmal · Santa Elena": {
     items:[
-      {dag:"2 jan · Ruta Puuc", t:"Kabah, Sayil en Labná", tijd:"3–4 uur", d:"Vanaf Campeche kom je Kabah als eerste tegen, met een gevel vol regengod-maskers. Daarna Sayil met het Grote Paleis, en Labná met de gaafst bewaarde poortboog van het schiereiland. Alle drie kosten ±145–155 MXN: de dure deelstaatheffing van Yucatán geldt hier niet. Xlapak ligt aan dezelfde weg als je nog zin hebt. Vanaf Labná loopt de weg door naar Oxkutzcab, zodat je via Ticul terugkomt in Santa Elena: een lus, geen heen-en-terug. Uxmal sla je vandaag bewust over, dat bewaar je voor morgenochtend vroeg."},
+      {dag:"2 jan · Ruta Puuc", t:"Kabah, Sayil en Labná", tijd:"3–4 uur", d:"Vanaf Campeche kom je Kabah als eerste tegen, met een gevel vol regengod-maskers. Daarna Sayil met het Grote Paleis, en Labná met de gaafst bewaarde poortboog van het schiereiland. Alle drie kosten ±145–155 MXN: de dure deelstaatheffing van Yucatán geldt hier niet. Xlapak ligt aan dezelfde weg als je nog zin hebt. Uxmal sla je vandaag bewust over, dat bewaar je voor morgenochtend vroeg."},
       {dag:"3 jan · Uxmal", t:"Uxmal", tijd:"2–3 uur", d:"Beter morgenochtend bij opening om 8:00 dan vanmiddag om 16:00: koeler, leger, en je vertrekt toch pas om 11:00 naar Mérida — het kost je dus geen tijd. Best bewaarde Puuc-architectuur van het schiereiland, met de ovale Piramide van de Waarzegger."}
     ]
   },
@@ -686,7 +687,7 @@ const DOING = {
   },
   "El Cuyo": {
     items:[
-      {dag:"5 jan · Izamal", t:"Het gele stadje", tijd:"1–2 uur", d:"Klooster San Antonio de Padua en de Kinich Kakmó-piramide, beide gratis. Ontbijtstop rond 9:30."},
+      {dag:"5 jan · Izamal", t:"Het gele stadje", tijd:"1–2 uur", d:"Klooster San Antonio de Padua en de Kinich Kakmó-piramide, beide gratis. Je bent er rond 9:30, dus vóór de bussen."},
       {dag:"5 jan · Ek Balam", t:"Ek Balam", tijd:"±2 uur", d:"Beklimbare acropolis met een uitzonderlijk gaaf stucwerk-fries. Wil je eerder aan zee zijn, dan rijd je direct via Tizimín: ±15 min korter plus de bezoektijd die je uitspaart."},
       {dag:"6 jan · Las Coloradas en Río Lagartos", t:"Roze meren en flamingo's", tijd:"halve tot hele dag · ±1u rijden enkele reis", d:"Westwaarts langs de kust. De felroze zoutmeren, en per boot door het biosfeerreservaat langs flamingo's en krokodillen. Moet vandaag: op de vertrekdag rijd je oostwaarts naar het vliegveld. Bij een norte kunnen boottochten uitvallen — plan ze niet op de laatste ochtend."}
     ]
@@ -744,13 +745,14 @@ const RUINES = [
 const ROUTE = {
   "Puerto Morelos": {
     steps:[
-      {tijd:"15:00", w:"landing Cancún · immigratie en bagage, ±1 uur"},
-      {tijd:"16:00", w:"shuttle naar het Alamo-kantoor, papieren en auto nakijken"},
-      {tijd:"17:00", w:"vertrek met de Jeep Renegade"},
+      {tijd:"15:00", w:"landing Cancún"},
+      {tijd:"15:40", w:"door immigratie en douane"},
+      {tijd:"16:10", w:"shuttle naar het Alamo-kantoor, papieren en auto nakijken"},
+      {tijd:"16:45", w:"vertrek met de Jeep Renegade"},
       {rit:"Cancún Airport → Puerto Morelos", km:"25 km", d:"±30 min"},
-      {tijd:"17:30", w:"aankomst Puerto Morelos"}
+      {tijd:"17:15", w:"aankomst Puerto Morelos"}
     ],
-    klokNote:"Alamo zit buiten het vliegveld; de shuttle vertrekt bij de aankomsthal. De huur is vooruitbetaald — extra verzekeringen zijn niet nodig. Maak bij het ophalen foto\u0027s en een video rondom de auto, inclusief ruit, banden en bumpers.",
+    klokNote:"Alamo zit buiten het vliegveld; de shuttle vertrekt bij de aankomsthal. De huur is vooruitbetaald, extra verzekeringen zijn niet nodig. Maak foto\u0027s en een video rondom de auto, inclusief ruit, banden en bumpers.",
     total:"25 km · ±30 min"
   },
   "Bacalar": {
@@ -761,31 +763,29 @@ const ROUTE = {
       {rit:"Tulum → Bacalar", km:"210 km", d:"±2u40"},
       {tijd:"15:45", w:"aankomst Bacalar"}
     ],
-    klokNote:"Dit is de basisdag zonder ochtendprogramma. Kies je voor snorkelen (9:00–11:00) dan word je ±16:45 in Bacalar verwacht; ga je naar de Tulum-ruïnes, dan vertrek je al om 6:45 en ben je ±15:15 binnen.",
     total:"308 km · ±4u",
     stop:"Tulum", stopType:"lunchstop",
     split:"98 km (±1u20) ernaartoe, 210 km (±2u40) verder",
     rest:[
-      {n:"Onyx Tulum", s:"4,8", c:4344, d:"12:00–02:00 dagelijks · veruit de meeste beoordelingen van Tulum, al is de sfeer vooral een avondding", m:"https://www.google.com/maps/place/?q=place_id:ChIJm23qLcPXT48RzLfqeUtewpY"},
-      {n:"Negro Huitlacoxe", s:"4,8", c:1435, d:"vanaf 10:00 · Mexicaans, tuinterras en houtvuurgrill", m:"https://www.google.com/maps/place/?q=place_id:ChIJfaf2xQLRT48RInnRfYvU1R8"},
-      {n:"La Negra Tomasa", s:"4,7", c:6692, d:"12:00–23:00 · vis en ceviche, pulpo-taco\'s geroemd — reken op wachttijd", m:"https://www.google.com/maps/place/?q=place_id:ChIJO22eVazRT48ReD5TmZRH-PY"},
-      {n:"El Cayuco", s:"4,9", c:1413, d:"pas vanaf 13:00 · hoogst gewaardeerd, maar kost je een uur: aankomst Bacalar dan ±16:40", m:"https://www.google.com/maps/place/?q=place_id:ChIJe3NfoiTRT48RQvr51vmHAGM"}
+      {n:"Onyx Tulum", maal:"lunch", open:"vanaf 12:00", s:"4,8", c:4344, d:"verfijnde vis- en vleeskeuken · veruit de meeste beoordelingen van Tulum, al draait de sfeer om de avond", m:"https://www.google.com/maps/place/?q=place_id:ChIJm23qLcPXT48RzLfqeUtewpY"},
+      {n:"Negro Huitlacoxe", maal:"lunch", open:"vanaf 10:00", s:"4,8", c:1435, d:"Mexicaans van de houtvuurgrill, tuinterras", m:"https://www.google.com/maps/place/?q=place_id:ChIJfaf2xQLRT48RInnRfYvU1R8"},
+      {n:"La Negra Tomasa", maal:"lunch", open:"vanaf 12:00", s:"4,7", c:6692, d:"vis en ceviche, pulpo-taco\'s geroemd · reken op wachttijd", m:"https://www.google.com/maps/place/?q=place_id:ChIJO22eVazRT48ReD5TmZRH-PY"},
+      {n:"El Cayuco", maal:"lunch", open:"vanaf 13:00", s:"4,9", c:1413, d:"vis · hoogst gewaardeerd van Tulum", m:"https://www.google.com/maps/place/?q=place_id:ChIJe3NfoiTRT48RQvr51vmHAGM"}
     ]
   },
   "Xpujil / Calakmul": {
     steps:[
       {tijd:"7:30", w:"kajakken op de lagune, tot 9:00"},
       {tijd:"11:00", w:"uitchecken Villas Ecotucan"},
-      {tijd:"13:00", w:"Bacalar · lunch tot ±14:00"},
-      {tijd:"14:00", w:"vertrek Bacalar"},
+      {tijd:"12:00", w:"Bacalar"},
+      {tijd:"13:00", w:"vertrek Bacalar"},
       {rit:"Bacalar → Xpujil", km:"120 km", d:"±1u50"},
-      {tijd:"14:50", w:"aankomst Xpujil, lokale tijd — de klok gaat hier een uur terug (15:50 in Bacalar)"}
+      {tijd:"13:50", w:"aankomst Xpujil, lokale tijd — de klok gaat hier een uur terug (14:50 in Bacalar)"}
     ],
     total:"120 km · ±1u50",
     restKop:"Lunch vóór vertrek — Bacalar",
     rest:[
-      {n:"Mi Burrito Bacalar", s:"4,9", c:1695, d:"12:00–21:00, wo dicht · vijf huisgemaakte salsa\'s — alleen cash", m:"https://www.google.com/maps/place/?q=place_id:ChIJ32upLamxW48RkM-LMJ1IMx4"},
-      {n:"Mango y Chile", s:"4,5", c:1852, d:"13:00–21:00, di dicht · vegan, zicht op het fort — bestelbalie met nummertje", m:"https://www.google.com/maps/place/?q=place_id:ChIJCVPEPzmxW48RJsj8TC5s2Tc"}
+      {n:"Mi Burrito Bacalar", maal:"lunch", open:"vanaf 12:00", s:"4,9", c:1695, d:"burrito\'s met vijf huisgemaakte salsa\'s · alleen cash", m:"https://www.google.com/maps/place/?q=place_id:ChIJ32upLamxW48RkM-LMJ1IMx4"}
     ]
   },
   "Palenque": {
@@ -798,14 +798,13 @@ const ROUTE = {
       {rit:"km 268 → Palenque", km:"180 km", d:"±2u30"},
       {tijd:"15:30", w:"aankomst Palenque"}
     ],
-    klokNote:"Wil je liever verderop eten, dan liggen Emiliano Zapata en Catazajá tegen het eind van de rit — vertrek dan om 9:00 en je bent rond 15:15 in Palenque.",
     total:"360 km · ±4u45",
     stop:"km 268", stopType:"lunchstop",
     split:"180 km (±2u10) ernaartoe, 180 km (±2u30) verder",
     rest:[
-      {n:"Asadero La Higuera", s:"4,6", c:3148, d:"8:30–18:00 · pal aan de weg op km 268, ±25 min voorbij Escárcega · ±700 MXN voor twee", m:"https://www.google.com/maps/place/?q=place_id:ChIJWWItYSrF9oURlhs9wPa-7KI"},
-      {n:"Epazote · Emiliano Zapata", s:"4,7", c:56, d:"8:00–17:00, ma dicht · huiskamerkeuken in het dorp, buiten en zonder airco", m:"https://www.google.com/maps/place/?q=place_id:ChIJ8dD7V97L84UR4DSKJnKT-h4"},
-      {n:"El Pelícano · Catazajá", s:"4,5", c:42, d:"8:00–20:00 · aan de malecón van de lagune, als je liever doorrijdt", m:"https://www.google.com/maps/place/?q=place_id:ChIJu98nKSk58oURS0No6kkK1_k"}
+      {n:"Asadero La Higuera", maal:"lunch", open:"8:30–18:00", s:"4,6", c:3148, d:"vleesgrill pal aan de weg op km 268 · ±700 MXN voor twee", m:"https://www.google.com/maps/place/?q=place_id:ChIJWWItYSrF9oURlhs9wPa-7KI"},
+      {n:"Epazote · Emiliano Zapata", maal:"lunch", open:"8:00–17:00", s:"4,7", c:56, d:"huiskamerkeuken in het dorp · buiten en zonder airco", m:"https://www.google.com/maps/place/?q=place_id:ChIJ8dD7V97L84UR4DSKJnKT-h4"},
+      {n:"El Pelícano · Catazajá", maal:"lunch", open:"8:00–20:00", s:"4,5", c:42, d:"vis aan de malecón van de lagune", m:"https://www.google.com/maps/place/?q=place_id:ChIJu98nKSk58oURS0No6kkK1_k"}
     ]
   },
   "Campeche": {
@@ -820,8 +819,8 @@ const ROUTE = {
     stop:"Escárcega", stopType:"lunchstop",
     split:"210 km (±3u) ernaartoe, 150 km (±1u50) verder",
     rest:[
-      {n:"La Patrona · Escárcega", s:"4,8", c:91, d:"13:00–22:00 · best beoordeelde adres van het stadje", m:"https://www.google.com/maps/place/?q=place_id:ChIJraLYTQLw9oURdRB_qiRriV4"},
-      {n:"Asadero La Higuera", s:"4,6", c:3148, d:"8:30–18:00 · pal aan de weg op km 268, ±25 min vóór Escárcega — als je eerder wilt eten", m:"https://www.google.com/maps/place/?q=place_id:ChIJWWItYSrF9oURlhs9wPa-7KI"}
+      {n:"La Patrona · Escárcega", maal:"lunch", open:"vanaf 13:00", s:"4,8", c:91, d:"Mexicaans · best beoordeelde adres van het stadje", m:"https://www.google.com/maps/place/?q=place_id:ChIJraLYTQLw9oURdRB_qiRriV4"},
+      {n:"Asadero La Higuera", maal:"lunch", open:"8:30–18:00", s:"4,6", c:3148, d:"vleesgrill pal aan de weg op km 268, ±25 min vóór Escárcega", m:"https://www.google.com/maps/place/?q=place_id:ChIJWWItYSrF9oURlhs9wPa-7KI"}
     ]
   },
   "Uxmal · Santa Elena": {
@@ -836,14 +835,13 @@ const ROUTE = {
       {rit:"Oxkutzcab → Ticul → Santa Elena", km:"30 km", d:"±45 min"},
       {tijd:"14:45", w:"aankomst Santa Elena"}
     ],
-    klokNote:"Loltún is niet opgenomen — al vijf jaar dicht. De dag is een lus: vanaf Labná loopt de weg door naar Oxkutzcab en via Ticul terug. Wil je korter, dan keer je bij Labná om en rijd je via Kabah noordwaarts — dat scheelt een half uur, maar dan lunch je pas in Santa Elena.",
+    klokNote:"De dag is een lus: vanaf Labná loopt de weg door naar Oxkutzcab en via Ticul terug. Wil je korter, dan keer je bij Labná om en rijd je via Kabah noordwaarts — dat scheelt een half uur, maar dan lunch je pas in Santa Elena.",
     total:"±233 km · ±3u45 rijden",
     stop:"Ticul", stopType:"lunchstop",
     split:"lunch op de terugweg van de lus, via Oxkutzcab",
     rest:[
-      {n:"Príncipe Tutul-Xiu · Oxkutzcab", s:"4,6", c:1130, d:"11:00–19:00 · eerste dorp na Labná, ±35 min · poc chuc", m:"https://www.google.com/maps/place/?q=place_id:ChIJC3XX9b-qV48RrDeY-uakwtk"},
-      {n:"El Príncipe Tutul Xiu · Maní", s:"4,6", c:5687, d:"11:00–19:00 · het beroemde origineel, ±20 min omrijden", m:"https://www.google.com/maps/place/?q=place_id:ChIJVQJVBnv_Vo8R8V6N-WdyT5s"},
-      {n:"El Mirador de Ticul", s:"4,5", c:1102, d:"10:00–18:00 · op een heuvel boven het stadje, uitzicht over de vallei", m:"https://www.google.com/maps/place/?q=place_id:ChIJncEQKnhSVo8RcRjBap4Q3jg"}
+      {n:"Príncipe Tutul-Xiu · Oxkutzcab", maal:"lunch", open:"11:00–19:00", s:"4,6", c:1130, d:"poc chuc en andere Yucateekse klassiekers · eerste dorp na Labná, ±35 min", m:"https://www.google.com/maps/place/?q=place_id:ChIJC3XX9b-qV48RrDeY-uakwtk"},
+      {n:"El Mirador de Ticul", maal:"lunch", open:"10:00–18:00", s:"4,5", c:1102, d:"Mexicaans op een heuvel boven het stadje, uitzicht over de vallei", m:"https://www.google.com/maps/place/?q=place_id:ChIJncEQKnhSVo8RcRjBap4Q3jg"}
     ]
   },
   "El Cuyo": {
@@ -862,9 +860,9 @@ const ROUTE = {
     stop:"Izamal en Tizimín", stopType:"koffie- en lunchstop",
     split:"72 km (±1u) ernaartoe, 215 km (±3u) verder via Ek Balam",
     rest:[
-      {n:"María 33 · Izamal", s:"4,9", c:543, d:"8:00–15:00 · brunchzaak met airco, twee minuten van het klooster", m:"https://www.google.com/maps/place/?q=place_id:ChIJcXZxQQCjVo8RFGXk_-JrIYQ"},
-      {n:"Casa Makech · Tizimín", s:"4,6", c:1025, d:"8:00–24:00 · pal op de route, ruime kaart en terras", m:"https://www.google.com/maps/place/?q=place_id:ChIJtThy7ogrUo8RPXW0sn5EI0k"},
-      {n:"Carnes Ahumadas Mozon · Temozón", s:"4,6", c:1445, d:"7:30–19:30 · Temozón is hét dorp van gerookt vlees, ±15 min vóór Ek Balam · vraag het proefbord — of een kwartier terugrijden ná de ruïne", m:"https://www.google.com/maps/place/?q=place_id:ChIJkYo5oXh2UY8RKgp8BhB-5P4"}
+      {n:"María 33 · Izamal", maal:"koffie", open:"8:00–15:00", s:"4,9", c:543, d:"brunchzaak met airco, twee minuten van het klooster", m:"https://www.google.com/maps/place/?q=place_id:ChIJcXZxQQCjVo8RFGXk_-JrIYQ"},
+      {n:"Carnes Ahumadas Mozon · Temozón", maal:"lunch", open:"7:30–19:30", s:"4,6", c:1445, d:"gerookt vlees, vraag het proefbord · ±15 min vóór Ek Balam", m:"https://www.google.com/maps/place/?q=place_id:ChIJkYo5oXh2UY8RKgp8BhB-5P4"},
+      {n:"Casa Makech · Tizimín", maal:"lunch", open:"8:00–24:00", s:"4,6", c:1025, d:"ruime kaart met terras · pal op de route", m:"https://www.google.com/maps/place/?q=place_id:ChIJtThy7ogrUo8RPXW0sn5EI0k"}
     ]
   },
   "Cancún Airport": {
@@ -882,8 +880,8 @@ const ROUTE = {
     stop:"Leona Vicario", stopType:"lunchstop",
     split:"±130 km (±2u) ernaartoe, ±40 km (±40 min) verder",
     rest:[
-      {n:"La Pimienta", s:"4,7", c:441, d:"8:30–17:30, ma dicht · bekend om de spareribs, aan de doorgaande weg — geen alcohol", m:"https://www.google.com/maps/place/?q=place_id:ChIJ4dg5uaR0To8RNoXm2hSeHiU"},
-      {n:"Tacos de Guisado", s:"4,3", c:196, d:"8:30–13:00 dagelijks · huisrecepten op houtvuur, ±30 MXN per taco", m:"https://www.google.com/maps/place/?q=place_id:ChIJyewj65F0To8RVimQAqNU5uE"}
+      {n:"La Pimienta", maal:"lunch", open:"8:30–17:30", s:"4,7", c:441, d:"spareribs en taco\'s al pastor aan de doorgaande weg · geen alcohol", m:"https://www.google.com/maps/place/?q=place_id:ChIJ4dg5uaR0To8RNoXm2hSeHiU"},
+      {n:"Tacos de Guisado", maal:"lunch", open:"8:30–13:00", s:"4,3", c:196, d:"stoofvleestaco\'s op houtvuur · ±30 MXN per stuk", m:"https://www.google.com/maps/place/?q=place_id:ChIJyewj65F0To8RVimQAqNU5uE"}
     ]
   }
 };
@@ -980,7 +978,7 @@ function render(key){
             </table>
             ${ROUTE[s.place].klokNote ? `<p class="klok">${ROUTE[s.place].klokNote}</p>` : ''}
             ${ROUTE[s.place].rest ? `<p class="stopkop">${ROUTE[s.place].restKop || (ROUTE[s.place].stopType + ' — ' + ROUTE[s.place].stop)}</p>`
-              + ROUTE[s.place].rest.map(r => `<div class="lr"><span class="ln">${r.n}</span><span class="ls">★ ${r.s} (${r.c})</span><a href="${MU(r.m, r.n)}" target="_blank" rel="noopener">kaart</a><span class="ld">${r.d}</span></div>`).join('') : ''}
+              + ROUTE[s.place].rest.map(r => `<div class="lr"><span class="ln">${r.n}</span>${r.maal ? `<span class="maal">${r.maal}</span>` : ''}${r.open ? `<span class="uren">${r.open}</span>` : ''}<span class="ls">★ ${r.s} (${r.c})</span><a href="${MU(r.m, r.n)}" target="_blank" rel="noopener">kaart</a><span class="ld">${r.d}</span></div>`).join('') : ''}
           </div>
         </details>` : ''}
         ${(HOTELS[s.place] || RESTOS[s.place]) ? `
@@ -1002,7 +1000,7 @@ function render(key){
               </div>`).join('') : ''}
             ${RESTOS[s.place] ? `<p><strong>Restaurantsuggesties:</strong></p>` + RESTOS[s.place].map(r => `
               <div class="resto">
-                <span class="rname">${r.name}</span>${r.score ? `<span class="score">★ ${r.score} (${r.count})</span>` : ''}
+                <span class="rname">${r.name}</span>${r.maal ? `<span class="maal">${r.maal}</span>` : ''}${r.open ? `<span class="uren">${r.open}</span>` : ''}${r.score ? `<span class="score">★ ${r.score} (${r.count})</span>` : ''}
                 ${r.maps ? `<a href="${MU(r.maps, r.name)}" target="_blank" rel="noopener">kaart</a>` : ''}
                 <br><span class="rdesc">${r.desc}</span>
               </div>`).join('') : ''}
