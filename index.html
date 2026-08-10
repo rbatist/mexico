@@ -166,6 +166,7 @@
   details.doing .di{padding:0.45rem 0;border-top:1px solid rgba(242,233,216,0.08);}
   details.doing .di:first-child{border-top:none;}
   details.doing .di .ddag{display:block;font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--maya);margin-bottom:0.15rem;}
+  details.doing .di .ddag .optie{border:1px solid rgba(232,176,75,0.4);border-radius:999px;padding:0 6px;margin-left:0.4rem;letter-spacing:0.08em;}
   details.doing .di .dt{color:var(--sascab);font-weight:600;}
   details.doing .di .dtime{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--henequen);margin-left:0.4rem;}
   details.doing .di .dd{display:block;margin-top:0.15rem;line-height:1.5;}
@@ -315,7 +316,7 @@
 </svg>
 
 <section class="hero">
-  <span class="version">V.2.2.1</span>
+  <span class="version">V.2.2.2</span>
   <p class="eyebrow">Roadtrip · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:05 · 16 nachten</p>
   <h1>Yucatán — <em>expeditie burrito</em></h1>
   <p class="variant-intro" id="variantIntro"></p>
@@ -643,34 +644,34 @@ const WEATHER = {
 const DOING = {
   "Bacalar": {
     items:[
-      {dag:"23 dec · Puerto Morelos", t:"Snorkelen op het rif (optioneel)", tijd:"9:00–11:00", d:"Nationaal Marien Park op ±500 m uit de kust. Eerste boot om 9:00, vooraf boeken (min. 2 personen), geen zonnebrand vooraf. Daarna lunch in Tulum rond 12:50 en ±16:45 in Bacalar. Weeg het af: jullie snorkelden al bij Xcalak, dat is een ongereptere plek."},
-      {dag:"23 dec · Tulum", t:"De ruïnes (optioneel)", tijd:"3 uur deur-tot-deur", d:"Alleen zinvol bij vertrek om 6:45: bij opening om 8:00 is de site nog leeg en koel, na 10:00 komen de bussen. ±465 MXN p.p. plus parkeren, contant. Aansluitend lunch in Tulum en ±15:15 in Bacalar. Jullie zagen Tulum al op de vorige reis."}
+      {dag:"23 dec · Puerto Morelos", opt:true, t:"Snorkelen op het rif", tijd:"9:00–11:00", d:"Nationaal Marien Park op ±500 m uit de kust. Eerste boot om 9:00, vooraf boeken (min. 2 personen), geen zonnebrand vooraf. Daarna lunch in Tulum rond 12:50 en ±16:45 in Bacalar. Weeg het af: jullie snorkelden al bij Xcalak, dat is een ongereptere plek."},
+      {dag:"23 dec · Tulum", opt:true, t:"De ruïnes", tijd:"3 uur deur-tot-deur", d:"Alleen zinvol bij vertrek om 6:45: bij opening om 8:00 is de site nog leeg en koel, na 10:00 komen de bussen. ±465 MXN p.p. plus parkeren, contant. Aansluitend lunch in Tulum en ±15:15 in Bacalar. Jullie zagen Tulum al op de vorige reis."}
     ]
   },
   "Xpujil / Calakmul": {
     items:[
-      {dag:"24 dec · Bacalar", t:"Kajakken bij zonsopgang", tijd:"1,5 uur", d:"Ecotucan ligt áán de lagune met gratis kajaks. Vroeg in de ochtend is het water spiegelglad en heb je het vrijwel voor jezelf. Daarna ontbijt en uitchecken rond 11:00."},
-      {dag:"24 dec · Los Rápidos", t:"Drijven in de stroom (keuze)", tijd:"1,5–2 uur · ±20 min ten zuiden van Bacalar", d:"Een smalle geul waar de lagune doorheen stroomt: je loopt over de steiger naar boven en laat je met een zwemvest terugdrijven, langs de stromatolieten. 10:00–18:00, 200 MXN p.p. Zonnebrand is verboden, dus neem een shirt mee. Ligt op de route naar Xpujil, maar kost je de middag: aankomst dan rond 15:30.", url:"https://www.google.com/maps/place/?q=place_id:ChIJoaqq2ZW4W48RJQfWHeaLgL4", urlTxt:"kaart"},
-      {dag:"24 dec · Xpujil", t:"Xpujil-ruïne", tijd:"±1 uur", d:"In het dorp zelf, lopend vanaf het hotel: compact paleis met drie kenmerkende valse torens. Precies genoeg voor een aankomstmiddag."},
+      {dag:"24 dec · Bacalar", opt:true, t:"Kajakken bij zonsopgang", tijd:"1,5 uur", d:"Ecotucan ligt áán de lagune met gratis kajaks. Vroeg in de ochtend is het water spiegelglad en heb je het vrijwel voor jezelf. Daarna ontbijt en uitchecken rond 11:00."},
+      {dag:"24 dec · Los Rápidos", opt:true, t:"Drijven in de stroom", tijd:"1,5–2 uur · ±20 min ten zuiden van Bacalar", d:"Een smalle geul waar de lagune doorheen stroomt: je loopt over de steiger naar boven en laat je met een zwemvest terugdrijven, langs de stromatolieten. 10:00–18:00, 200 MXN p.p. Zonnebrand is verboden, dus neem een shirt mee. Ligt op de route naar Xpujil, maar kost je de middag: aankomst dan rond 15:30.", url:"https://www.google.com/maps/place/?q=place_id:ChIJoaqq2ZW4W48RJQfWHeaLgL4", urlTxt:"kaart"},
+      {dag:"24 dec · Xpujil", opt:true, t:"Xpujil-ruïne", tijd:"±1 uur", d:"In het dorp zelf, lopend vanaf het hotel: compact paleis met drie kenmerkende valse torens. Precies genoeg voor een aankomstmiddag."},
       {dag:"25 dec · Calakmul", t:"Calakmul", tijd:"hele dag · ±2u rijden enkele reis", d:"De laatste 60 km door het reservaat op ±30 km/u (toekans, slingerapen, soms een jaguar), en 3 à 4 uur op de site. Structuur II is met 55 m de hoogste piramide van het schiereiland en beklimbaar. Reservaatspoort 6:00–15:00, ruïne 8:00–17:00 — te laat bij de poort betekent geen toegang."},
-      {dag:"25 dec · Calakmul", t:"Vleermuizengrot", tijd:"±1 uur, bij zonsondergang", d:"Honderdduizenden vleermuizen vliegen uit rond 18:00. De grot ligt langs de Calakmul-weg, dus je pakt hem mee op de terugweg — daarna nog ±45 min naar het hotel."},
-      {dag:"26 dec · Becán en Chicanná", t:"De Río Bec-sites", tijd:"±2,5 uur · ±10 min rijden", d:"Rustige dag na Calakmul. Becán op 7 km, met een 2 km lange handgegraven verdedigingsgracht rondom het centrum — zeldzaam in de Maya-wereld. Chicanná ligt er vlakbij: een paleisgevel met de opengesperde bek van de aardgod Itzamná als deuropening. De rest van de dag is vrij."},
-      {dag:"26 dec · optioneel", t:"Jungletocht bij zonsopgang", tijd:"5:00–12:00 · 3 uur lopen · alléén Spaanstalig", d:"De rondleiding is uitsluitend in het Spaans. Ka'an Expeditions loopt met een natuurgids het biosfeerreservaat in op het moment dat de jungle wakker wordt — slinger- en brulapen, toekans, ocellatus-kalkoenen, herten. Ophalen bij het hotel, reservaatstoegang en een picknickontbijt zitten erbij. 2.100 MXN p.p., met korting voor Casa Ka'an-gasten. Becán en Chicanná schuiven dan naar de middag; de avond ervoor ben je pas rond 19:00 terug van de vleermuizengrot.", url:"https://www.kaanexpeditions.com/en/caminata-en-calakmul", urlTxt:"kaanexpeditions.com"},
-      {dag:"26 dec · optioneel", t:"Hormiguero", tijd:"2–3 uur · ±25 min over onverharde weg", d:"14 km zuidelijk. Minst bezocht, met een nóg groter Itzamná-masker dan Chicanná. Alleen als je na de Río Bec-sites nog energie hebt."}
+      {dag:"25 dec · Calakmul", opt:true, t:"Vleermuizengrot", tijd:"±1 uur, bij zonsondergang", d:"Honderdduizenden vleermuizen vliegen uit rond 18:00. De grot ligt langs de Calakmul-weg, dus je pakt hem mee op de terugweg — daarna nog ±45 min naar het hotel."},
+      {dag:"26 dec · Becán en Chicanná", opt:true, t:"De Río Bec-sites", tijd:"±2,5 uur · ±10 min rijden", d:"Rustige dag na Calakmul. Becán op 7 km, met een 2 km lange handgegraven verdedigingsgracht rondom het centrum — zeldzaam in de Maya-wereld. Chicanná ligt er vlakbij: een paleisgevel met de opengesperde bek van de aardgod Itzamná als deuropening. De rest van de dag is vrij."},
+      {dag:"26 dec · Calakmul", opt:true, t:"Jungletocht bij zonsopgang", tijd:"5:00–12:00 · 3 uur lopen · alléén Spaanstalig", d:"De rondleiding is uitsluitend in het Spaans. Ka'an Expeditions loopt met een natuurgids het biosfeerreservaat in op het moment dat de jungle wakker wordt — slinger- en brulapen, toekans, ocellatus-kalkoenen, herten. Ophalen bij het hotel, reservaatstoegang en een picknickontbijt zitten erbij. 2.100 MXN p.p., met korting voor Casa Ka'an-gasten. Becán en Chicanná schuiven dan naar de middag; de avond ervoor ben je pas rond 19:00 terug van de vleermuizengrot.", url:"https://www.kaanexpeditions.com/en/caminata-en-calakmul", urlTxt:"kaanexpeditions.com"},
+      {dag:"26 dec · Hormiguero", opt:true, t:"Hormiguero", tijd:"2–3 uur · ±25 min over onverharde weg", d:"14 km zuidelijk. Minst bezocht, met een nóg groter Itzamná-masker dan Chicanná. Alleen als je na de Río Bec-sites nog energie hebt."}
     ]
   },
   "Palenque": {
     items:[
       {dag:"28 dec · Palenque", t:"De ruïnes", tijd:"2,5–3,5 uur · ±10 min rijden vanaf Kin Balam", d:"Ga bij opening om 8:00: dan hangt de ochtendnevel nog tussen de tempels en ben je vóór de tourbussen van 10:00. Het sitemuseum met de replica van Pakals graftombe zit bij je ticket in."},
-      {dag:"28 dec · Misol-Ha", t:"Waterval Misol-Ha", tijd:"45 min–1 uur · ±25 min rijden vanaf de ruïnes", d:"35 m hoog, 20 km voorbij de ruïnes over dezelfde weg — dus een logische aansluiting op de ochtend. Je loopt achter het watergordijn door een grot. Eigen restaurant bij de parkeerplaats (7:00–19:00), entree ±20–30 MXN contant."},
-      {dag:"29 dec · Roberto Barrios", t:"Cascadas Roberto Barrios", tijd:"halve tot hele dag · ±30–50 min rijden enkele reis", d:"Vijf getrapte kalkstenen watervallen met turquoise poelen, rotsen om over te lopen en een natuurlijke glijbaan. Reizigers die beide zagen noemen dit mooier én rustiger dan Agua Azul — dat laatste ligt aan route 199 (kleurcode oranje) en is bewust weggelaten."},
-      {dag:"29 dec · Palenque", t:"Ecoparque Aluxes", tijd:"1–1,5 uur · ±5 min rijden vanaf Kin Balam", d:"Opvang voor gered wildlife op 2,6 km van het stadje: zeekoeien, tapirs, apeneiland en vrij rondvliegende ara's. 9:00–18:00. Terugkerende klacht in recensies: de verblijven van de grote katten zijn veel te klein."}
+      {dag:"28 dec · Misol-Ha", opt:true, t:"Waterval Misol-Ha", tijd:"45 min–1 uur · ±25 min rijden vanaf de ruïnes", d:"35 m hoog, 20 km voorbij de ruïnes over dezelfde weg — dus een logische aansluiting op de ochtend. Je loopt achter het watergordijn door een grot. Eigen restaurant bij de parkeerplaats (7:00–19:00), entree ±20–30 MXN contant."},
+      {dag:"29 dec · Roberto Barrios", opt:true, t:"Cascadas Roberto Barrios", tijd:"halve tot hele dag · ±30–50 min rijden enkele reis", d:"Vijf getrapte kalkstenen watervallen met turquoise poelen, rotsen om over te lopen en een natuurlijke glijbaan. Reizigers die beide zagen noemen dit mooier én rustiger dan Agua Azul — dat laatste ligt aan route 199 (kleurcode oranje) en is bewust weggelaten."},
+      {dag:"29 dec · Palenque", opt:true, t:"Ecoparque Aluxes", tijd:"1–1,5 uur · ±5 min rijden vanaf Kin Balam", d:"Opvang voor gered wildlife op 2,6 km van het stadje: zeekoeien, tapirs, apeneiland en vrij rondvliegende ara's. 9:00–18:00. Terugkerende klacht in recensies: de verblijven van de grote katten zijn veel te klein."}
     ]
   },
   "Campeche": {
     items:[
-      {dag:"31 dec · Campeche", t:"Stadsmuren en Puerta de Tierra", tijd:"±1 uur", d:"Voor ±15 MXN loop je over de vestingmuren met uitzicht over de gekleurde binnenstad. Geen schaduw — neem water. Dagelijks 9:00–17:00. 's Avonds is de malecón hét verzamelpunt voor oud & nieuw; reserveer vooraf als je uit eten wilt."},
-      {dag:"1 jan · Edzná", t:"Edzná", tijd:"halve dag · ±1u rijden enkele reis", d:"Het Gebouw van Vijf Verdiepingen: tempel en paleis in één, 210 MXN, dagelijks 8:00–17:00. Zelden druk. Nieuwjaarsdag is de stad toch stil, dus dit is de logische dag. Neem muggenspray mee."}
+      {dag:"31 dec · Campeche", opt:true, t:"Stadsmuren en Puerta de Tierra", tijd:"±1 uur", d:"Voor ±15 MXN loop je over de vestingmuren met uitzicht over de gekleurde binnenstad. Geen schaduw — neem water. Dagelijks 9:00–17:00. 's Avonds is de malecón hét verzamelpunt voor oud & nieuw; reserveer vooraf als je uit eten wilt."},
+      {dag:"1 jan · Edzná", opt:true, t:"Edzná", tijd:"halve dag · ±1u rijden enkele reis", d:"Het Gebouw van Vijf Verdiepingen: tempel en paleis in één, 210 MXN, dagelijks 8:00–17:00. Zelden druk. Nieuwjaarsdag is de stad toch stil, dus dit is de logische dag. Neem muggenspray mee."}
     ]
   },
   "Uxmal · Santa Elena": {
@@ -681,10 +682,10 @@ const DOING = {
   },
   "Mérida": {
     items:[
-      {dag:"3 jan · Mérida", t:"Aankomst, lunch en de zondagse binnenstad", tijd:"±12:50 · inchecken vanaf 15:00", d:"Je bent rond 12:50 in Mérida. Het is zondag, en dan is de binnenstad autovrij voor Mérida en Domingo — markt, muziek en dansen rond de Plaza Grande. Lunch in het centrum, bijvoorbeeld bij La Chaya Maya, dagelijks 7:00–23:00 en ±5 min lopen van de Plaza Grande."},
-      {dag:"4 jan · Homún", t:"Cenotes bij Homún (keuze)", tijd:"halve tot hele dag · ±1u rijden enkele reis", d:"Oostelijk van Mérida. Reeks grotcenotes rond het dorp, per stuk te bezoeken. Combineren met de rit naar El Cuyo lukt niet — die dag is al ±4u."},
-      {dag:"4 jan · Celestún", t:"Celestún (keuze)", tijd:"hele dag · ±1u30 rijden enkele reis", d:"Westelijk van Mérida, dus altijd heen en terug. Flamingo's en mangrovetunnels per boot in het biosfeerreservaat."},
-      {dag:"4 jan · Mérida", t:"Paseo de Montejo en musea (keuze)", tijd:"halve dag", d:"Boulevard met herenhuizen uit de henequén-tijd: Palacio Cantón (di–zo) en Quinta Montes Molina (±120 MXN). Het Gran Museo del Mundo Maya is dinsdag dicht. Rustiger alternatief als je geen dagtrip wilt."}
+      {dag:"3 jan · Mérida", opt:true, t:"Aankomst, lunch en de zondagse binnenstad", tijd:"±12:50 · inchecken vanaf 15:00", d:"Je bent rond 12:50 in Mérida. Het is zondag, en dan is de binnenstad autovrij voor Mérida en Domingo — markt, muziek en dansen rond de Plaza Grande. Lunch in het centrum, bijvoorbeeld bij La Chaya Maya, dagelijks 7:00–23:00 en ±5 min lopen van de Plaza Grande."},
+      {dag:"4 jan · Homún", opt:true, t:"Cenotes bij Homún", tijd:"halve tot hele dag · ±1u rijden enkele reis", d:"Oostelijk van Mérida. Reeks grotcenotes rond het dorp, per stuk te bezoeken. Combineren met de rit naar El Cuyo lukt niet — die dag is al ±4u."},
+      {dag:"4 jan · Celestún", opt:true, t:"Celestún", tijd:"hele dag · ±1u30 rijden enkele reis", d:"Westelijk van Mérida, dus altijd heen en terug. Flamingo's en mangrovetunnels per boot in het biosfeerreservaat."},
+      {dag:"4 jan · Mérida", opt:true, t:"Paseo de Montejo en musea", tijd:"halve dag", d:"Boulevard met herenhuizen uit de henequén-tijd: Palacio Cantón (di–zo) en Quinta Montes Molina (±120 MXN). Het Gran Museo del Mundo Maya is dinsdag dicht. Rustiger alternatief als je geen dagtrip wilt."}
     ]
   },
   "El Cuyo": {
@@ -958,7 +959,7 @@ function render(key){
         <details class="doing">
           <summary>Te doen | ter plekke en onderweg</summary>
           <div class="doing-body">
-            ${DOING[s.place].items.map(d => `<div class="di"><span class="ddag">${d.dag}</span><span class="dt">${d.t}</span><span class="dtime">${d.tijd}</span><span class="dd">${EU(d.d)}${d.url ? ` <a href="${d.url}" target="_blank" rel="noopener">${d.urlTxt || 'meer info'}</a>` : ''}</span></div>`).join('')}
+            ${DOING[s.place].items.map(d => `<div class="di"><span class="ddag">${d.dag}${d.opt ? `<span class="optie">optioneel</span>` : ''}</span><span class="dt">${d.t}</span><span class="dtime">${d.tijd}</span><span class="dd">${EU(d.d)}${d.url ? ` <a href="${d.url}" target="_blank" rel="noopener">${d.urlTxt || 'meer info'}</a>` : ''}</span></div>`).join('')}
           </div>
         </details>` : ''}
         ${ROUTE[s.place] ? `
