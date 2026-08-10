@@ -186,8 +186,11 @@
   table.legs tr.rt-rit td{color:var(--text-meta);padding-left:0.2rem;}
   .doing-body .dd a{color:var(--maya);text-decoration:none;border-bottom:1px solid rgba(232,176,75,0.4);white-space:nowrap;}
   .doing-body .dd a:hover{border-bottom-color:var(--maya);}
-  .uren{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text-meta);margin-right:0.45rem;white-space:nowrap;}
-  .maal{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--maya);border:1px solid rgba(232,176,75,0.35);border-radius:999px;padding:1px 6px;margin:0 0.45rem;white-space:nowrap;vertical-align:0.05em;}
+  .rtop{display:flex;flex-wrap:wrap;align-items:baseline;gap:0.2rem 0.45rem;}
+  .rtop > *{margin:0 !important;}
+  .rdesc,.lr .ld{display:block;margin-top:0.15rem;}
+  .uren{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text-meta);white-space:nowrap;}
+  .maal{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--maya);border:1px solid rgba(232,176,75,0.35);border-radius:999px;padding:1px 7px;line-height:1.5;white-space:nowrap;align-self:center;}
   details.lunch .klok{font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--henequen);margin:0 0 0.6rem;line-height:1.5;}
   details.lunch .keuze{margin:0 0 0.7rem;line-height:1.55;}
   details.lunch .keuze b{color:var(--sascab);}
@@ -312,7 +315,7 @@
 </svg>
 
 <section class="hero">
-  <span class="version">V.2.2.0</span>
+  <span class="version">V.2.2.1</span>
   <p class="eyebrow">Roadtrip · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:05 · 16 nachten</p>
   <h1>Yucatán — <em>expeditie burrito</em></h1>
   <p class="variant-intro" id="variantIntro"></p>
@@ -364,9 +367,9 @@
   <h3>Praktisch onderweg</h3>
   <ul>
     <li>Rijtijden zijn kaal — reken bij ruïnes en natuurstops de bezoektijd erbovenop (zie "te doen &amp; hoeveel tijd" per plaats).</li>
-    <li>Vier langere rijdagen: Xpujil → Palenque en Palenque → Campeche (allebei ±4u45, met tanken in Escárcega halverwege), Puerto Morelos → Bacalar (±4u over de 307) en Mérida → El Cuyo (±4u mét Izamal en Ek Balam). De overige vier ritten blijven onder de ±2u45.</li>
+    <li>Vier rijdagen van ongeveer vier uur: Xpujil → Palenque en Palenque → Campeche (allebei ±4u45, met Escárcega halverwege), Puerto Morelos → Bacalar (±4u over de 307) en Mérida → El Cuyo (±4u mét Izamal en Ek Balam). De andere vier ritten blijven op ±3u of minder.</li>
     <li>Neem contant geld mee: ruïnes, boottochten en de kleinere dorpen werken vaak alleen met pesos, en wisselgeld is er schaars.</li>
-    <li>Bedragen in euro zijn indicatief, omgerekend tegen ±19,9 peso per euro (koers eind juli 2026). De INAH-tarieven gingen per 1 januari 2026 omhoog: Calakmul en Palenque kosten buitenlanders sindsdien 210 MXN, Uxmal 140 MXN — steeds exclusief de aparte gemeenschaps- en deelstaatheffingen. Die tarieven golden tot en met 31 december 2026, dus vanaf Edzná op 1 januari kan er middenin de reis een nieuwe ronde ingaan.</li>
+    <li>Bedragen in euro zijn indicatief, omgerekend tegen ±19,9 peso per euro (koers eind juli 2026). De INAH-tarieven gingen per 1 januari 2026 omhoog en golden tot en met 31 december 2026 — vanaf Edzná op 1 januari kan er dus middenin de reis een nieuwe ronde ingaan. De bedragen per site staan onder <em>Toegangsprijzen</em>.</li>
     <li>Tijdsverschil met Nederland: Quintana Roo (Cancún, Puerto Morelos, Bacalar) 6 uur vroeger, de rest van de route 7 uur. De klok gaat één keer terug (richting Campeche-staat) en op de vertrekdag weer vooruit.</li>
     <li>Reken op een <em>norte</em>: een koufront dat tussen november en februari een paar dagen wind en bewolking kan brengen, vooral aan de noord- en westkust. Boottochten kunnen dan uitvallen.</li>
     <li>Vier avonden vallen op een feestdag: kerstavond en eerste kerstdag in Xpujil, oud &amp; nieuw en nieuwjaarsdag in Campeche. Nochebuena (24 dec) is in Mexico de grote familieavond en veel zaken sluiten dan — in een dorp als Xpujil kan dat betekenen dat alleen het hotelrestaurant serveert. Vraag dat bij Casa Ka'an vooraf na, en reserveer in Campeche voor 31 december.</li>
@@ -417,15 +420,15 @@ const G = {
 const variants = {
   V2: {
     intro:"Starten aan de Caribische kust bij Puerto Morelos, via de lagune van Bacalar zuidwaarts het biosfeerreservaat in voor kerst bij Calakmul, dan een lange rit door Tabasco naar Palenque voor de ruïnes in de nevelheuvels en de watervallen erachter, oud &amp; nieuw op de malecón van Campeche, terug omhoog langs de Puuc-ruïnes naar Mérida, en eindigen aan de relaxte noordkust bij El Cuyo.",
-    stats:[{num:"16",label:"nachten"},{num:"8",label:"stops"},{num:"ongeveer 2.000 km",label:"in bijna 28 uur rijden"}],
+    stats:[{num:"16",label:"nachten"},{num:"8",label:"stops"},{num:"ongeveer 1.900 km",label:"in ruim 27 uur rijden"}],
     stops:[
       S.pmStart,
       st("Dag 2 · wo 23 t/m 24 dec","Bacalar",1,"natuur",4,"±4u · 308 km","water",G.water,"Bekend terrein, maar een logische tussenstop op weg naar het zuiden — een middag aan de lagune van zeven kleuren.",P.bacalar),
       st("Dag 3–5 · do 24 t/m 27 dec","Xpujil / Calakmul",3,"erfgoed",1.83,"±1u50 · 120 km","pyramid",G.jungle,"Basis voor Calakmul én de Río Bec-ruïnes rond het dorp. Aankomst 24 dec rond het middaguur, daarna twee volle dagen (25 en 26 dec): één voor Calakmul, één ontspannen dag langs de sites vlakbij.",P.xpujil,"Kerst in de jungle"),
       st("Dag 6–8 · zo 27 t/m 30 dec","Palenque",3,"erfgoed",4.75,"±4u45 · 360 km","waterfall",G.palenque,"Qua setting de mooiste Maya-site van Mexico: tempels tegen nevelige, beboste heuvels. Eén lange asfaltrit vanaf Xpujil, daarna drie dagen zonder haast — de ruïnes plus twee watervallen in de heuvels.",P.palenque),
       st("Dag 9–11 · wo 30 dec t/m 2 jan","Campeche",3,"stad",4.75,"±4u45 · 360 km","arch",G.stad,"Ommuurde koloniale havenstad (UNESCO) met pastelkleurige gevels binnen de vestingmuren. Drie nachten: aankomst na de tweede rit van bijna vijf uur op rij, oud &amp; nieuw op de malecón, en ruimte voor Edzná zonder haast.",P.campeche,"Oud &amp; nieuw op de malecón"),
-      st("Dag 12 · za 2 t/m 3 jan","Uxmal · Santa Elena",1,"erfgoed",2.75,"±3u45 · ±230 km","pyramid",G.ruine,"Onderweg de Puuc-route langs Kabah, Sayil en Labná, met Uxmal de ochtend erna. Overnacht in het dorpje Santa Elena.",P.uxmal),
-      st("Dag 13–14 · zo 3 t/m 5 jan","Mérida",2,"stad",1.25,"±1u15 · 80 km","arch",G.stad2,"Twee nachten: historisch centrum, markten, en één dagtrip — kies tussen de cenotes bij Homún of Celestún. Je komt aan op zondagmiddag, ruim voor het inchecken, dus de eerste uren zijn voor de autovrije binnenstad en de lunch.",P.merida),
+      st("Dag 12 · za 2 t/m 3 jan","Uxmal · Santa Elena",1,"erfgoed",2.75,"±3u · ±196 km","pyramid",G.ruine,"Onderweg de Puuc-route langs Kabah, Sayil en Labná, met Uxmal de ochtend erna. Overnacht in het dorpje Santa Elena.",P.uxmal),
+      st("Dag 13–14 · zo 3 t/m 5 jan","Mérida",2,"stad",1.6,"±1u35 · 95 km","arch",G.stad2,"Twee nachten: historisch centrum, markten, en één dagtrip — kies tussen de cenotes bij Homún of Celestún. Je komt aan op zondagmiddag, ruim voor het inchecken, dus de eerste uren zijn voor de autovrije binnenstad en de lunch.",P.merida),
       st("Dag 15–16 · di 5 t/m 7 jan","El Cuyo",2,"natuur",4,"±4u · 287 km","flamingo",G.kust,"Kitesurfdorp aan de noordkust: zandstraten, golfkarretjes, geen hoogbouw en geen beachclubs — een drankvergunning krijgen is er nauwelijks mogelijk. Begin januari zit je wel midden in het windseizoen, dus het strand hangt vol kites. Onderweg een ochtend in het gele Izamal en de acropolis van Ek Balam. Uitvalsbasis voor Las Coloradas én de flamingotocht bij Río Lagartos.",P.elcuyo),
       S.vertrekCuyo
     ]
@@ -465,7 +468,7 @@ const HOTELS = {
     {name:"Villas Ecotucan", prijs:"2.159 MXN", betaalKort:"ter plekke", betaling:"Ter plekke af te rekenen; vooruitbetalen via Booking kan ook.", score:"4,5", count:462, booked:true,
      desc:"Jungle-ecolodge áán de lagune met gratis kajaks · rustig en groen.",
      breakfast:"Inclusief — goed, maar de bediening is traag", checkin:"15:00–21:00", checkout:"tot 11:00", cancel:"kosteloos t/m 19 dec",
-     con:"Ligt ±8 km buiten het dorp, met de laatste ±1 km over een onverlichte, éénbaans zandweg met kuilen. Rij de afslag overdag één keer en zet er een pin op; wie \'s avonds in het dorp wil eten (Nixtamal is open op woensdag), rijdt hoe dan ook in het donker terug. Het hotel kookt zelf — de makkelijkste avondoptie.",
+     con:"Ligt ±8 km buiten het dorp, met de laatste ±1 km over een onverlichte zandweg met kuilen. Eten in het dorp betekent in het donker terugrijden; het hotel kookt zelf.",
      site:"https://ecotucan.com/en/", booking:B("Villas Ecotucan Bacalar"), maps:M("ChIJM95ZAkGzW48ROfAvIrYaxCY")}
   ],
   "Xpujil / Calakmul": [
@@ -505,7 +508,7 @@ const HOTELS = {
   "El Cuyo": [
     {name:"Casa Mía El Cuyo Eco Beach", prijs:"3.297 MXN", betaalKort:"afschrijving 20 dec", betaling:"Wordt op 20 december automatisch afgeschreven.", score:"4,8", count:226, booked:true,
      desc:"Eco-boutique aan het rustige uiteinde van het dorp, mooie tuinen · ±40 m van het strand.",
-     breakfast:"Inclusief — bereid door hun eigen kok", checkin:"nog navragen", checkout:"tot 12:00", cancel:"kosteloos t/m 21 dec",
+     breakfast:"Inclusief — bereid door hun eigen kok", checkout:"tot 12:00", cancel:"kosteloos t/m 21 dec",
      con:"Aan de rand van het dorp, dus voor restaurants een klein stukje lopen.",
      booking:B("Casa Mia El Cuyo"), maps:M("ChIJG4j5AyARUo8RwUA9KtocVIg")}
   ]
@@ -530,8 +533,7 @@ const RESTOS = {
   "Uxmal · Santa Elena": [
     {name:"Restaurant La Central", maal:"lunch · diner", open:"12:00–20:00", score:"4,7", count:264, desc:"traditioneel Yucateeks in het dorp, sopa de lima geroemd · geen telefoon", maps:"https://www.google.com/maps/place/?q=place_id:ChIJG9AkbrW0V48RzJghhklUTpc"},
     {name:"Hollywood Maya", maal:"ontbijt · lunch · diner", open:"9:00–21:00", score:"5,0", count:77, desc:"huisgemaakt Yucateeks aan de weg Kabah–Uxmal · pas geopend", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ8bcncQ21V48RwTUTTvsUmSg"},
-    {name:"The Pickled Onion", maal:"diner", open:"keuken tot 19:00", score:"4,5", count:500, desc:"internationaal, je eigen hotel", maps:"https://www.google.com/maps/place/?q=place_id:ChIJB9MO6re0V48RGaQk5b6D204"},
-    {name:"Hacienda María Elena", maal:"diner", open:"7:00–22:00", score:"4,5", count:63, desc:"ruime kaart onder een palapa aan de weg naar Ticul · ±15 min rijden", maps:"https://www.google.com/maps/place/?q=place_id:ChIJ5Yi06OlTVo8RcoyfdIU6P0I"}
+    {name:"The Pickled Onion", maal:"diner", open:"keuken tot 19:00", score:"4,5", count:500, desc:"internationaal, je eigen hotel", maps:"https://www.google.com/maps/place/?q=place_id:ChIJB9MO6re0V48RGaQk5b6D204"}
   ],
   "Mérida": [
     {name:"VANA", maal:"diner · borrel", open:"17:00–24:00", score:"4,8", count:1890, desc:"internationaal en pizza, met een cenote in het pand", maps:"https://www.google.com/maps/place/?q=place_id:ChIJRykPsddxVo8RbS2NwKGHsTk"},
@@ -648,12 +650,12 @@ const DOING = {
   "Xpujil / Calakmul": {
     items:[
       {dag:"24 dec · Bacalar", t:"Kajakken bij zonsopgang", tijd:"1,5 uur", d:"Ecotucan ligt áán de lagune met gratis kajaks. Vroeg in de ochtend is het water spiegelglad en heb je het vrijwel voor jezelf. Daarna ontbijt en uitchecken rond 11:00."},
-      {dag:"24 dec · Los Rápidos", t:"Drijven in de stroom (keuze)", tijd:"1,5–2 uur · ±20 min ten zuiden van Bacalar", d:"Een smalle geul waar de lagune doorheen stroomt: je loopt over de steiger naar boven en laat je met een zwemvest terugdrijven, langs de stromatolieten. Dagelijks 10:00–18:00, 200 MXN p.p., pin mogelijk. Zonnebrand is verboden, dus neem een shirt mee; hangsloten voor de kluisjes zelf meenemen scheelt 50 MXN cash. Ligt praktisch op de route naar Xpujil, maar kost je wel de middag: aankomst dan rond 15:30 in plaats van 13:50.", url:"https://www.google.com/maps/place/?q=place_id:ChIJoaqq2ZW4W48RJQfWHeaLgL4", urlTxt:"kaart"},
+      {dag:"24 dec · Los Rápidos", t:"Drijven in de stroom (keuze)", tijd:"1,5–2 uur · ±20 min ten zuiden van Bacalar", d:"Een smalle geul waar de lagune doorheen stroomt: je loopt over de steiger naar boven en laat je met een zwemvest terugdrijven, langs de stromatolieten. 10:00–18:00, 200 MXN p.p. Zonnebrand is verboden, dus neem een shirt mee. Ligt op de route naar Xpujil, maar kost je de middag: aankomst dan rond 15:30.", url:"https://www.google.com/maps/place/?q=place_id:ChIJoaqq2ZW4W48RJQfWHeaLgL4", urlTxt:"kaart"},
       {dag:"24 dec · Xpujil", t:"Xpujil-ruïne", tijd:"±1 uur", d:"In het dorp zelf, lopend vanaf het hotel: compact paleis met drie kenmerkende valse torens. Precies genoeg voor een aankomstmiddag."},
       {dag:"25 dec · Calakmul", t:"Calakmul", tijd:"hele dag · ±2u rijden enkele reis", d:"De laatste 60 km door het reservaat op ±30 km/u (toekans, slingerapen, soms een jaguar), en 3 à 4 uur op de site. Structuur II is met 55 m de hoogste piramide van het schiereiland en beklimbaar. Reservaatspoort 6:00–15:00, ruïne 8:00–17:00 — te laat bij de poort betekent geen toegang."},
       {dag:"25 dec · Calakmul", t:"Vleermuizengrot", tijd:"±1 uur, bij zonsondergang", d:"Honderdduizenden vleermuizen vliegen uit rond 18:00. De grot ligt langs de Calakmul-weg, dus je pakt hem mee op de terugweg — daarna nog ±45 min naar het hotel."},
       {dag:"26 dec · Becán en Chicanná", t:"De Río Bec-sites", tijd:"±2,5 uur · ±10 min rijden", d:"Rustige dag na Calakmul. Becán op 7 km, met een 2 km lange handgegraven verdedigingsgracht rondom het centrum — zeldzaam in de Maya-wereld. Chicanná ligt er vlakbij: een paleisgevel met de opengesperde bek van de aardgod Itzamná als deuropening. De rest van de dag is vrij."},
-      {dag:"26 dec · optioneel", t:"Jungletocht bij zonsopgang", tijd:"5:00–12:00 · 3 uur lopen · alléén Spaanstalig", d:"De rondleiding is uitsluitend in het Spaans. Ka'an Expeditions loopt met een natuurgids het biosfeerreservaat in op het moment dat de jungle wakker wordt — slinger- en brulapen, toekans, ocellatus-kalkoenen, herten. Ophalen bij het hotel, reservaatstoegang en een koud picknickontbijt zitten erbij. Ophalen bij het hotel, ±1 uur rijden heen en terug. 2.100 MXN p.p., met korting voor Casa Ka'an-gasten, want het is dezelfde familie. Becán en Chicanná schuiven dan naar de middag; de avond ervoor ben je pas rond 19:00 terug van de vleermuizengrot.", url:"https://www.kaanexpeditions.com/en/caminata-en-calakmul", urlTxt:"kaanexpeditions.com"},
+      {dag:"26 dec · optioneel", t:"Jungletocht bij zonsopgang", tijd:"5:00–12:00 · 3 uur lopen · alléén Spaanstalig", d:"De rondleiding is uitsluitend in het Spaans. Ka'an Expeditions loopt met een natuurgids het biosfeerreservaat in op het moment dat de jungle wakker wordt — slinger- en brulapen, toekans, ocellatus-kalkoenen, herten. Ophalen bij het hotel, reservaatstoegang en een picknickontbijt zitten erbij. 2.100 MXN p.p., met korting voor Casa Ka'an-gasten. Becán en Chicanná schuiven dan naar de middag; de avond ervoor ben je pas rond 19:00 terug van de vleermuizengrot.", url:"https://www.kaanexpeditions.com/en/caminata-en-calakmul", urlTxt:"kaanexpeditions.com"},
       {dag:"26 dec · optioneel", t:"Hormiguero", tijd:"2–3 uur · ±25 min over onverharde weg", d:"14 km zuidelijk. Minst bezocht, met een nóg groter Itzamná-masker dan Chicanná. Alleen als je na de Río Bec-sites nog energie hebt."}
     ]
   },
@@ -662,7 +664,7 @@ const DOING = {
       {dag:"28 dec · Palenque", t:"De ruïnes", tijd:"2,5–3,5 uur · ±10 min rijden vanaf Kin Balam", d:"Ga bij opening om 8:00: dan hangt de ochtendnevel nog tussen de tempels en ben je vóór de tourbussen van 10:00. Het sitemuseum met de replica van Pakals graftombe zit bij je ticket in."},
       {dag:"28 dec · Misol-Ha", t:"Waterval Misol-Ha", tijd:"45 min–1 uur · ±25 min rijden vanaf de ruïnes", d:"35 m hoog, 20 km voorbij de ruïnes over dezelfde weg — dus een logische aansluiting op de ochtend. Je loopt achter het watergordijn door een grot. Eigen restaurant bij de parkeerplaats (7:00–19:00), entree ±20–30 MXN contant."},
       {dag:"29 dec · Roberto Barrios", t:"Cascadas Roberto Barrios", tijd:"halve tot hele dag · ±30–50 min rijden enkele reis", d:"Vijf getrapte kalkstenen watervallen met turquoise poelen, rotsen om over te lopen en een natuurlijke glijbaan. Reizigers die beide zagen noemen dit mooier én rustiger dan Agua Azul — dat laatste ligt aan route 199 (kleurcode oranje) en is bewust weggelaten."},
-      {dag:"29 dec · Palenque", t:"Ecoparque Aluxes", tijd:"1–1,5 uur · ±5 min rijden vanaf Kin Balam", d:"Opvang voor gered wildlife op 2,6 km van het stadje: zeekoeien, tapirs, apeneiland en vrij rondvliegende ara's. Dagelijks 9:00–18:00, dus goed te combineren met de middag na Roberto Barrios. Kanttekening: ★4,5 op 2456 reviews, maar een terugkerende klacht is dat de verblijven van de grote katten veel te klein zijn — meerdere bezoekers noemen dat hartverscheurend."}
+      {dag:"29 dec · Palenque", t:"Ecoparque Aluxes", tijd:"1–1,5 uur · ±5 min rijden vanaf Kin Balam", d:"Opvang voor gered wildlife op 2,6 km van het stadje: zeekoeien, tapirs, apeneiland en vrij rondvliegende ara's. 9:00–18:00. Terugkerende klacht in recensies: de verblijven van de grote katten zijn veel te klein."}
     ]
   },
   "Campeche": {
@@ -673,13 +675,13 @@ const DOING = {
   },
   "Uxmal · Santa Elena": {
     items:[
-      {dag:"2 jan · Ruta Puuc", t:"Kabah, Sayil en Labná", tijd:"3–4 uur", d:"Vanaf Campeche kom je Kabah als eerste tegen, met een gevel vol regengod-maskers. Daarna Sayil met het Grote Paleis, en Labná met de gaafst bewaarde poortboog van het schiereiland. Alle drie kosten ±145–155 MXN: de dure deelstaatheffing van Yucatán geldt hier niet. Xlapak ligt aan dezelfde weg als je nog zin hebt. Uxmal sla je vandaag bewust over, dat bewaar je voor morgenochtend vroeg."},
-      {dag:"3 jan · Uxmal", t:"Uxmal", tijd:"2–3 uur", d:"Beter morgenochtend bij opening om 8:00 dan vanmiddag om 16:00: koeler, leger, en je vertrekt toch pas om 11:00 naar Mérida — het kost je dus geen tijd. Best bewaarde Puuc-architectuur van het schiereiland, met de ovale Piramide van de Waarzegger."}
+      {dag:"2 jan · Ruta Puuc", t:"Kabah, Sayil en Labná", tijd:"3–4 uur", d:"Vanaf Campeche kom je Kabah als eerste tegen, met een gevel vol regengod-maskers. Daarna Sayil met het Grote Paleis, en Labná met de gaafst bewaarde poortboog van het schiereiland. Xlapak ligt aan dezelfde weg als je nog zin hebt. Uxmal sla je vandaag bewust over, dat bewaar je voor morgenochtend vroeg."},
+      {dag:"3 jan · Uxmal", t:"Uxmal", tijd:"2–3 uur", d:"Beter morgenochtend dan vanmiddag om 16:00: koeler, leger, en je rijdt toch pas rond het middaguur door naar Mérida — het kost je dus geen tijd. Best bewaarde Puuc-architectuur van het schiereiland, met de ovale Piramide van de Waarzegger."}
     ]
   },
   "Mérida": {
     items:[
-      {dag:"3 jan · Mérida", t:"Aankomst, lunch en de zondagse binnenstad", tijd:"±12:15 · inchecken vanaf 15:00", d:"Je bent rond 12:15 in Mérida. Het is zondag, en dan is de binnenstad autovrij voor Mérida en Domingo — markt, muziek en dansen rond de Plaza Grande. Lunch in het centrum, bijvoorbeeld bij La Chaya Maya, dagelijks 7:00–23:00 en ±5 min lopen van de Plaza Grande."},
+      {dag:"3 jan · Mérida", t:"Aankomst, lunch en de zondagse binnenstad", tijd:"±12:50 · inchecken vanaf 15:00", d:"Je bent rond 12:50 in Mérida. Het is zondag, en dan is de binnenstad autovrij voor Mérida en Domingo — markt, muziek en dansen rond de Plaza Grande. Lunch in het centrum, bijvoorbeeld bij La Chaya Maya, dagelijks 7:00–23:00 en ±5 min lopen van de Plaza Grande."},
       {dag:"4 jan · Homún", t:"Cenotes bij Homún (keuze)", tijd:"halve tot hele dag · ±1u rijden enkele reis", d:"Oostelijk van Mérida. Reeks grotcenotes rond het dorp, per stuk te bezoeken. Combineren met de rit naar El Cuyo lukt niet — die dag is al ±4u."},
       {dag:"4 jan · Celestún", t:"Celestún (keuze)", tijd:"hele dag · ±1u30 rijden enkele reis", d:"Westelijk van Mérida, dus altijd heen en terug. Flamingo's en mangrovetunnels per boot in het biosfeerreservaat."},
       {dag:"4 jan · Mérida", t:"Paseo de Montejo en musea (keuze)", tijd:"halve dag", d:"Boulevard met herenhuizen uit de henequén-tijd: Palacio Cantón (di–zo) en Quinta Montes Molina (±120 MXN). Het Gran Museo del Mundo Maya is dinsdag dicht. Rustiger alternatief als je geen dagtrip wilt."}
@@ -732,7 +734,7 @@ const RUINES = [
   {d:"2 jan", n:"Labná", stop:"Campeche", via:"onderweg naar Santa Elena",
    k:"De gaafst bewaarde Puuc-poortboog van het schiereiland, met een sacbé naar het paleis."},
   {d:"3 jan", n:"Uxmal", stop:"Uxmal · Santa Elena",
-   k:"Best bewaarde Puuc-architectuur, met de ovale Piramide van de Waarzegger. Bij opening om 8:00."},
+   k:"Best bewaarde Puuc-architectuur, met de ovale Piramide van de Waarzegger."},
   {d:"5 jan", n:"Izamal", stop:"Mérida", via:"onderweg naar El Cuyo",
    k:"Kinich Kakmó: piramide midden in het gele stadje, gratis."},
   {d:"5 jan", n:"Ek Balam", stop:"Mérida", via:"onderweg naar El Cuyo",
@@ -745,26 +747,21 @@ const RUINES = [
 const ROUTE = {
   "Puerto Morelos": {
     steps:[
-      {tijd:"15:00", w:"landing Cancún"},
-      {tijd:"15:40", w:"door immigratie en douane"},
-      {tijd:"16:10", w:"shuttle naar het Alamo-kantoor, papieren en auto nakijken"},
-      {tijd:"16:45", w:"vertrek met de Jeep Renegade"},
-      {rit:"Cancún Airport → Puerto Morelos", km:"25 km", d:"±30 min"},
-      {tijd:"17:15", w:"aankomst Puerto Morelos"}
+      {rit:"Cancún Airport → Puerto Morelos", km:"25 km", d:"±30 min"}
     ],
-    klokNote:"Alamo zit buiten het vliegveld; de shuttle vertrekt bij de aankomsthal. De huur is vooruitbetaald, extra verzekeringen zijn niet nodig. Maak foto\u0027s en een video rondom de auto, inclusief ruit, banden en bumpers.",
+    klokNote:"De huurauto haal je op bij Alamo, buiten het vliegveld; de shuttle vertrekt bij de aankomsthal. De huur is vooruitbetaald, extra verzekeringen zijn niet nodig. Maak foto\u0027s en een video rondom de auto, inclusief ruit, banden en bumpers.",
     total:"25 km · ±30 min"
   },
   "Bacalar": {
     steps:[
       {tijd:"10:30", w:"vertrek Puerto Morelos"},
       {rit:"Puerto Morelos → Tulum", km:"98 km", d:"±1u20"},
-      {tijd:"12:00", w:"Tulum · lunchstop tot ±13:00"},
+      {tijd:"12:00", w:"Tulum · lunchstop, reken een uur"},
       {rit:"Tulum → Bacalar", km:"210 km", d:"±2u40"},
       {tijd:"15:45", w:"aankomst Bacalar"}
     ],
     total:"308 km · ±4u",
-    stop:"Tulum", stopType:"lunchstop",
+    stop:"Tulum", stopType:"lunchstop in",
     split:"98 km (±1u20) ernaartoe, 210 km (±2u40) verder",
     rest:[
       {n:"Onyx Tulum", maal:"lunch", open:"vanaf 12:00", s:"4,8", c:4344, d:"verfijnde vis- en vleeskeuken · veruit de meeste beoordelingen van Tulum, al draait de sfeer om de avond", m:"https://www.google.com/maps/place/?q=place_id:ChIJm23qLcPXT48RzLfqeUtewpY"},
@@ -775,15 +772,10 @@ const ROUTE = {
   },
   "Xpujil / Calakmul": {
     steps:[
-      {tijd:"7:30", w:"kajakken op de lagune, tot 9:00"},
-      {tijd:"11:00", w:"uitchecken Villas Ecotucan"},
-      {tijd:"12:00", w:"Bacalar"},
-      {tijd:"13:00", w:"vertrek Bacalar"},
       {rit:"Bacalar → Xpujil", km:"120 km", d:"±1u50"},
-      {tijd:"13:50", w:"aankomst Xpujil, lokale tijd — de klok gaat hier een uur terug (14:50 in Bacalar)"}
+      {tijd:"", w:"de klok gaat hier een uur terug"}
     ],
     total:"120 km · ±1u50",
-    restKop:"Lunch vóór vertrek — Bacalar",
     rest:[
       {n:"Mi Burrito Bacalar", maal:"lunch", open:"vanaf 12:00", s:"4,9", c:1695, d:"burrito\'s met vijf huisgemaakte salsa\'s · alleen cash", m:"https://www.google.com/maps/place/?q=place_id:ChIJ32upLamxW48RkM-LMJ1IMx4"}
     ]
@@ -791,15 +783,14 @@ const ROUTE = {
   "Palenque": {
     steps:[
       {tijd:"9:45", w:"vertrek Xpujil"},
-      {rit:"Xpujil → Escárcega", km:"150 km", d:"±1u45"},
-      {tijd:"11:30", w:"Escárcega · tanken en pinnen — laatste grote plaats voor Palenque"},
-      {rit:"Escárcega → km 268", km:"30 km", d:"±25 min"},
-      {tijd:"12:00", w:"Asadero La Higuera · lunch tot ±13:00"},
+      {rit:"Xpujil → km 268", km:"180 km", d:"±2u10"},
+      {tijd:"12:00", w:"lunchstop, reken een uur"},
       {rit:"km 268 → Palenque", km:"180 km", d:"±2u30"},
       {tijd:"15:30", w:"aankomst Palenque"}
     ],
     total:"360 km · ±4u45",
-    stop:"km 268", stopType:"lunchstop",
+    klokNote:"Escárcega ligt halverwege en is de laatste grote plaats voor Palenque: tanken en pinnen.",
+    stop:"onderweg", stopType:"lunchstop",
     split:"180 km (±2u10) ernaartoe, 180 km (±2u30) verder",
     rest:[
       {n:"Asadero La Higuera", maal:"lunch", open:"8:30–18:00", s:"4,6", c:3148, d:"vleesgrill pal aan de weg op km 268 · ±700 MXN voor twee", m:"https://www.google.com/maps/place/?q=place_id:ChIJWWItYSrF9oURlhs9wPa-7KI"},
@@ -811,12 +802,12 @@ const ROUTE = {
     steps:[
       {tijd:"10:00", w:"vertrek Palenque"},
       {rit:"Palenque → Escárcega", km:"210 km", d:"±3u"},
-      {tijd:"13:00", w:"Escárcega · lunch tot ±14:00, tanken en pinnen"},
+      {tijd:"13:00", w:"Escárcega · lunchstop, reken een uur"},
       {rit:"Escárcega → Campeche", km:"150 km", d:"±1u50"},
       {tijd:"15:50", w:"aankomst Campeche"}
     ],
     total:"360 km · ±4u45",
-    stop:"Escárcega", stopType:"lunchstop",
+    stop:"Escárcega", stopType:"lunchstop in",
     split:"210 km (±3u) ernaartoe, 150 km (±1u50) verder",
     rest:[
       {n:"La Patrona · Escárcega", maal:"lunch", open:"vanaf 13:00", s:"4,8", c:91, d:"Mexicaans · best beoordeelde adres van het stadje", m:"https://www.google.com/maps/place/?q=place_id:ChIJraLYTQLw9oURdRB_qiRriV4"},
@@ -825,24 +816,29 @@ const ROUTE = {
   },
   "Uxmal · Santa Elena": {
     steps:[
-      {tijd:"8:00", w:"vertrek Campeche"},
+      {tijd:"10:00", w:"vertrek Campeche"},
       {rit:"Campeche → Kabah", km:"150 km", d:"±2u"},
-      {tijd:"10:00", w:"Kabah · ±45 min"},
+      {tijd:"12:00", w:"Kabah · ±45 min"},
       {rit:"Kabah → Sayil → Labná", km:"18 km", d:"±25 min"},
-      {tijd:"11:10", w:"Sayil en Labná · ±30 min elk"},
-      {rit:"Labná → Oxkutzcab", km:"35 km", d:"±35 min"},
-      {tijd:"13:00", w:"Oxkutzcab of Ticul · lunchstop, reken een uur"},
-      {rit:"Oxkutzcab → Ticul → Santa Elena", km:"30 km", d:"±45 min"},
+      {tijd:"13:10", w:"Sayil en Labná · ±30 min elk"},
+      {rit:"Labná → Santa Elena, terug langs Kabah", km:"28 km", d:"±35 min"},
       {tijd:"14:45", w:"aankomst Santa Elena"}
     ],
-    klokNote:"De dag is een lus: vanaf Labná loopt de weg door naar Oxkutzcab en via Ticul terug. Wil je korter, dan keer je bij Labná om en rijd je via Kabah noordwaarts — dat scheelt een half uur, maar dan lunch je pas in Santa Elena.",
-    total:"±233 km · ±3u45 rijden",
-    stop:"Ticul", stopType:"lunchstop",
-    split:"lunch op de terugweg van de lus, via Oxkutzcab",
-    rest:[
-      {n:"Príncipe Tutul-Xiu · Oxkutzcab", maal:"lunch", open:"11:00–19:00", s:"4,6", c:1130, d:"poc chuc en andere Yucateekse klassiekers · eerste dorp na Labná, ±35 min", m:"https://www.google.com/maps/place/?q=place_id:ChIJC3XX9b-qV48RrDeY-uakwtk"},
-      {n:"El Mirador de Ticul", maal:"lunch", open:"10:00–18:00", s:"4,5", c:1102, d:"Mexicaans op een heuvel boven het stadje, uitzicht over de vallei", m:"https://www.google.com/maps/place/?q=place_id:ChIJncEQKnhSVo8RcRjBap4Q3jg"}
-    ]
+    klokNote:"Bij de drie ruïnes is niets te krijgen en je eet pas in Santa Elena: neem lunch mee vanuit Campeche.",
+    total:"±196 km · ±3u rijden",
+    stop:"Kabah, Sayil en Labná", stopType:"ruïnestops bij",
+  },
+  "Mérida": {
+    steps:[
+      {tijd:"8:15", w:"vertrek Santa Elena, na het ontbijt"},
+      {rit:"Santa Elena → Uxmal", km:"15 km", d:"±20 min"},
+      {tijd:"8:35", w:"Uxmal · ±3 uur"},
+      {rit:"Uxmal → Mérida", km:"80 km", d:"±1u15"},
+      {tijd:"12:50", w:"aankomst Mérida"}
+    ],
+    total:"95 km · ±1u35",
+    klokNote:"Uxmal opent om 8:00 en de tourbussen komen rond 10:00 — ook na het ontbijt ben je er ruim voor.",
+    stop:"Uxmal", stopType:"ruïnestop bij"
   },
   "El Cuyo": {
     steps:[
@@ -857,7 +853,7 @@ const ROUTE = {
       {tijd:"16:30", w:"aankomst El Cuyo"}
     ],
     total:"287 km · ±4u · zonder Izamal en Ek Balam: 252 km, ±3u45",
-    stop:"Izamal en Tizimín", stopType:"koffie- en lunchstop",
+    stop:"Tizimín", stopType:"koffiestop in Izamal, lunch in",
     split:"72 km (±1u) ernaartoe, 215 km (±3u) verder via Ek Balam",
     rest:[
       {n:"María 33 · Izamal", maal:"koffie", open:"8:00–15:00", s:"4,9", c:543, d:"brunchzaak met airco, twee minuten van het klooster", m:"https://www.google.com/maps/place/?q=place_id:ChIJcXZxQQCjVo8RFGXk_-JrIYQ"},
@@ -869,15 +865,14 @@ const ROUTE = {
     steps:[
       {tijd:"8:30", w:"vertrek El Cuyo"},
       {rit:"El Cuyo → Leona Vicario", km:"±130 km", d:"±2u"},
-      {tijd:"11:35", w:"Leona Vicario · lunchstop tot ±12:25 — de klok gaat hier een uur vooruit"},
+      {tijd:"11:35", w:"Leona Vicario · lunchstop, reken een uur — de klok gaat hier een uur vooruit"},
       {rit:"Leona Vicario → Cancún Airport", km:"±40 km", d:"±40 min"},
-      {tijd:"13:05", w:"tanken en de Renegade inleveren bij Alamo"},
-      {tijd:"13:45", w:"shuttle naar de terminal"},
-      {tijd:"14:05", w:"inchecken · vlucht 17:05"}
+      {tijd:"13:05", w:"auto inleveren bij Alamo"},
+      {tijd:"14:05", w:"op het vliegveld · vlucht 17:05"}
     ],
     total:"169 km · ±2u45",
-    klokNote:"Vol inleveren: de laatste pompen liggen bij Leona Vicario en aan de 180 vlak voor het vliegveld. Maak ook bij inleveren foto\u0027s van de auto, en vraag om een schriftelijke bevestiging dat er geen schade is.",
-    stop:"Leona Vicario", stopType:"lunchstop",
+    klokNote:"Vol inleveren: de laatste pompen liggen bij Leona Vicario en aan de 180 vlak voor het vliegveld. Vraag om een schriftelijke bevestiging dat er geen schade is.",
+    stop:"Leona Vicario", stopType:"lunchstop in",
     split:"±130 km (±2u) ernaartoe, ±40 km (±40 min) verder",
     rest:[
       {n:"La Pimienta", maal:"lunch", open:"8:30–17:30", s:"4,7", c:441, d:"spareribs en taco\'s al pastor aan de doorgaande weg · geen alcohol", m:"https://www.google.com/maps/place/?q=place_id:ChIJ4dg5uaR0To8RNoXm2hSeHiU"},
@@ -935,8 +930,8 @@ function render(key){
     const nightsTxt = s.nights > 0 ? `<strong>${s.nights} ${s.nights === 1 ? 'nacht' : 'nachten'}</strong> · ` : '';
     const rt = ROUTE[s.place];
     const stopTxt = rt && rt.stop
-      ? `<b>${rt.stopType} in ${rt.stop}</b> — ${rt.split}`
-      : (s.drive >= 1.5 ? 'geen tussenstop onderweg' : '');
+      ? `<b>${rt.stopType} ${rt.stop}</b>`
+      : (s.drive >= 1.5 ? 'geen tussenstop' : '');
     const dagDeel = s.day.split('·')[0].trim();
     const datumDeel = s.day.split('·').slice(1).join('·').trim();
     const planRow = stopTxt ? `<div class="plan">${stopTxt}</div>` : '';
@@ -971,14 +966,15 @@ function render(key){
           <summary>Route en reistijd</summary>
           <div class="lunch-body">
             <table class="legs">
-              ${ROUTE[s.place].steps.map(st => st.rit
-                ? `<tr class="rt-rit"><td class="rt-tijd"></td><td>${st.rit}</td><td class="rt">${st.km} · ${st.d}</td></tr>`
-                : `<tr class="rt-stap"><td class="rt-tijd">${st.tijd || ''}</td><td colspan="2">${st.w}</td></tr>`).join('')}
-              <tr class="tot"><td class="rt-tijd"></td><td>Totaal ${(ROUTE[s.place].steps.find(x => x.rit) || {rit:''}).rit.split('→')[0].trim()} → ${s.place}</td><td class="rt">${ROUTE[s.place].total}</td></tr>
+              ${(() => { const kl = ROUTE[s.place].steps.some(x => !x.rit && x.tijd);
+                return ROUTE[s.place].steps.map(st => st.rit
+                  ? `<tr class="rt-rit">${kl ? `<td class="rt-tijd"></td>` : ''}<td>${st.rit}</td><td class="rt">${st.km} · ${st.d}</td></tr>`
+                  : `<tr class="rt-stap">${kl ? `<td class="rt-tijd">${st.tijd || ''}</td>` : ''}<td colspan="2">${st.w}</td></tr>`).join(''); })()}
+${ROUTE[s.place].steps.filter(x => x.rit).length > 1 ? `<tr class="tot"><td class="rt-tijd"></td><td>Totaal ${(ROUTE[s.place].steps.find(x => x.rit) || {rit:''}).rit.split('→')[0].trim()} → ${s.place}</td><td class="rt">${ROUTE[s.place].total}</td></tr>` : ''}
             </table>
             ${ROUTE[s.place].klokNote ? `<p class="klok">${ROUTE[s.place].klokNote}</p>` : ''}
-            ${ROUTE[s.place].rest ? `<p class="stopkop">${ROUTE[s.place].restKop || (ROUTE[s.place].stopType + ' — ' + ROUTE[s.place].stop)}</p>`
-              + ROUTE[s.place].rest.map(r => `<div class="lr"><span class="ln">${r.n}</span>${r.maal ? `<span class="maal">${r.maal}</span>` : ''}${r.open ? `<span class="uren">${r.open}</span>` : ''}<span class="ls">★ ${r.s} (${r.c})</span><a href="${MU(r.m, r.n)}" target="_blank" rel="noopener">kaart</a><span class="ld">${r.d}</span></div>`).join('') : ''}
+            ${ROUTE[s.place].rest ? `<p class="stopkop">${ROUTE[s.place].restKop || 'Onderweg eten'}</p>`
+              + ROUTE[s.place].rest.map(r => `<div class="lr"><span class="rtop"><span class="ln">${r.n}</span>${r.maal ? `<span class="maal">${r.maal}</span>` : ''}${r.open ? `<span class="uren">${r.open}</span>` : ''}<span class="ls">★ ${r.s} (${r.c})</span><a href="${MU(r.m, r.n)}" target="_blank" rel="noopener">kaart</a></span><span class="ld">${r.d}</span></div>`).join('') : ''}
           </div>
         </details>` : ''}
         ${(HOTELS[s.place] || RESTOS[s.place]) ? `
@@ -992,7 +988,7 @@ function render(key){
                 ${h.room ? `<span class="room">Kamer: ${h.room}</span>` : ''}
                 ${h.distance ? `<span class="meta"><b>Ligging:</b> ${h.distance}</span>` : ''}
                 ${h.breakfast ? `<span class="meta"><b>Ontbijt:</b> ${h.breakfast}</span>` : ''}
-                ${(h.checkin || h.checkout) ? `<span class="meta"><b>In- en uitchecken:</b> ${h.checkin || '?'} · ${h.checkout || '?'}</span>` : ''}
+                ${(h.checkin && h.checkout) ? `<span class="meta"><b>In- en uitchecken:</b> ${h.checkin} · ${h.checkout}</span>` : (h.checkout ? `<span class="meta"><b>Uitchecken:</b> ${h.checkout}</span>` : '')}
                 ${h.cancel ? `<span class="meta"><b>Annuleren:</b> ${h.cancel}</span>` : ''}
                 ${h.prijs ? `<span class="meta"><b>Prijs:</b> ${EU(h.prijs)} — ${h.betaling}</span>` : ''}
                 ${h.con ? `<span class="con">Goed om te weten: ${h.con}</span>` : ''}
@@ -1000,9 +996,7 @@ function render(key){
               </div>`).join('') : ''}
             ${RESTOS[s.place] ? `<p><strong>Restaurantsuggesties:</strong></p>` + RESTOS[s.place].map(r => `
               <div class="resto">
-                <span class="rname">${r.name}</span>${r.maal ? `<span class="maal">${r.maal}</span>` : ''}${r.open ? `<span class="uren">${r.open}</span>` : ''}${r.score ? `<span class="score">★ ${r.score} (${r.count})</span>` : ''}
-                ${r.maps ? `<a href="${MU(r.maps, r.name)}" target="_blank" rel="noopener">kaart</a>` : ''}
-                <br><span class="rdesc">${r.desc}</span>
+                <span class="rtop"><span class="rname">${r.name}</span>${r.maal ? `<span class="maal">${r.maal}</span>` : ''}${r.open ? `<span class="uren">${r.open}</span>` : ''}${r.score ? `<span class="score">★ ${r.score} (${r.count})</span>` : ''}${r.maps ? `<a href="${MU(r.maps, r.name)}" target="_blank" rel="noopener">kaart</a>` : ''}</span><span class="rdesc">${r.desc}</span>
               </div>`).join('') : ''}
           </div>
         </details>` : ''}
