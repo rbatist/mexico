@@ -316,7 +316,7 @@
 </svg>
 
 <section class="hero">
-  <span class="version">V.2.2.2</span>
+  <span class="version">V.2.2.3</span>
   <p class="eyebrow">Roadtrip · aankomst di 22 dec 15:00 · vertrek do 7 jan 17:05 · 16 nachten</p>
   <h1>Yucatán — <em>expeditie burrito</em></h1>
   <p class="variant-intro" id="variantIntro"></p>
@@ -384,7 +384,7 @@
 const S = {
   pmStart:{day:"Dag 1 · di 22 t/m 23 dec", place:"Puerto Morelos", nights:1, cat:"transit", drive:0.5, driveLabel:"±30 min · 25 km",
     icon:"reef", grad:"linear-gradient(135deg, var(--cenote-2), var(--maya-dim))",
-    text:"Aankomst om 15:00, huurauto ophalen en door naar dit rustige vissersdorp — een fijne eerste avond aan zee.",
+    text:"Aankomst om 15:00, huurauto ophalen en door naar dit rustige vissersdorp.",
     lat:20.8478084, lng:-86.8755342},
   vertrekCuyo:{day:"Vertrek · do 7 jan", place:"Cancún Airport", nights:0, note:"vlucht naar Amsterdam om 17.05 uur", cat:"transit", drive:2.75, driveLabel:"±2u45 · 169 km",
     icon:"transit", grad:"linear-gradient(135deg, var(--cenote-2), var(--cenote))",
@@ -424,13 +424,13 @@ const variants = {
     stats:[{num:"16",label:"nachten"},{num:"8",label:"stops"},{num:"ongeveer 1.900 km",label:"in ruim 27 uur rijden"}],
     stops:[
       S.pmStart,
-      st("Dag 2 · wo 23 t/m 24 dec","Bacalar",1,"natuur",4,"±4u · 308 km","water",G.water,"Bekend terrein, maar een logische tussenstop op weg naar het zuiden — een middag aan de lagune van zeven kleuren.",P.bacalar),
+      st("Dag 2 · wo 23 t/m 24 dec","Bacalar",1,"natuur",4,"±4u · 308 km","water",G.water,"Een middag aan de lagune van zeven kleuren.",P.bacalar),
       st("Dag 3–5 · do 24 t/m 27 dec","Xpujil / Calakmul",3,"erfgoed",1.83,"±1u50 · 120 km","pyramid",G.jungle,"Basis voor Calakmul én de Río Bec-ruïnes rond het dorp. Aankomst 24 dec rond het middaguur, daarna twee volle dagen (25 en 26 dec): één voor Calakmul, één ontspannen dag langs de sites vlakbij.",P.xpujil,"Kerst in de jungle"),
-      st("Dag 6–8 · zo 27 t/m 30 dec","Palenque",3,"erfgoed",4.75,"±4u45 · 360 km","waterfall",G.palenque,"Qua setting de mooiste Maya-site van Mexico: tempels tegen nevelige, beboste heuvels. Eén lange asfaltrit vanaf Xpujil, daarna drie dagen zonder haast — de ruïnes plus twee watervallen in de heuvels.",P.palenque),
+      st("Dag 6–8 · zo 27 t/m 30 dec","Palenque",3,"erfgoed",4.75,"±4u45 · 360 km","waterfall",G.palenque,"Tempels tegen nevelige, beboste heuvels. Eén lange rit vanaf Xpujil, daarna drie dagen: de ruïnes plus twee watervallen.",P.palenque),
       st("Dag 9–11 · wo 30 dec t/m 2 jan","Campeche",3,"stad",4.75,"±4u45 · 360 km","arch",G.stad,"Ommuurde koloniale havenstad (UNESCO) met pastelkleurige gevels binnen de vestingmuren. Drie nachten: aankomst na de tweede rit van bijna vijf uur op rij, oud &amp; nieuw op de malecón, en ruimte voor Edzná zonder haast.",P.campeche,"Oud &amp; nieuw op de malecón"),
       st("Dag 12 · za 2 t/m 3 jan","Uxmal · Santa Elena",1,"erfgoed",2.75,"±3u · ±196 km","pyramid",G.ruine,"Onderweg de Puuc-route langs Kabah, Sayil en Labná, met Uxmal de ochtend erna. Overnacht in het dorpje Santa Elena.",P.uxmal),
       st("Dag 13–14 · zo 3 t/m 5 jan","Mérida",2,"stad",1.6,"±1u35 · 95 km","arch",G.stad2,"Twee nachten: historisch centrum, markten, en één dagtrip — kies tussen de cenotes bij Homún of Celestún. Je komt aan op zondagmiddag, ruim voor het inchecken, dus de eerste uren zijn voor de autovrije binnenstad en de lunch.",P.merida),
-      st("Dag 15–16 · di 5 t/m 7 jan","El Cuyo",2,"natuur",4,"±4u · 287 km","flamingo",G.kust,"Kitesurfdorp aan de noordkust: zandstraten, golfkarretjes, geen hoogbouw en geen beachclubs — een drankvergunning krijgen is er nauwelijks mogelijk. Begin januari zit je wel midden in het windseizoen, dus het strand hangt vol kites. Onderweg een ochtend in het gele Izamal en de acropolis van Ek Balam. Uitvalsbasis voor Las Coloradas én de flamingotocht bij Río Lagartos.",P.elcuyo),
+      st("Dag 15–16 · di 5 t/m 7 jan","El Cuyo",2,"natuur",4,"±4u · 287 km","flamingo",G.kust,"Kitesurfdorp aan de noordkust: zandstraten, golfkarretjes, geen hoogbouw en geen beachclubs. Begin januari is het windseizoen op zijn hoogtepunt, dus het strand hangt vol kites.",P.elcuyo),
       S.vertrekCuyo
     ]
   }, };
@@ -460,56 +460,56 @@ const MU = (u, naam) => {
 
 const HOTELS = {
   "Puerto Morelos": [
-    {name:"Hotel Amar Inn", prijs:"147 USD", betaalKort:"ter plekke", betaling:"Volledig ter plekke af te rekenen.", score:"4,7", count:391, booked:true,
-     desc:"Kleinschalige B&B pal aan het strand · veel geroemd ontbijt, hartelijke ontvangst.",
-     breakfast:"Inclusief — vers gebak en seizoensfruit, in recensies het hoogtepunt", checkin:"15:00–23:30", checkout:"6:30–12:00", cancel:"kosteloos t/m 20 dec",
+    {name:"Hotel Amar Inn", prijs:"147 USD", betaalKort:"ter plekke · USD", betaling:"ter plekke, liefst contant, kaart kan ook", score:"4,7", count:391, booked:true,
+     desc:"Kleinschalige B&B pal aan het strand.",
+     breakfast:"Inclusief", checkin:"15:00–23:30", checkout:"6:30–12:00", cancel:"kosteloos t/m 20 dec",
      site:"https://www.amarinn.mx/", booking:B("Hotel Amar Inn Puerto Morelos"), maps:M("ChIJi2Rma2iITo8R9Be4iMjdYCo")}
   ],
   "Bacalar": [
-    {name:"Villas Ecotucan", prijs:"2.159 MXN", betaalKort:"ter plekke", betaling:"Ter plekke af te rekenen; vooruitbetalen via Booking kan ook.", score:"4,5", count:462, booked:true,
+    {name:"Villas Ecotucan", prijs:"2.159 MXN", betaalKort:"ter plekke", betaling:"ter plekke, of vooraf via Booking", score:"4,5", count:462, booked:true,
      desc:"Jungle-ecolodge áán de lagune met gratis kajaks · rustig en groen.",
-     breakfast:"Inclusief — goed, maar de bediening is traag", checkin:"15:00–21:00", checkout:"tot 11:00", cancel:"kosteloos t/m 19 dec",
+     breakfast:"Inclusief — reken op trage bediening", checkin:"15:00–21:00", checkout:"tot 11:00", cancel:"kosteloos t/m 19 dec",
      con:"Ligt ±8 km buiten het dorp, met de laatste ±1 km over een onverlichte zandweg met kuilen. Eten in het dorp betekent in het donker terugrijden; het hotel kookt zelf.",
      site:"https://ecotucan.com/en/", booking:B("Villas Ecotucan Bacalar"), maps:M("ChIJM95ZAkGzW48ROfAvIrYaxCY")}
   ],
   "Xpujil / Calakmul": [
-    {name:"Casa Ka\'an Calakmul", prijs:"5.487 MXN", betaalKort:"helft vooraf", betaling:"Helft aanbetaald; de andere helft (2.744 MXN) bij vertrek.", score:"4,7", count:380, booked:true, room:"Casa Aguacate",
-     desc:"Ruime casita\'s aan het bos, sterrenhemel en goed restaurant.",
-     breakfast:"Inclusief, 6:15–9:00 — bewust vroeg voor Calakmul", checkin:"14:00–21:00", checkout:"tot 11:00", cancel:"niet mogelijk — definitief",
+    {name:"Casa Ka\'an Calakmul", prijs:"5.487 MXN", vooruit:"5.487 MXN", betaalKort:"niets ter plekke", betaling:"helft betaald, de rest wordt op 25 december afgeschreven", score:"4,7", count:380, booked:true, room:"Casa Aguacate",
+     desc:"Ruime casita\'s aan het bos, sterrenhemel.",
+     breakfast:"Inclusief, 6:15–9:00", checkin:"14:00–21:00", checkout:"tot 11:00", cancel:"niet mogelijk — definitief",
      con:"Bestel de lunch voor Calakmul een dag vooruit om mee te nemen; onderweg is er niets.",
      site:"https://www.casakaan.com/en", booking:B("Casa Kaan Calakmul"), maps:M("ChIJ7eeRHn3hWI8RYEWKMW-ODIM")}
   ],
   "Palenque": [
-    {name:"Cabañas Kin Balam", prijs:"4.386 MXN", betaalKort:"1 nacht vooraf", betaling:"Eén nacht vooruit te betalen (1.462 MXN), de rest ter plekke.", score:"4,4", count:1334, booked:true,
-     desc:"Jungle-cabañas pal naast de parkingang · ±4,5 km tot de ruïnes, ideaal voor een vroege start.",
+    {name:"Cabañas Kin Balam", prijs:"4.386 MXN", vooruit:"1.462 MXN", betaalKort:"rest ter plekke", betaling:"één nacht betaald, 2.924 MXN ter plekke", score:"4,4", count:1334, booked:true,
+     desc:"Jungle-cabañas pal naast de parkingang · ±4,5 km tot de ruïnes.",
      breakfast:"Geen ontbijt", checkin:"vanaf 15:00", checkout:"tot 12:00", cancel:"kosteloos t/m 26 dec",
      site:"https://www.kin-balam.com/en", booking:B("Cabanas Kin Balam Palenque"), maps:M("ChIJp-6gQSBF8oURbc1sFnaQ76U")}
   ],
   "Campeche": [
-    {name:"Hotel Boutique Casa Lanz XVII", prijs:"255 USD", betaalKort:"betaald", betaling:"Volledig betaald.", score:"4,8", count:86, booked:true,
-     desc:"400 jaar oud pand met patio, een half blok van het hoofdplein · gratis fietsen, malecón op loopafstand voor oud & nieuw.",
+    {name:"Hotel Boutique Casa Lanz XVII", prijs:"255 USD", vooruit:"255 USD", betaalKort:"betaald", betaling:"volledig betaald", score:"4,8", count:86, booked:true,
+     desc:"400 jaar oud pand met patio, een half blok van het hoofdplein · gratis fietsen.",
      breakfast:"Geen ontbijt", checkin:"15:00–23:00", checkout:"tot 12:00", cancel:"niet mogelijk — definitief",
      con:"Parkeren aan de weg, geen eigen plek.",
      booking:B("Casa Lanz XVII Campeche"), maps:M("ChIJtas-iaoz-IURPzAgzQmZAlk")}
   ],
   "Uxmal · Santa Elena": [
-    {name:"The Pickled Onion", prijs:"1.686 MXN", betaalKort:"ter plekke", betaling:"Volledig ter plekke af te rekenen.", score:"4,5", count:498, booked:true,
+    {name:"The Pickled Onion", prijs:"1.686 MXN", betaalKort:"ter plekke · liefst cash", betaling:"ter plekke, liefst contant — kaart werkt alleen als het internet het doet", score:"4,5", count:498, booked:true,
      desc:"Gemoedelijke B&B met casita\'s en zwembad, eigen keuken.",
-     breakfast:"Inclusief — vers fruit, yoghurt, eieren en sap", checkin:"14:00–20:00", checkout:"7:00–11:30", cancel:"kosteloos t/m 27 dec",
+     breakfast:"Inclusief", checkin:"14:00–20:00", checkout:"7:00–11:30", cancel:"kosteloos t/m 27 dec",
      con:"De keuken sluit rond 19:00.",
      booking:B("The Pickled Onion Santa Elena"), maps:M("ChIJB9MO6re0V48RGaQk5b6D204")}
   ],
   "Mérida": [
-    {name:"Kuká y Naranjo", prijs:"4.068 MXN", betaalKort:"ter plekke", betaling:"Ter plekke af te rekenen; vooruitbetalen via Booking kan ook.", score:"4,6–4,8", count:359, booked:true,
+    {name:"Kuká y Naranjo", prijs:"4.068 MXN", betaalKort:"ter plekke · 6% cashkorting", betaling:"ter plekke, 6% korting bij contant; of vooraf via Booking", score:"4,6–4,8", count:359, booked:true,
      desc:"Klein boutique-B&B, kunstzinnig ingericht met patio en plunge pool · één van drie zusterhuizen naast elkaar.",
-     breakfast:"Inclusief — eieren à la minute, maar koffie vóór het ontbijt is lastig", checkin:"vanaf 15:00", checkout:"tot 12:00", cancel:"kosteloos t/m 28 dec",
+     breakfast:"Inclusief — geen koffie vóór het ontbijt", checkin:"vanaf 15:00", checkout:"tot 12:00", cancel:"kosteloos t/m 28 dec",
      con:"10–15 min lopen naar het centrum.",
      booking:B("Kuka y Naranjo Merida"), maps:M("ChIJlwul5NdzVo8RVvxo48Ye3So")}
   ],
   "El Cuyo": [
-    {name:"Casa Mía El Cuyo Eco Beach", prijs:"3.297 MXN", betaalKort:"afschrijving 20 dec", betaling:"Wordt op 20 december automatisch afgeschreven.", score:"4,8", count:226, booked:true,
+    {name:"Casa Mía El Cuyo Eco Beach", prijs:"3.297 MXN", vooruit:"3.297 MXN", betaalKort:"afschrijving 20 dec", betaling:"wordt op 20 december via Booking afgeschreven", score:"4,8", count:226, booked:true,
      desc:"Eco-boutique aan het rustige uiteinde van het dorp, mooie tuinen · ±40 m van het strand.",
-     breakfast:"Inclusief — bereid door hun eigen kok", checkout:"tot 12:00", cancel:"kosteloos t/m 21 dec",
+     breakfast:"Inclusief", checkout:"tot 12:00", cancel:"kosteloos t/m 21 dec",
      con:"Aan de rand van het dorp, dus voor restaurants een klein stukje lopen.",
      booking:B("Casa Mia El Cuyo"), maps:M("ChIJG4j5AyARUo8RwUA9KtocVIg")}
   ]
@@ -520,7 +520,7 @@ const HOTELS = {
 const RESTOS = {
   "Puerto Morelos": [
     {name:"Muelle Once", maal:"ontbijt · lunch · diner", open:"8:00–22:00", score:"4,8", count:1953, desc:"zeevruchten, pal aan het water · aan de dure kant", maps:"https://www.google.com/maps/place/?q=place_id:ChIJQ-LdRDeJTo8RGw91ehOBqzc"},
-    {name:"Como Quieras Quiero", maal:"diner", open:"vanaf 15:00", score:"4,8", count:218, desc:"vis én vlees · ±300 m vanaf Amar Inn, service in vrijwel elke recensie geroemd", maps:"https://www.google.com/maps/place/?q=place_id:ChIJH8LU3N-JTo8RDsP4SFSKhJQ"},
+    {name:"Como Quieras Quiero", maal:"diner", open:"vanaf 15:00", score:"4,8", count:218, desc:"vis én vlees · ±300 m van het hotel, service in vrijwel elke recensie geroemd", maps:"https://www.google.com/maps/place/?q=place_id:ChIJH8LU3N-JTo8RDsP4SFSKhJQ"},
     {name:"El Pesquero", maal:"lunch · diner", open:"13:00–20:30", score:"4,6", count:1918, desc:"lokale visboer, zeevruchtentoren · scherpste prijzen van het dorp", maps:"https://www.google.com/maps/place/?q=place_id:ChIJXYoEUEKITo8RzRNjwfWCP6U"},
     {name:"El Merkadito", maal:"lunch · diner", open:"11:00–22:00", score:"4,5", count:3924, desc:"Caribische keuken aan het strand · smaken vielen sommige gasten tegen", maps:"https://www.google.com/maps/place/?q=place_id:ChIJC9tmWEKITo8RaMZ6qv-7rGk"}
   ],
@@ -1044,6 +1044,7 @@ render('V2');
     const tag = bk ? 'gereserveerd' : '';
     return {place:s.place, kenmerk:KENMERK[s.place] || '', datum, nights:s.nights,
             prijs:chosen && chosen.prijs ? chosen.prijs : '', betaalKort:chosen ? (chosen.betaalKort || '') : '',
+            vooruit:chosen ? (chosen.vooruit || '') : '',
             eur:EURNUM(chosen && chosen.prijs),
             drive:s.driveLabel ? s.driveLabel.split('·')[0].trim() : '—',
             hotel, tag, lat:s.lat, lng:s.lng};
@@ -1059,11 +1060,10 @@ render('V2');
     + `<td class="pr">${r.eur ? '€' + Math.round(r.eur) : '—'}${r.betaalKort ? `<span class="tag">${r.betaalKort}</span>` : ''}</td></tr>`
   ).join('') + (() => {
     const tot = rows.reduce((a,r) => a + r.eur, 0);
-    const vooraf = rows.filter(r => /betaald|afschrijving/.test(r.betaalKort)).reduce((a,r) => a + r.eur, 0)
-      + (EURNUM('2.744 MXN')) + (EURNUM('1.462 MXN'));
+    const vooraf = rows.reduce((a,r) => a + EURNUM(r.vooruit), 0);
     const plek = tot - vooraf;
     return `<tr class="tot"><td>Totaal · 8 hotels, 16 nachten</td><td></td><td></td><td></td><td>16</td><td></td><td></td>`
-      + `<td class="pr">€${Math.round(tot)}<span class="tag">€${Math.round(vooraf)} vooraf · €${Math.round(plek)} ter plekke</span></td></tr>`;
+      + `<td class="pr">€${Math.round(tot)}<span class="tag">€${Math.round(vooraf)} vooruit · €${Math.round(plek)} ter plekke</span></td></tr>`;
   })();
 
   const codes = {0:'helder',1:'overwegend helder',2:'half bewolkt',3:'bewolkt',45:'mist',48:'mist',
